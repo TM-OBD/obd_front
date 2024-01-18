@@ -23,6 +23,8 @@ cd frontend
 npm install
 ```
 
+=====================
+
 ## Run projects
 ***For frontend:***
 1. Go to the frontend directory:
