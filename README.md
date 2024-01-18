@@ -11,21 +11,28 @@ git clone https://github.com/TM-OBD/obd_front
 ```shell
 cd <project-root-directory>
 npm install
-// or
+yarn install
+```
+or
+```shell
 yarn install
 ```
 ***For backend directory:***
 ```shell
 cd backend
 npm install
-// or
+```
+or
+```shell
 yarn install
 ```
 ***For frontend directory:***
 ```shell
 cd frontend
 npm install
-// or
+```
+or
+```shell
 yarn install
 ```
 
@@ -37,6 +44,8 @@ yarn install
 ```shell
 cd frontend
 npm start
-// or
+```
+or
+```shell
 yarn start
 ```
