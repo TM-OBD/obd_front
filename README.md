@@ -3,22 +3,22 @@
 ## Getting Started
 
 1. Open your terminal or command prompt and navigate to the directory where you want to clone the repository. Then, run the following command:
-```node
+```shell
 git clone https://github.com/TM-OBD/obd_front
 ```
 2. Install Dependencies:
 ***For root directory:***
-```node
+```shell
 cd <project-root-directory>
 npm install
 ```
 ***For backend directory:***
-```node
+```shell
 cd backend
 npm install
 ```
 ***For frontend directory:***
-```node
+```shell
 cd frontend
 npm install
 ```
@@ -28,7 +28,7 @@ npm install
 ## Run projects
 ***For frontend:***
 1. Go to the frontend directory:
-```node
+```shell
 cd frontend
 npm start
 ```
