@@ -32,4 +32,3 @@ npm install
 cd frontend
 npm start
 ```
-2. 
