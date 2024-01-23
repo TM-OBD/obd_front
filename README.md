@@ -3,8 +3,49 @@
 ## Getting Started
 
 1. Open your terminal or command prompt and navigate to the directory where you want to clone the repository. Then, run the following command:
-```node
-git clone <repository-url>
+```shell
+git clone https://github.com/TM-OBD/obd_front
 ```
-Replace ***<repository-url>*** with the URL of your Git repository.
-2. 
+2. Install Dependencies:
+***For root directory:***
+```shell
+cd <project-root-directory>
+npm install
+yarn install
+```
+or
+```shell
+yarn install
+```
+***For backend directory:***
+```shell
+cd backend
+npm install
+```
+or
+```shell
+yarn install
+```
+***For frontend directory:***
+```shell
+cd frontend
+npm install
+```
+or
+```shell
+yarn install
+```
+
+=====================
+
+## Run projects
+***For frontend:***
+1. Go to the frontend directory:
+```shell
+cd frontend
+npm start
+```
+or
+```shell
+yarn start
+```
