@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-
+import Test from "../Test";
 // Компонент страницы авторизации, саму логику авторизации будем писать в другом компоненте
 const Auth = () => {
   return (
@@ -11,7 +11,8 @@ const Auth = () => {
       minHeight: "100%",
       backgroundColor: "background.default",
     }}>
-      <h1>This is Auth page!</h1>
+      <h1>This is Auth page!</h1>	
+		<Test></Test>
     </Box>
   )
 }
