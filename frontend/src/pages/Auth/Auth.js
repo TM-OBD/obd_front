@@ -8,10 +8,9 @@ const Auth = () => {
       flexDirection: "column",
       alignItems: "center",
       width: "100%",
-      minHeight: "100%",
+      height: "100%",
       backgroundColor: "background.default",
     }}>
-      <h1>This is Auth page!</h1>	
 		<Test></Test>
     </Box>
   )
