@@ -17,6 +17,15 @@ import Brightness7Icon from "@mui/icons-material/Brightness7";
 
 import avatar from "../../images/some_avatar.jpg";
 import { useNavigate } from "react-router-dom";
+import styled from "@emotion/styled";
+
+const MUIBarContainer = styled(AppBar)`
+  position: sticky;
+  display: flex;
+  top: 0;
+  left: 0;
+  z-index: 4;
+`;
 
 const pages = [
   {
@@ -28,8 +37,7 @@ const pages = [
     href: "/tariffs",
   },
   {
-    title: "Сервисы",
-    href: "/services",
+    title: "Сервисы", // у сервисов нет поля href, это кнопка с навигационным меню
   },
 ];
 const services = [
@@ -38,10 +46,14 @@ const services = [
   "Ремонт авто",
   "Закупка запчастей",
 ];
-const settings = [
+const ProfileMenu = [
   {
     title: "Профиль",
     href: "/profile",
+  },
+  {
+    title: "Информация о машине",
+    href: "/car_info",
   },
   ,
   {
@@ -55,7 +67,7 @@ const settings = [
 ];
 
 // Компонент хедера приложения
-function Header({ colorMode, theme }) {
+function Header() {
   // Эти два состояния нужны для работы темы, не совсем понимаю за что отвечают
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -73,12 +85,13 @@ function Header({ colorMode, theme }) {
       setAnchorElNavBtn(event.currentTarget);
       return;
     }
+    document.title = page.title;
     setAnchorElNav(null);
     navigate(page.href);
   };
 
   const handleClickUserMenuBtn = (setting) => {
-    handleCloseUserMenu()
+    handleCloseUserMenu();
     navigate(setting.href);
   };
   // Функция срабатывает при нажатии "открыть" навигационное меню(работает при xs размере экрана)
@@ -98,16 +111,8 @@ function Header({ colorMode, theme }) {
   };
 
   return (
-    <AppBar
-      position="static"
-      sx={{
-        display: "flex",
-
-        top: 0,
-        left: 0,
-      }}
-    >
-      <Container maxWidth="xl" sx={{ backgroundColor: "white" }}>
+    <MUIBarContainer>
+      <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
           <Typography
@@ -121,8 +126,8 @@ function Header({ colorMode, theme }) {
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "black",
               textDecoration: "none",
+              color: "inherit",
             }}
           >
             OBD
@@ -135,7 +140,6 @@ function Header({ colorMode, theme }) {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              sx={{ color: "black" }}
             >
               <MenuIcon />
             </IconButton>
@@ -162,14 +166,14 @@ function Header({ colorMode, theme }) {
                   key={page.title}
                   onClick={(e) => handleClickNavBtn(e, page)}
                 >
-                  <Typography textAlign="center">{page.title}</Typography>
+                  <Typography key={page.title} textAlign="center">
+                    {page.title}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <AdbIcon
-            sx={{ display: { xs: "flex", md: "none" }, mr: 1, color: "black" }}
-          />
+          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -182,7 +186,7 @@ function Header({ colorMode, theme }) {
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "black",
+              color: "white",
               textDecoration: "none",
             }}
           >
@@ -191,15 +195,16 @@ function Header({ colorMode, theme }) {
           <Box
             sx={{
               flexGrow: 1,
-              display: { xs: "none", md: "flex", xl: "none" },
+              display: { xs: "none", md: "flex" },
               cursor: "pointer",
               gap: "12px",
             }}
           >
             {pages.map((page) => (
-              <Tooltip title={`Открыть "${page.title}"`}>
+              <Tooltip title={`Открыть "${page.title}"`} key={page.title}>
                 <Typography
-                  sx={{ color: "black" }}
+                  key={page.title}
+                  sx={{ color: "inherit" }}
                   onClick={(e) => handleClickNavBtn(e, page)}
                 >
                   {page.title}
@@ -232,9 +237,11 @@ function Header({ colorMode, theme }) {
                     handleCloseNavBtn();
                     handleCloseNavMenu();
                   }}
-                  sx={{ color: "white", display: "block" }}
+                  sx={{ color: "inherit", display: "block" }}
                 >
-                  <Typography textAlign="center">{service}</Typography>
+                  <Typography key={service} textAlign="center">
+                    {service}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -262,19 +269,21 @@ function Header({ colorMode, theme }) {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
+              {ProfileMenu.map((profileMenuBtn) => (
                 <MenuItem
-                  key={setting.title}
-                  onClick={() => handleClickUserMenuBtn(setting)}
+                  key={profileMenuBtn.title}
+                  onClick={() => handleClickUserMenuBtn(profileMenuBtn)}
                 >
-                  <Typography textAlign="center">{setting.title}</Typography>
+                  <Typography key={profileMenuBtn.title} textAlign="center">
+                    {profileMenuBtn.title}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
         </Toolbar>
       </Container>
-    </AppBar>
+    </MUIBarContainer>
   );
 }
 export default Header;
