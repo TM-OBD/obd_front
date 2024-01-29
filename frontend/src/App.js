@@ -12,6 +12,7 @@ import Services from "./pages/Services/Services";
 import Profile from "./pages/Profile/Profile";
 import Settings from "./pages/Settings/Settings";
 import styled from "@emotion/styled";
+import { blue } from "@mui/material/colors";
 
 const InnerContainer = styled(Box)`
   width: 100%;
@@ -31,7 +32,22 @@ function App() {
   const theme = React.useMemo(() =>
     createTheme({
       palette: {
-        // mode: "light",
+        blue: {
+          light: "#b9daf1",
+          main: "#2e77ad",
+          dark: "#1c578a",
+          darker: "#103e6f",
+          contrastText:"#f5f5f5",
+        },
+        gray: {
+          light: "#dedede",
+          main: "#979797",
+          dark: "#606060",
+          darker: "#3c3c3c",
+          contrastText:"#fafafa",
+        },
+        darkText: "#2f2f2f",
+        lightText: "#f5f5f5",
       },
     })
   );
@@ -65,8 +81,6 @@ function App() {
                 justifyContent: "center",
                 width: "100%",
                 maxWidth: "1600px",
-                // bgcolor: "background.default",
-                color: "text.primary",
                 borderRadius: 1,
               }}
             >
