@@ -14,55 +14,76 @@ import Link from "@mui/material/Link";
 import Container from "@mui/material/Container";
 import styled from "@emotion/styled";
 
-const TitleContainer = styled(Container)`
+const TitleContainer = styled(Container)``;
 
-`
+const PrimaryTitle = styled(Typography)``;
 
-const PrimaryTitle = styled(Typography)`
-`
-
-const CardContainer = styled(Card)`
-
-`
+const CardContainer = styled(Card)``;
 
 const UL = styled.ul`
-padding: 16px;
-`
+  padding: 16px;
+`;
 
 const tiers = [
   {
-    title: "Free",
-    price: "0",
+    title: "Light",
+    price: "599",
     description: [
-      "10 users included",
-      "2 GB of storage",
-      "Help center access",
-      "Email support",
+      "Онлайн сервисная книга",
+      "Техподдержка ошибок в CRM",
+      "Запись авто на СТО",
+      "Подбор запчастей к ТО",
+      "Запис на шиномонтаж",
+      "Хранение шин  БЕСПЛАТНО",
+      "Шиномонтаж  БЕСПЛАТНО (2 раза в год )",
+      "Предоставление геолокации",
+      "Мгновенное расшифрование ошибки – приходит на телефон",
+      "Треккинг авто (контроль перемещения)",
     ],
     buttonText: "Sign up for free",
     buttonVariant: "outlined",
   },
   {
-    title: "Pro",
+    title: "Middle",
     subheader: "Most popular",
-    price: "15",
+    price: "899",
     description: [
-      "20 users included",
-      "10 GB of storage",
-      "Help center access",
-      "Priority email support",
+      "Онлайн сервисная книга",
+      "Техподдержка ошибок в CRM",
+      "Запись авто на СТО",
+      "Подбор запчастей к ТО",
+      "Запис на шиномонтаж",
+      "Хранение шин БЕСПЛАТНО",
+      "Шиномонтаж БЕСПЛАТНО (2 раза в год )",
+      "Предоставление геолокации",
+      "Мгновенное расшифрование ошибки – приходит на телефон",
+      "Треккинг авто (контроль перемещения)",
+      "Замена масла и фильтра БЕСПЛАТНО",
+      "Масло и фильтр БЕСПЛАТНО",
     ],
     buttonText: "Get started",
     buttonVariant: "contained",
   },
   {
-    title: "Enterprise",
-    price: "30",
+    title: "VIP",
+    price: "1499",
     description: [
-      "50 users included",
-      "30 GB of storage",
-      "Help center access",
-      "Phone & email support",
+      "Онлайн сервисная книга",
+      "Техподдержка ошибок в CRM",
+      "Запись авто на СТО",
+      "Подбор запчастей к ТО",
+      "Запис на шиномонтаж",
+      "Хранение шин БЕСПЛАТНО",
+      "Шиномонтаж БЕСПЛАТНО (2 раза в год )",
+      "Предоставление геолокации",
+      "Мгновенное расшифрование ошибки – приходит на телефон",
+      "Треккинг авто (контроль перемещения)",
+      "Замена масла и фильтра БЕСПЛАТНО",
+      "Масло и фильтр БЕСПЛАТНО",
+      "1 мойка в месяц БЕСПЛАТНО",
+      "Выезд водителя для доставки авто автосервис",
+      "2 раза в месяц водитель увозит авто на мойку",
+      "Переобуй авто, не приезжая на шиномонтаж",
     ],
     buttonText: "Contact us",
     buttonVariant: "outlined",
@@ -70,6 +91,12 @@ const tiers = [
 ];
 
 const Tariffs = () => {
+  const [expanded, setExpanded] = React.useState(false);
+
+  const toggleExpansion = () => {
+    setExpanded(!expanded);
+  };
+  
   return (
     <div>
       {/* Hero unit */}
@@ -77,7 +104,7 @@ const Tariffs = () => {
         disableGutters
         maxWidth="sm"
         component="main"
-        sx={{ pt: 8, pb: 6, }}
+        sx={{ pt: 4, pb: 2 }}
       >
         <PrimaryTitle
           component="h1"
@@ -91,14 +118,14 @@ const Tariffs = () => {
       </TitleContainer>
       {/* End hero unit */}
       <Container maxWidth="md" component="main">
-        <Grid container spacing={5} alignItems="flex-end">
+        <Grid container spacing={2} alignItems="flex-start">
           {tiers.map((tier) => (
             // Enterprise card is full width at sm breakpoint
             <Grid
               item
               key={tier.title}
               xs={12}
-              sm={tier.title === "Enterprise" ? 12 : 6}
+              sm={tier.title === "VIP" ? 12 : 6}
               md={4}
             >
               <CardContainer>
@@ -106,15 +133,14 @@ const Tariffs = () => {
                   title={tier.title}
                   subheader={tier.subheader}
                   titleTypographyProps={{ align: "center" }}
-                  action={tier.title === "Pro" ? <StarIcon /> : null}
+                  action={tier.title === "Middle" ? <StarIcon /> : null}
                   subheaderTypographyProps={{
                     align: "center",
                   }}
                   sx={{
                     backgroundColor: (theme) =>
-                      theme.palette.mode === "light"
-                        ? theme.palette.grey[200]
-                        : theme.palette.grey[700],
+                    theme.palette.blue.light,
+                    height: "100px",
                   }}
                 />
                 <CardContent>
@@ -131,10 +157,10 @@ const Tariffs = () => {
                       variant="h3"
                       color="text.primary"
                     >
-                      ${tier.price}
+                      {tier.price}грн
                     </Typography>
                     <Typography variant="h6" color="text.secondary">
-                      /mo
+                      /мес.
                     </Typography>
                   </Box>
                   <UL>
@@ -142,10 +168,12 @@ const Tariffs = () => {
                       <Typography
                         component="li"
                         variant="subtitle1"
-                        align="center"
+                        display={"flex"}
+                        justifyContent={"flex-start"}
+                        width={"100%"}
                         key={line}
                       >
-                        {line}
+                        - {line}
                       </Typography>
                     ))}
                   </UL>
@@ -162,6 +190,6 @@ const Tariffs = () => {
       </Container>
     </div>
   );
-}
+};
 
 export default Tariffs;

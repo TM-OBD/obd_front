@@ -25,6 +25,7 @@ const MUIBarContainer = styled(AppBar)`
   top: 0;
   left: 0;
   z-index: 4;
+  background-color: ${({theme}) => theme.palette.primary.main};
 `;
 
 const pages = [
