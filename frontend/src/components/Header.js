@@ -23,7 +23,7 @@ const MUIBox = styled(Box)`
 	justify-content: space-between;
 	align-items: center;
 	margin-top: 35px;
-	margin-left: 75px;
+	margin-left: ${({ isMobile }) => (isMobile ? "20px" : "75px")}; /* Змінюємо marginLeft в залежності від isMobile */
 	border-bottom: none;
 `;
 
@@ -45,7 +45,7 @@ function Header() {
 	return (
 		<MUIAppBar position="static">
 			<Container>
-				<MUIBox>
+				<MUIBox isMobile={isMobile}>
 					<img alt="iSyb" src={Logo} />
 					<Box sx={{ display: "flex" }}>
 						{isMobile ? (
@@ -56,7 +56,7 @@ function Header() {
 									aria-controls="menu-appbar"
 									aria-haspopup="true"
 									onClick={handleOpenNavMenu}
-									sx={{ color: 'white' }}
+									sx={{ color: "white" }}
 								>
 									<MenuIcon />
 								</IconButton>
@@ -77,9 +77,7 @@ function Header() {
 								>
 									{section.map((sc) => (
 										<MenuItem key={sc} onClick={handleCloseNavMenu}>
-											<Typography textAlign="center" >
-												{sc}
-											</Typography>
+											<Typography textAlign="center">{sc}</Typography>
 										</MenuItem>
 									))}
 								</Menu>
