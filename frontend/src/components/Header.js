@@ -2,7 +2,7 @@ import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Container from "@mui/material/Container";
 import styled from "@emotion/styled";
-import Logo from "../../images/Logo.svg";
+import Logo from "../images/Logo.svg";
 import Box from "@mui/material/Box";
 import Menu from "@mui/material/Menu";
 import MenuItem from '@mui/material/MenuItem';
