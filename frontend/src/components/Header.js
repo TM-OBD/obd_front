@@ -14,17 +14,17 @@ import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 const MUIAppBar = styled(AppBar)`
-  background-color: inherit;
-  box-shadow: none;
+	background-color: inherit;
+	box-shadow: none;
 `;
 
 const MUIBox = styled(Box)`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 35px;
-  margin-left: 75px;
-  border-bottom: none;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 35px;
+	margin-left: 75px;
+	border-bottom: none;
 `;
 
 const section = ["Як це працює", "Тарифи", "Про нас", "Відгуки", "Контакти", "FAQ"];
@@ -56,7 +56,7 @@ function Header() {
 									aria-controls="menu-appbar"
 									aria-haspopup="true"
 									onClick={handleOpenNavMenu}
-									color="white"
+									sx={{ color: 'white' }}
 								>
 									<MenuIcon />
 								</IconButton>
@@ -77,7 +77,7 @@ function Header() {
 								>
 									{section.map((sc) => (
 										<MenuItem key={sc} onClick={handleCloseNavMenu}>
-											<Typography textAlign="center" color="#F1F1F1">
+											<Typography textAlign="center" >
 												{sc}
 											</Typography>
 										</MenuItem>
@@ -86,7 +86,7 @@ function Header() {
 							</>
 						) : (
 							section.map((sc) => (
-								<Button key={sc} sx={{ my: 2, color: "#F1F1F1" }}>
+								<Button key={sc} sx={{ my: 2, color: "white" }}>
 									{sc}
 								</Button>
 							))
