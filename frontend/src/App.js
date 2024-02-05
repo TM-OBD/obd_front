@@ -1,5 +1,5 @@
 import * as React from "react";
-import Header from "./components/Header/Header";
+import Header from "./components/Header";
 import { Box } from "@mui/material";
 import styled from "@emotion/styled";
 import Footer from "./components/Footer";
