@@ -23,7 +23,7 @@ const MUIBox = styled(Box)`
 	justify-content: space-between;
 	align-items: center;
 	margin-top: 35px;
-	margin-left: ${({ isMobile }) => (isMobile ? "20px" : "75px")}; /* Змінюємо marginLeft в залежності від isMobile */
+	margin-left: ${({ isMobile }) => (isMobile ? "20px" : "75px")}; 
 	border-bottom: none;
 `;
 
