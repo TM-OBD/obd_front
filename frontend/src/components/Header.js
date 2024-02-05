@@ -80,6 +80,7 @@ function Header() {
 											<Typography textAlign="center" color="#F1F1F1">
 												{sc}
 											</Typography>
+											<Typography>something</Typography>
 										</MenuItem>
 									))}
 								</Menu>
