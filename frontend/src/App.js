@@ -1,5 +1,6 @@
 import * as React from "react";
 import Header from "./components/Header";
+import Body from "./components/Body";
 import { Box } from "@mui/material";
 import styled from "@emotion/styled";
 
@@ -16,7 +17,8 @@ function App() {
   return (
     <div className="outer-container">
       <InnerContainer>
-        <Header></Header>
+        <Header />
+		  <Body />
       </InnerContainer>
     </div>
   );
