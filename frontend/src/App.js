@@ -1,5 +1,6 @@
 import * as React from "react";
 import Header from "./components/Header";
+import Body from "./components/Body";
 import { Box, ThemeProvider } from "@mui/material";
 import styled from "@emotion/styled";
 import Footer from "./components/Footer";
@@ -20,6 +21,7 @@ function App() {
       <div className="outer-container">
         <div className="inner-container">
           <Header sections={sections}></Header>
+          <Body />
           <Footer sections={sections}></Footer>
         </div>
       </div>

@@ -14,17 +14,17 @@ import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 const MUIAppBar = styled(AppBar)`
-  background-color: inherit;
-  box-shadow: none;
+	background-color: inherit;
+	box-shadow: none;
 `;
 
 const MUIBox = styled(Box)`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 35px;
-  margin-left: 75px;
-  border-bottom: none;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 35px;
+	margin-left: 20px;
+	border-bottom: none;
 `;
 
 
@@ -44,7 +44,7 @@ function Header({sections}) {
 	return (
 		<MUIAppBar position="static">
 			<Container>
-				<MUIBox>
+				<MUIBox isMobile={isMobile}>
 					<img alt="iSyb" src={Logo} />
 					<Box sx={{ display: "flex" }}>
 						{isMobile ? (
@@ -55,7 +55,7 @@ function Header({sections}) {
 									aria-controls="menu-appbar"
 									aria-haspopup="true"
 									onClick={handleOpenNavMenu}
-									color="white"
+									sx={{ color: "white" }}
 								>
 									<MenuIcon />
 								</IconButton>
@@ -76,10 +76,7 @@ function Header({sections}) {
 								>
 									{sections.map((sc) => (
 										<MenuItem key={sc} onClick={handleCloseNavMenu}>
-											<Typography textAlign="center" color="#F1F1F1">
-												{sc}
-											</Typography>
-											<Typography>something</Typography>
+											<Typography textAlign="center">{sc}</Typography>
 										</MenuItem>
 									))}
 								</Menu>
