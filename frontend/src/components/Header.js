@@ -27,9 +27,8 @@ const MUIBox = styled(Box)`
 	border-bottom: none;
 `;
 
-const section = ["Як це працює", "Тарифи", "Про нас", "Відгуки", "Контакти", "FAQ"];
 
-function Header() {
+function Header({sections}) {
 	const [anchorElNav, setAnchorElNav] = React.useState(null);
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -75,7 +74,7 @@ function Header() {
 									open={Boolean(anchorElNav)}
 									onClose={handleCloseNavMenu}
 								>
-									{section.map((sc) => (
+									{sections.map((sc) => (
 										<MenuItem key={sc} onClick={handleCloseNavMenu}>
 											<Typography textAlign="center">{sc}</Typography>
 										</MenuItem>
@@ -83,8 +82,8 @@ function Header() {
 								</Menu>
 							</>
 						) : (
-							section.map((sc) => (
-								<Button key={sc} sx={{ my: 2, color: "white" }}>
+							sections.map((sc) => (
+								<Button key={sc} sx={{ my: 2, color: "#F1F1F1" }}>
 									{sc}
 								</Button>
 							))
