@@ -34,11 +34,11 @@ const NavLink = styled(Link)`
     [theme.breakpoints.between("md", "lg")]: {
       fontSize: "14px",
     },
-    // Задаём размер текста 12px при размере єкрана md
+    // Задаём размер текста 12px при размере экрана ниже md
     [theme.breakpoints.down("md")]: {
       fontSize: "12px",
     },
-    // Задаём размер текста 8px при размере єкрана md
+    // Задаём размер текста 8px при размере экрана ниже md
     [theme.breakpoints.down("sm")]: {
       fontSize: "10px",
     },
@@ -81,7 +81,7 @@ const SNContainer = styled(Box)`
   gap: 8px;
 `;
 
-const NSTitle = styled(Typography)`
+const SNTitle = styled(Typography)`
   color: ${({ theme }) => theme.palette.primary.main};
 
   // Задаём размер текста 12px между размерами экранов "sm" и "md"
@@ -165,7 +165,7 @@ function Footer({ sections }) {
                   width: "50%",
                 }}
               ></img>
-              <NSTitle variant="body1">{SN.title}</NSTitle>
+              <SNTitle variant="body1">{SN.title}</SNTitle>
             </SNContainer>
           ))}
         </SNList>
