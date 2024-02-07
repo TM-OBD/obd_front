@@ -5,6 +5,7 @@ import { Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import FAQ from "./FAQ";
 import styled from "@emotion/styled";
+import ContactForm from "./ContactForm";
 
 const Container = styled(Box)`
   display: flex;
@@ -88,7 +89,8 @@ function Body() {
           </Grid>
         </Grid>
       </Box>
-      <FAQ></FAQ>
+        <ContactForm/>
+      <FAQ/>
     </Container>
   );
 }
