@@ -9,40 +9,43 @@ import styled from "@emotion/styled";
 const Container = styled(Box)`
   display: flex;
   flex-direction: column;
-  padding: 100px;
+  padding-top: 20px;
+  padding-left: 95px;
 `;
 
 // Компонент боди приложения
 function Body() {
   return (
     <Container>
-      <Box
-        sx={{
-          background: `url('../images/Main/Background.jpg')`,
-          backgroundSize: "cover",
-        }}
-      >
+      <Box>
         <Grid container flexDirection={"column"}>
           <Grid item>
             <Typography
               fontFamily={"Inter, sans-serif"}
               fontWeight={"400"}
               fontSize={"220px"}
-              color={"#F1F1F1"}
+				  sx={{
+					color: (theme) => theme.palette.primary.main,
+				  }}
             >
               iSyb Auto
             </Typography>
+          </Grid>
+			 <Grid item>
+            <img alt="Car" src="../../images/Main/Car.png" loading="lazy" />
           </Grid>
           <Grid item>
             <Typography
               fontFamily={"Unbounded, sans-serif"}
               fontWeight={"400"}
               fontSize={"30px"}
-              color={"#F1F1F1"}
+              sx={{
+					color: (theme) => theme.palette.primary.main,
+				  }}
               display={"inline"}
             >
               сучасний сервіс
-              <span style={{ color: "#54afec", marginLeft: "5px" }}>
+              <span style={{ color: "#54AFEC", marginLeft: "5px" }}>
                 для авто
               </span>
             </Typography>
@@ -53,14 +56,16 @@ function Body() {
               fontWeight={"400"}
               fontSize={"20px"}
               lineHeight={"120%"}
-              color={"#F1F1F1"}
+              sx={{
+					color: (theme) => theme.palette.primary.main,
+				  }}
               display={"inline"}
             >
               Встановивши спеціальне обладнання в <br />
               OBD роз'єм, ви підключаєтеся до <br />
               сервера, який починає моніторити ваш <br />
               автомобіль у режимі
-              <span style={{ color: "#54afec", marginLeft: "5px" }}>24/7.</span>
+              <span style={{ color: "#54AFEC", marginLeft: "5px" }}>24/7.</span>
             </Typography>
           </Grid>
           <Grid
@@ -76,7 +81,7 @@ function Body() {
                 padding: "24px 50px",
                 width: "335px",
                 height: "63px",
-                background: "#54afec",
+                background: "#54AFEC",
                 fontFamily: "Inter, sans-serif",
                 fontWeight: "700",
                 fontSize: "20px",
