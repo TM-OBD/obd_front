@@ -16,15 +16,19 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 const MUIAppBar = styled(AppBar)`
 	background-color: inherit;
 	box-shadow: none;
+	zIndex: 3;
 `;
 
 const MUIBox = styled(Box)`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin-top: 35px;
-	margin-left: 20px;
+	padding: 30px;
 	border-bottom: none;
+	width: 100%;
+	left: 0;
+	top: 0;
+	z-index: 50;
 `;
 
 
@@ -42,7 +46,7 @@ function Header({sections}) {
 	};
 
 	return (
-		<MUIAppBar position="static">
+		<MUIAppBar position="absolute">
 			<Container>
 				<MUIBox isMobile={isMobile}>
 					<img alt="iSyb" src={Logo} />
