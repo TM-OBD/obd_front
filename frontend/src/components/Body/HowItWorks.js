@@ -53,74 +53,76 @@ return (
           Як це працює
         </Typography>
         <Grid 
-		    container 
-			 spacing={2} 
-			 flexDirection={'column'} 
-			 paddingTop={'50px'}>
-				{blockData.map((item, index) => (
-					<Grid 
-					  item 
-					  key={item.id}
-					  sx={{ 
-						display: 'flex', 
-						alignItems: 'start',
-						marginLeft: index >= 1 ? `${368 * index}px` : '0',
-					  }}
-					>
-						<Box
-						sx={{
-							display: "flex",
-							alignItems: "center",
-							justifyContent: "center",
-							width: "84px",
-							height: "84px",
-							borderRadius: "100%",
-							border: "1px solid",
-							strokeWidth: '1px',
-							borderColor: (theme) => theme.palette.primary.borderBlue,
-						}}
-						>
-						<Typography
-							variant="h6"
-							fontFamily={'Unbounded, sans-serif'}
-							fontWeight={"400"}
-							fontSize={'36px'}
-							sx={{
-								color: (theme) => theme.palette.primary.borderBlue,
-							}}
-						>
-							{item.id}
-						</Typography>
-						</Box>
-						<Box 
-						  paddingLeft={'20px'}
-						>
-						<Typography
-							variant="h6"
-							fontFamily={'Inter, sans-serif'}
-							fontWeight={"700"}
-							fontSize={'24px'}
-							sx={{
-								color: (theme) => theme.palette.primary.main,
-							}}
-						>
-							{item.title}
-						</Typography>
-						<Typography
-							variant="body1"
-							fontFamily={'Inter, sans-serif'}
-							fontWeight={"400"}
-							fontSize={'18px'}
-							sx={{
-								color: (theme) => theme.palette.primary.main,
-								whiteSpace: 'pre-wrap'
-							}}
-						>
-							{item.text}
-						</Typography>
-						</Box>
-					</Grid>
-				))}
+	  container 
+	  spacing={2} 
+	  flexDirection={'column'} 
+	  paddingTop={'50px'}
+	>
+	  {blockData.map((item, index) => 
+	    (
+		<Grid 
+		  item 
+		  key={item.id}
+		  sx={{ 
+		  display: 'flex', 
+		  alignItems: 'start',
+		  marginLeft: index >= 1 ? `${368 * index}px` : '0',
+		  }}
+		>
+		<Box
+		  sx={{
+		  display: "flex",
+		  alignItems: "center",
+		  justifyContent: "center",
+		  width: "84px",
+		  height: "84px",
+		  borderRadius: "100%",
+		  border: "1px solid",
+		  strokeWidth: '1px',
+		  borderColor: (theme) => theme.palette.primary.borderBlue,
+		  }}
+		>
+		  <Typography
+		    variant="h6"
+		    fontFamily={'Unbounded, sans-serif'}
+		    fontWeight={"400"}
+		    fontSize={'36px'}
+		    sx={{
+			    color: (theme) => theme.palette.primary.borderBlue,
+		    }}
+		  >
+		    {item.id}
+		    </Typography>
+		    </Box>
+		    <Box 
+			paddingLeft={'20px'}
+		    >
+		    <Typography
+		      variant="h6"
+		      fontFamily={'Inter, sans-serif'}
+		      fontWeight={"700"}
+		      fontSize={'24px'}
+		      sx={{
+			 color: (theme) => theme.palette.primary.main,
+		      }}
+		     >
+		       {item.title}
+		      </Typography>
+		      <Typography
+		        variant="body1"
+		        fontFamily={'Inter, sans-serif'}
+		        fontWeight={"400"}
+		        fontSize={'18px'}
+		        sx={{
+		          color: (theme) => theme.palette.primary.main,
+	  	          whiteSpace: 'pre-wrap'
+		        }}
+		        >
+		        {item.text}
+		        </Typography>
+		        </Box>
+		        </Grid>
+		        ))}
 	</Grid>
       </Box>
    </>
