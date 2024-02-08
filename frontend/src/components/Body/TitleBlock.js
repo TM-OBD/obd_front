@@ -3,61 +3,65 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import { Typography } from "@mui/material";
 import Button from "@mui/material/Button";
-import Car from '../../images/Main/Car.png';
-import Background from '../../images/Main/Background.png';
-import '../../index.css'
+import Car from "../../images/Main/Car.png";
+import Background from "../../images/Main/Background.png";
+import "../../index.css";
+import styled from "@emotion/styled";
 
+const Container = styled(Box)`
+  position: relative;
+  width: 100%;
+  padding: 60px 10% 0 10%;
+  min-height: 100vh;
+`;
 
-function TitleBlock(){
-	return(
-		<>
-		<Box
-		 sx={{
-			position: 'relative',
-			zIndex: 3,
-			paddingBottom: '95px'
-		 }}
-		>
-   	 <Grid container flexDirection={"column"}>
-      	<Grid item>
-         	<Typography
-              fontFamily={"Inter, sans-serif"}
+function TitleBlock() {
+  return (
+    <Container>
+      <Box
+        sx={{
+          position: "relative",
+          zIndex: 3,
+          paddingBottom: "95px",
+        }}
+      >
+        <Grid
+          container
+          flexDirection={"column"}
+          sx={{
+            position: "relative",
+          }}
+        >
+          <Grid item>
+            <Typography
               fontWeight={"400"}
-              fontSize={"220px"}
-				  sx={{
-					color: (theme) => theme.palette.primary.main,
-				  }}
+              component="h1"
+              fontSize={"180px"}
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                width: "100%",
+                color: (theme) => theme.palette.primary.main,
+                fontFamily: "'Unbounded', sans-serif",
+              }}
             >
               iSyb Auto
             </Typography>
           </Grid>
-			 <Box 
-		  sx={{
-			position: 'absolute',
-			backgroundImage: `url(${Car})`,
-			backgroundSize: '1440px 900px',
-			backgroundRepeat: 'no-repeat',
-			backgroundPosition: '-200px -92px',
-			width: '100%',
-			height: "100%",
-			zIndex: 4,
-			marginLeft: '70px',
-			top: 0,
-			left: 0,
-		  }}>
-		</Box>
           <Grid item>
             <Typography
               fontFamily={"Unbounded, sans-serif"}
               fontWeight={"400"}
               fontSize={"30px"}
               sx={{
-					color: (theme) => theme.palette.primary.main,
-				  }}
+                color: (theme) => theme.palette.primary.main,
+              }}
               display={"inline"}
             >
               сучасний сервіс
-              <span style={{ color: "#54AFEC", marginLeft: "5px", zIndex: '5' }}>
+              <span
+                style={{ color: "#54AFEC", marginLeft: "5px", zIndex: "5" }}
+              >
                 для авто
               </span>
             </Typography>
@@ -69,16 +73,16 @@ function TitleBlock(){
               fontSize={"20px"}
               lineHeight={"120%"}
               sx={{
-					color: (theme) => theme.palette.primary.main,
-					zIndex: '7'
-				  }}
+                color: (theme) => theme.palette.primary.main,
+                zIndex: "7",
+              }}
               display={"inline"}
             >
               Встановивши спеціальне обладнання в <br />
               OBD роз'єм, ви підключаєтеся до <br />
               сервера, який починає моніторити ваш <br />
               автомобіль у режимі
-              <span style={{ color: "#54AFEC", marginLeft: "5px" }}>24/7.</span>
+              <span style={{ color: "#54AFEC" }}>24/7.</span>
             </Typography>
           </Grid>
           <Grid
@@ -103,17 +107,27 @@ function TitleBlock(){
             >
               Придбати тариф
             </Button>
-			 </Grid>
-		 </Grid>
-   	</Box>
-		<Grid
-			  container
-			  className="main-block__image _ibg"
-			 >
-				<img src={Background} alt="Background" loading="lazy" />
-			 </Grid>
-			 </>
-	)
+          </Grid>
+        </Grid>
+      </Box>
+      <Grid container className="main-block__image _ibg">
+        <img
+          className="background-all"
+          src={Background}
+          alt="Background"
+          width={"100%"}
+          loading="lazy"
+        />
+        <img
+          className="background-car"
+          src={Car}
+          alt="Background"
+          width={"100%"}
+          loading="lazy"
+        />
+      </Grid>
+    </Container>
+  );
 }
 
 export default TitleBlock;
