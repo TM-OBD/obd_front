@@ -14,10 +14,8 @@ function TitleBlock(){
 		<Box
 		 sx={{
 			position: 'relative',
-			zIndex: 3
-			// backgroundImage: `url(${Background})`,
-			// backgroundSize: 'cover',
-			// backgroundPosition: 'center',
+			zIndex: 3,
+			paddingBottom: '95px'
 		 }}
 		>
    	 <Grid container flexDirection={"column"}>
@@ -33,11 +31,7 @@ function TitleBlock(){
               iSyb Auto
             </Typography>
           </Grid>
-			 {/* <Grid 
-			  item
-			  width={'100%'}
-			  maxWidth={'100%'}
-			  >
+			 {/* <Grid item>
             <img alt="Car" width={'100%'} height={'auto'} src={Car} loading="lazy" />
           </Grid> */}
           <Grid item>

@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import FAQ from "./FAQ";
 import styled from "@emotion/styled";
 import TitleBlock from "./TitleBlock"
+import HowItWorks from "./HowItWorks";
 
 const Container = styled(Box)`
   display: flex;
@@ -14,7 +15,8 @@ const Container = styled(Box)`
 function Body() {
   return (
     <Container>
-		<TitleBlock></TitleBlock>
+		<TitleBlock />
+		<HowItWorks />
       <FAQ></FAQ>
     </Container>
   );
