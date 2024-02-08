@@ -61,7 +61,7 @@ const StyledButton = styled(Button)`
     color: white;
 `;
 
-const Form = () => {
+const ContactForm = () => {
     const {register, handleSubmit, formState: {errors}} = useForm();
     const onSubmit = data => console.log(data);
     return (
@@ -126,4 +126,4 @@ const Form = () => {
     );
 }
 
-export default Form;
+export default ContactForm;
