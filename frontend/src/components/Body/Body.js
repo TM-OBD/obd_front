@@ -8,7 +8,7 @@ import HowItWorks from "./HowItWorks";
 const Container = styled(Box)`
   display: flex;
   flex-direction: column;
-  padding: 100px;
+  padding: 95px;
 `;
 
 // Компонент боди приложения

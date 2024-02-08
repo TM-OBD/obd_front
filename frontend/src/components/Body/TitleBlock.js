@@ -31,9 +31,21 @@ function TitleBlock(){
               iSyb Auto
             </Typography>
           </Grid>
-			 {/* <Grid item>
-            <img alt="Car" width={'100%'} height={'auto'} src={Car} loading="lazy" />
-          </Grid> */}
+			 <Box 
+		  sx={{
+			position: 'absolute',
+			backgroundImage: `url(${Car})`,
+			backgroundSize: '1440px 900px',
+			backgroundRepeat: 'no-repeat',
+			backgroundPosition: '-200px -92px',
+			width: '100%',
+			height: "100%",
+			zIndex: 4,
+			marginLeft: '70px',
+			top: 0,
+			left: 0,
+		  }}>
+		</Box>
           <Grid item>
             <Typography
               fontFamily={"Unbounded, sans-serif"}
@@ -45,7 +57,7 @@ function TitleBlock(){
               display={"inline"}
             >
               сучасний сервіс
-              <span style={{ color: "#54AFEC", marginLeft: "5px" }}>
+              <span style={{ color: "#54AFEC", marginLeft: "5px", zIndex: '5' }}>
                 для авто
               </span>
             </Typography>
@@ -58,6 +70,7 @@ function TitleBlock(){
               lineHeight={"120%"}
               sx={{
 					color: (theme) => theme.palette.primary.main,
+					zIndex: '7'
 				  }}
               display={"inline"}
             >
