@@ -1,26 +1,27 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { useForm } from 'react-hook-form';
+import {useForm} from 'react-hook-form';
 import {TextField, Button} from '@mui/material';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
 
-const Container = styled.div`
-  color: white;
-  padding: 20px;
+const ContainerBlock = styled(Container)`
+    color: white;
+    padding: 20px;
 `;
 
 const StyledLink = styled(Link)`
     margin-right: 20px;
     padding: 10px 0 10px 0;
-    gap: 10px;
-    font-family: Inter,serif;
+    font-family: Inter, serif;
     font-size: 20px;
     color: #54AFEC;
     font-weight: 400;
 `;
 
-const SocialLinks = styled.div`
+const SocialLinks = styled(Box)`
     display: flex;
     justify-content: space-between;
     width: 200px;
@@ -29,6 +30,7 @@ const SocialLinks = styled.div`
 
 const StyledTextField = styled(TextField)`
     margin-bottom: 25px;
+
     .MuiOutlinedInput-root {
         fieldset {
             border-color: white;
@@ -60,17 +62,18 @@ const StyledButton = styled(Button)`
 `;
 
 const Form = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const {register, handleSubmit, formState: {errors}} = useForm();
     const onSubmit = data => console.log(data);
     return (
-        <Container>
-            <Typography style={{
-                fontFamily: 'Unbounded',
-                fontSize: '60px',
-                fontWeight: 400,
-                lineHeight: '74px',
-                letterSpacing: 0
-            }}>Контакти</Typography>
+        <ContainerBlock>
+            <Typography
+                fontFamily="'Unbounded', sans-serif"
+                fontSize="60px"
+                fontWeight={400}
+                lineHeight="74px"
+            >
+                Контакти
+            </Typography>
             <SocialLinks>
                 <StyledLink to="/">Instagram</StyledLink>
                 <StyledLink to="/">Facebook</StyledLink>
@@ -78,13 +81,15 @@ const Form = () => {
                 <StyledLink to="/">Phone</StyledLink>
                 <StyledLink to="/">Mail</StyledLink>
             </SocialLinks>
-            <Typography style={{
-                fontFamily: 'Inter,serif',
-                fontSize: '20px',
-                fontWeight: '400',
-                lineHeight: '24px',
-                marginBottom: '20px'
-            }}>Якщо у вас є питання, заповніть контактну форму<br/> нижче і ми зв'яжемося з вами</Typography>
+            <Typography
+                fontFamily={"Inter, sans-serif"}
+                fontSize="20px"
+                fontWeight={400}
+                lineHeight="24px"
+                marginBottom="20px"
+            >
+                Якщо у вас є питання, заповніть контактну форму<br/>нижче і ми зв'яжемося з вами
+            </Typography>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <StyledTextField
                     {...register('name', {required: true})}
@@ -95,9 +100,9 @@ const Form = () => {
                 />
                 <StyledTextField
                     {...register('phone', {
-                        required: true,
+                        required: 'Це поле є обов\'язковим',
                         pattern: {
-                            value: /^\+?3?8?(0\d{9})$/,
+                            value: /^\+?(3(?:8(?:0\d{9})?|[1-7]\d{8}))$/,
                             message: 'Введіть дійсний номер телефону'
                         }
                     })}
@@ -111,11 +116,13 @@ const Form = () => {
                     placeholder="Напишіть питання, яке вас цікавить"
                     variant="outlined"
                     error={!!errors.question}
+                    multiline
+                    minRows={5}
                     helperText={errors.question && "Це поле є обов'язковим"}
                 />
                 <StyledButton variant="contained" type="submit">Відправити</StyledButton>
             </form>
-        </Container>
+        </ContainerBlock>
     );
 }
 
