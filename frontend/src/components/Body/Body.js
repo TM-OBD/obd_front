@@ -1,6 +1,6 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import FAQ from "./FAQ";
+import FAQ from "./Fag/FAQ";
 import styled from "@emotion/styled";
 import TitleBlock from "./TitleBlock"
 import HowItWorks from "./HowItWorks";
@@ -20,4 +20,5 @@ function Body() {
     </Container>
   );
 }
+
 export default Body;
