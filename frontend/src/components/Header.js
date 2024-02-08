@@ -16,7 +16,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 const MUIAppBar = styled(AppBar)`
 	background-color: inherit;
 	box-shadow: none;
-	zIndex: 3;
+	z-index: 3;
 `;
 
 const MUIBox = styled(Box)`
