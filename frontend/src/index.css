@@ -25,20 +25,25 @@ html,body, #root,.outer-container {
 
 ._ibg {
 	position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 1440px;
 }
-._ibg img {
+._ibg .background-all,.background-car {
 	position: absolute;
 	width: 100%;
-	height: 100%;
 	top: 0;
 	left: 0;
 	object-fit: cover;
 }
 
+._ibg .background-car {
+	z-index: 4;
+}
+
 .main-block__image {
 	position: absolute;
 	width: 100%;
-	height: 900px;
 	top: 0;
 	left: 0;
 }
