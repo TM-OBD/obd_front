@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import {useForm} from 'react-hook-form';
-import {TextField, Button} from '@mui/material';
-import {Link} from 'react-router-dom';
+import {TextField, Button, Link} from '@mui/material';
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
@@ -34,6 +33,8 @@ const StyledTextField = styled(TextField)`
     .MuiOutlinedInput-root {
         fieldset {
             border-color: white;
+            border-width: 0 0 1px 0;
+            border-radius: 0;
         }
 
         &:hover fieldset {
@@ -75,11 +76,11 @@ const ContactForm = () => {
                 Контакти
             </Typography>
             <SocialLinks>
-                <StyledLink to="/">Instagram</StyledLink>
-                <StyledLink to="/">Facebook</StyledLink>
-                <StyledLink to="/">Telegram</StyledLink>
-                <StyledLink to="/">Phone</StyledLink>
-                <StyledLink to="/">Mail</StyledLink>
+                <StyledLink href="#">Instagram</StyledLink>
+                <StyledLink href="#">Facebook</StyledLink>
+                <StyledLink href="#">Telegram</StyledLink>
+                <StyledLink href="#">Phone</StyledLink>
+                <StyledLink href="#">Mail</StyledLink>
             </SocialLinks>
             <Typography
                 fontFamily={"Inter, sans-serif"}
@@ -112,6 +113,7 @@ const ContactForm = () => {
                     helperText={errors.phone && errors.phone.message}
                 />
                 <StyledTextField
+                    style={{borderWidth: '1px 0 1px 0'}}
                     {...register('question', {required: true})}
                     placeholder="Напишіть питання, яке вас цікавить"
                     variant="outlined"
