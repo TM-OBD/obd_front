@@ -5,9 +5,11 @@ import {TextField, Button, Link} from '@mui/material';
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
+import Bubbles from '../../images/Сontact/Bubbles.png'
 
 const ContainerBlock = styled(Container)`
     color: white;
+    position: relative;
     padding: 20px;
 `;
 
@@ -25,6 +27,14 @@ const SocialLinks = styled(Box)`
     justify-content: space-between;
     width: 200px;
     margin-bottom: 20px;
+`;
+
+const StyledImg = styled.img`
+    background: url("../../images/Сontact/Bubbles.png");
+    background-size: cover;
+    position: absolute;
+    top: 85px;
+    left: 470px;
 `;
 
 const StyledTextField = styled(TextField)`
@@ -91,6 +101,7 @@ const ContactForm = () => {
             >
                 Якщо у вас є питання, заповніть контактну форму<br/>нижче і ми зв'яжемося з вами
             </Typography>
+            <StyledImg src={Bubbles} alt="" />
             <form onSubmit={handleSubmit(onSubmit)}>
                 <StyledTextField
                     {...register('name', {required: true})}
