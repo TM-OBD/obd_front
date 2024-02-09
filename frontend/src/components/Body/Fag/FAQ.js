@@ -78,8 +78,9 @@ function FAQ() {
                 Питання та відповідь
             </Typography>
             <AccordionsContainer>
-                {accordionsContent.map((accordion) => (
+                {accordionsContent.map(accordion => (
                     <Accordion
+                        key={accordion.id}
                         expanded={expanded === accordion.expanded}
                         onChange={handleChange(accordion.expanded)}
                     >

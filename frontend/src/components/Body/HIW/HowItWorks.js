@@ -2,9 +2,9 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import { Typography } from "@mui/material";
-import { blockData } from "../../shared/HIW Data";
-import FirstBG from "../../images/HowItWorks/FirstBG.png";
-import SecondBG from "../../images/HowItWorks/SecondBG.png";
+import { blockData } from "./HIW Data";
+import FirstBG from "../../../images/HowItWorks/FirstBG.png";
+import SecondBG from "../../../images/HowItWorks/SecondBG.png";
 import styled from "@emotion/styled";
 
 const Container = styled(Box)`

@@ -12,6 +12,7 @@ import Logo from "../images/Logo.svg";
 import { styled } from "@mui/system";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import {sectionsData} from "../shared/Sections";
 
 const MUIAppBar = styled(AppBar)`
 	background-color: inherit;
@@ -32,7 +33,7 @@ const MUIBox = styled(Box)`
 `;
 
 
-function Header({sections}) {
+function Header() {
 	const [anchorElNav, setAnchorElNav] = React.useState(null);
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -48,7 +49,7 @@ function Header({sections}) {
 	return (
 		<MUIAppBar position="absolute">
 			<Container>
-				<MUIBox isMobile={isMobile}>
+				<MUIBox>
 					<img alt="iSyb" src={Logo} />
 					<Box sx={{ display: "flex" }}>
 						{isMobile ? (
@@ -78,17 +79,17 @@ function Header({sections}) {
 									open={Boolean(anchorElNav)}
 									onClose={handleCloseNavMenu}
 								>
-									{sections.map((sc) => (
-										<MenuItem key={sc} onClick={handleCloseNavMenu}>
-											<Typography textAlign="center">{sc}</Typography>
+									{sectionsData.map(sc => (
+										<MenuItem key={sc.id} onClick={handleCloseNavMenu}>
+											<Typography textAlign="center">{sc.title}</Typography>
 										</MenuItem>
 									))}
 								</Menu>
 							</>
 						) : (
-							sections.map((sc) => (
-								<Button key={sc} sx={{ my: 2, color: "#F1F1F1" }}>
-									{sc}
+							sectionsData.map(sc => (
+								<Button key={sc.id} sx={{ my: 2, color: "#F1F1F1" }}>
+									{sc.title}
 								</Button>
 							))
 						)}
