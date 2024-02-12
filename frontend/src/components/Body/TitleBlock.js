@@ -11,8 +11,30 @@ import styled from "@emotion/styled";
 const Container = styled(Box)`
   position: relative;
   width: 100%;
-  padding: 60px 10% 0 10%;
+  padding: 105px 7% 0 7%;
   min-height: 100vh;
+
+  @media (max-width: 1000px) {
+    background-image: url(${Background});
+    background-size: cover;
+    background-position: center;
+  }
+`;
+
+const CarImage = styled.img`
+  width: 100%;
+
+  @media (max-width: 1000px) {
+    display: none;
+  }
+`;
+
+const BackgroundImage = styled.img`
+  width: 100%;
+
+  @media (max-width: 1000px) {
+    display: none;
+  }
 `;
 
 function TitleBlock() {
@@ -22,7 +44,6 @@ function TitleBlock() {
         sx={{
           position: "relative",
           zIndex: 3,
-          paddingBottom: "95px",
         }}
       >
         <Grid
@@ -36,7 +57,7 @@ function TitleBlock() {
             <Typography
               fontWeight={"400"}
               component="h1"
-              fontSize={"180px"}
+				  fontSize={{ lg: "180px", md: "120px", sm: "90px", xs: "60px"}}
               sx={{
                 display: "flex",
                 justifyContent: "center",
@@ -45,36 +66,31 @@ function TitleBlock() {
                 fontFamily: "'Unbounded', sans-serif",
               }}
             >
-              iSyb Auto
+              ISyb Auto
             </Typography>
           </Grid>
           <Grid item>
             <Typography
               fontFamily={"Unbounded, sans-serif"}
               fontWeight={"400"}
-              fontSize={"30px"}
+				  fontSize={{ lg: "30px", md: "30px", sm: "25px", xs: "20px"}}
               sx={{
                 color: (theme) => theme.palette.primary.main,
               }}
               display={"inline"}
             >
               сучасний сервіс
-              <span
-                style={{ color: "#54AFEC", marginLeft: "5px", zIndex: "5" }}
-              >
-                для авто
-              </span>
+              <span style={{ color: "#54AFEC" }}>	для авто</span>
             </Typography>
           </Grid>
-          <Grid item marginTop={"70px"}>
+          <Grid item marginTop={{ lg: "70px", md: "50px", sm: "40px", xs: "30px"}}>
             <Typography
               fontFamily={"Inter, sans-serif"}
               fontWeight={"400"}
-              fontSize={"20px"}
-              lineHeight={"120%"}
+              fontSize={{ lg: "20px", md: "18px", sm: "16px", xs: "14px"}}
+              lineHeight={{ lg: "120%", sm: "110%",}}
               sx={{
                 color: (theme) => theme.palette.primary.main,
-                zIndex: "7",
               }}
               display={"inline"}
             >
@@ -82,20 +98,29 @@ function TitleBlock() {
               OBD роз'єм, ви підключаєтеся до <br />
               сервера, який починає моніторити ваш <br />
               автомобіль у режимі
-              <span style={{ color: "#54AFEC" }}>24/7.</span>
+              <span style={{ color: "#54AFEC", }}>	24/7.</span>
             </Typography>
           </Grid>
           <Grid
             item
             style={{
-              marginTop: "70px",
+				  marginTop: "30px",
+				  "@media (min-width:600px)": {
+				  marginTop: "40px",
+				  },
+				  "@media (min-width:900px)": {
+				  marginTop: "50px",
+				  },
+				  "@media (min-width:1200px)": {
+				  marginTop: "70px",
+				  },
             }}
           >
             <Button
               variant="contained"
               style={{
                 borderRadius: "15px",
-                padding: "24px 50px",
+					 padding: { lg: "24px 50px", sm: "18px 30px", xs: "14px 20px"},
                 width: "335px",
                 height: "63px",
                 background: "#54AFEC",
@@ -111,14 +136,14 @@ function TitleBlock() {
         </Grid>
       </Box>
       <Grid container className="main-block__image _ibg">
-        <img
+        <BackgroundImage
           className="background-all"
           src={Background}
           alt="Background"
           width={"100%"}
           loading="lazy"
         />
-        <img
+			<CarImage
           className="background-car"
           src={Car}
           alt="Background"
