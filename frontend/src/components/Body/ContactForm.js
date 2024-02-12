@@ -9,6 +9,7 @@ import Bubbles from '../../images/Сontact/Bubbles.png'
 
 const ContainerBlock = styled(Container)`
     color: white;
+    overflow: hidden;
     position: relative;
     padding: 20px;
 `;
@@ -52,7 +53,7 @@ const StyledTextField = styled(TextField)`
         }
 
         &.Mui-focused fieldset {
-            border-color: white;
+            border-width: 0 0 1px 0;
         }
     }
 
@@ -101,7 +102,7 @@ const ContactForm = () => {
             >
                 Якщо у вас є питання, заповніть контактну форму<br/>нижче і ми зв'яжемося з вами
             </Typography>
-            <StyledImg src={Bubbles} alt="" />
+            <StyledImg src={Bubbles} alt=""/>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <StyledTextField
                     {...register('name', {required: true})}
