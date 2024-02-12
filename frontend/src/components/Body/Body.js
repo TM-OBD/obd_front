@@ -1,6 +1,6 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import FAQ from "./FAQ/FAQ";
+import FAQ from "./Faq/FAQ";
 import styled from "@emotion/styled";
 import TitleBlock from "./TitleBlock";
 import HowItWorks from "./HIW/HowItWorks";
