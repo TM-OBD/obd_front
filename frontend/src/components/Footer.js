@@ -14,6 +14,7 @@ const Container = styled(Box)`
     height: 320px;
     background-color: #262629;
     padding: 50px 100px 50px 100px;
+    margin-top: 48px;
 `;
 
 const NavContainer = styled(Box)`
