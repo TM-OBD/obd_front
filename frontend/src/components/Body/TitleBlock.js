@@ -37,6 +37,17 @@ const BackgroundImage = styled.img`
   }
 `;
 
+const ButtonContainer = styled(Grid)(({ theme }) => ({
+	marginTop: theme.breakpoints.up("sm") ? "40px" : "30px",
+	[theme.breakpoints.up("md")]: {
+	  marginTop: "50px",
+	},
+	[theme.breakpoints.up("lg")]: {
+	  marginTop: "70px",
+	},
+ }));
+ 
+
 function TitleBlock() {
   return (
     <Container>
@@ -57,7 +68,7 @@ function TitleBlock() {
             <Typography
               fontWeight={"400"}
               component="h1"
-				  fontSize={{ lg: "180px", md: "120px", sm: "90px", xs: "60px"}}
+              fontSize={{ lg: "180px", md: "120px", sm: "90px", xs: "60px" }}
               sx={{
                 display: "flex",
                 justifyContent: "center",
@@ -73,22 +84,25 @@ function TitleBlock() {
             <Typography
               fontFamily={"Unbounded, sans-serif"}
               fontWeight={"400"}
-				  fontSize={{ lg: "30px", md: "30px", sm: "25px", xs: "20px"}}
+              fontSize={{ lg: "30px", md: "30px", sm: "25px", xs: "20px" }}
               sx={{
                 color: (theme) => theme.palette.primary.main,
               }}
               display={"inline"}
             >
               сучасний сервіс
-              <span style={{ color: "#54AFEC" }}>	для авто</span>
+              <span style={{ color: "#54AFEC" }}> для авто</span>
             </Typography>
           </Grid>
-          <Grid item marginTop={{ lg: "70px", md: "50px", sm: "40px", xs: "30px"}}>
+          <Grid
+            item
+            marginTop={{ lg: "70px", md: "50px", sm: "40px", xs: "30px" }}
+          >
             <Typography
               fontFamily={"Inter, sans-serif"}
               fontWeight={"400"}
-              fontSize={{ lg: "20px", md: "18px", sm: "16px", xs: "14px"}}
-              lineHeight={{ lg: "120%", sm: "110%",}}
+              fontSize={{ lg: "20px", md: "18px", sm: "16px", xs: "14px" }}
+              lineHeight={{ lg: "120%", sm: "110%" }}
               sx={{
                 color: (theme) => theme.palette.primary.main,
               }}
@@ -98,29 +112,19 @@ function TitleBlock() {
               OBD роз'єм, ви підключаєтеся до <br />
               сервера, який починає моніторити ваш <br />
               автомобіль у режимі
-              <span style={{ color: "#54AFEC", }}>	24/7.</span>
+              <span style={{ color: "#54AFEC" }}> 24/7.</span>
             </Typography>
           </Grid>
-          <Grid
-            item
-            style={{
-				  marginTop: "30px",
-				  "@media (min-width:600px)": {
-				  marginTop: "40px",
-				  },
-				  "@media (min-width:900px)": {
-				  marginTop: "50px",
-				  },
-				  "@media (min-width:1200px)": {
-				  marginTop: "70px",
-				  },
-            }}
-          >
+          <ButtonContainer>
             <Button
               variant="contained"
               style={{
                 borderRadius: "15px",
-					 padding: { lg: "24px 50px", sm: "18px 30px", xs: "14px 20px"},
+                padding: {
+                  lg: "24px 50px",
+                  sm: "18px 30px",
+                  xs: "14px 20px",
+                },
                 width: "335px",
                 height: "63px",
                 background: "#54AFEC",
@@ -128,11 +132,13 @@ function TitleBlock() {
                 fontWeight: "700",
                 fontSize: "20px",
                 color: "#f1f1f1",
+                cursor: "pointer",
+					 zIndex: 10
               }}
             >
               Придбати тариф
             </Button>
-          </Grid>
+          </ButtonContainer>
         </Grid>
       </Box>
       <Grid container className="main-block__image _ibg">
@@ -143,7 +149,7 @@ function TitleBlock() {
           width={"100%"}
           loading="lazy"
         />
-			<CarImage
+        <CarImage
           className="background-car"
           src={Car}
           alt="Background"

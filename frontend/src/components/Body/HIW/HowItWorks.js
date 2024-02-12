@@ -71,7 +71,7 @@ function HowItWorks() {
 				<>
             <Grid
               item
-              key={item.id}
+              key={index} 
               sx={{
                 display: "flex",
                 alignItems: "start",
@@ -80,6 +80,7 @@ function HowItWorks() {
               }}
             >
               <Box
+				  key={item.id}
                 sx={{
                   display: "flex",
                   alignItems: "center",
@@ -134,7 +135,7 @@ function HowItWorks() {
 					<Button
         				variant="contained"
 						sx={{
-							marginLeft: {sm: '110px', xs: '80px'}
+							marginLeft: {sm: '110px', xs: '80px'},
 						}}
 						style={{
 							borderRadius: "15px",

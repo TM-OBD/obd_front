@@ -13,6 +13,7 @@ import { styled } from "@mui/system";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import {sectionsData} from "../shared/Sections";
+import '../index.css'
 
 const MUIAppBar = styled(AppBar)`
 	background-color: inherit;
