@@ -72,6 +72,12 @@ const StyledButton = styled(Button)`
     padding: 24px 50px 24px 50px;
     border-radius: 15px;
     color: white;
+    &:hover {
+        background: #0040FF;
+    }
+    &:active {
+        background: #001F7A;
+    }
 `;
 
 const ContactForm = () => {
