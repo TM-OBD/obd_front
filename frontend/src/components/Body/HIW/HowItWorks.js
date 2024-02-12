@@ -10,7 +10,7 @@ import styled from "@emotion/styled";
 
 const Container = styled(Box)`
   margin-top: 185px;
-  padding: 0px 7% 0 7%;
+  padding: 0 7% 0 7%;
 
   @media(max-width: 800px){
 	margin-top: 100px;

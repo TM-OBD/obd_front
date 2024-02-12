@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Bubbles from '../../images/Сontact/Bubbles.png'
+import {sendContact} from "../../services/Fetches";
 
 const ContainerBlock = styled(Container)`
     color: white;
@@ -75,7 +76,9 @@ const StyledButton = styled(Button)`
 
 const ContactForm = () => {
     const {register, handleSubmit, formState: {errors}} = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = async (data) => {
+        await sendContact(data)
+    };
     return (
         <ContainerBlock>
             <Typography
