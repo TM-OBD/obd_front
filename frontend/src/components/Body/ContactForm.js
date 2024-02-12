@@ -83,7 +83,14 @@ const StyledButton = styled(Button)`
 const ContactForm = () => {
     const {register, handleSubmit, formState: {errors}} = useForm();
     const onSubmit = async (data) => {
-        await sendContact(data)
+        try {
+            const token = "your_token_value";
+            const feedbackSourceIP = "your_ip_address";
+            await sendContact(data, token, feedbackSourceIP);
+        } catch (error) {
+            console.error('Error sending form data:', error);
+            alert('Failed to send feedback');
+        }
     };
     return (
         <ContainerBlock>
