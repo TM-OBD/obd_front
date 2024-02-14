@@ -1,9 +1,10 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import FAQ from "./Faq/FAQ";
+import FAQ from "./FAQ/FAQ";
 import styled from "@emotion/styled";
 import TitleBlock from "./TitleBlock";
 import HowItWorks from "./HIW/HowItWorks";
+import Tariffs from "./TARIFFS/Tariffs";
 import ContactForm from "./ContactForm";
 import ReviewBlock from "./ReviewBlock";
 
@@ -18,6 +19,7 @@ function Body() {
         <Container>
             <TitleBlock/>
             <HowItWorks/>
+				<Tariffs />
             <ReviewBlock/>
             <ContactForm/>
             <FAQ/>
