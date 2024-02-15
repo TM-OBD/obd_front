@@ -7,11 +7,11 @@ export const theme = createTheme({
       main: "#F1F1F1",
       mainBg: "#111112",
       borderBlue: "#54AFEC",
-    },
-    secondary: {
-      main: "#E0C2FF",
-      light: "#F5EBFF",
-      contrastText: "#47008F",
+      blue: {
+        light: "#54AFEC",
+        medium: "#0040FF",
+        dark: "#0040FF",
+      }
     },
   },
 });
