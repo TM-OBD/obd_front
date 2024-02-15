@@ -19,6 +19,12 @@ const StyledSwiperSlide = styled(SwiperSlide)`
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 30%;
+  min-width: 30%;
+  height: 240px;
+  border-radius: 20px;
+  border: 1px solid ${({theme}) => theme.palette.primary.blue.light};
+  background-color: #00000000;
 
   img {
     display: block;
