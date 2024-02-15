@@ -18,7 +18,10 @@ export const theme = createTheme({
       black: {
         light: "#262629",
         dark: "#111112",
-      }
+      },
+      white: {
+        light: "#F1F1F1",
+      },
     },
   },
 });
