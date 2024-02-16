@@ -6,7 +6,7 @@ import TitleBlock from "./TitleBlock";
 import HowItWorks from "./HIW/HowItWorks";
 import Tariffs from "./TARIFFS/Tariffs";
 import ContactForm from "./ContactForm";
-import ReviewBlock from "./ReviewBlock";
+import ReviewBlock from "./ReviewBlock/ReviewBlock";
 
 const Container = styled(Box)`
     display: flex;
