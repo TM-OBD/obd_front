@@ -7,7 +7,7 @@ import HowItWorks from "./HIW/HowItWorks";
 import Tariffs from "./TARIFFS/Tariffs";
 import AboutUs from "./ABOUT-US/AboutUs";
 import ContactForm from "./ContactForm";
-import ReviewBlock from "./ReviewBlock";
+import ReviewBlock from "./ReviewBlock/ReviewBlock";
 
 const Container = styled(Box)`
     display: flex;
