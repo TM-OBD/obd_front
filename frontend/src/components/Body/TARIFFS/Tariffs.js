@@ -11,6 +11,8 @@ import FirstBB from "../../../images/Tariffs/FirstBB.png";
 import SecondBB from "../../../images/Tariffs/SecondBB.png";
 
 const Container = styled(Box)`
+
+  position: relative;
   padding: 0 7% 0 7%;
 
   @media(max-width: 800px){
@@ -23,7 +25,7 @@ const Container = styled(Box)`
 `;
 
 const UlComponent = styled('ul')`
-  padding: 20px;
+  padding-left: 20px;
 `
 
 const LiComponent = styled('li')`
@@ -76,6 +78,10 @@ function Tariffs() {
         container
         spacing={3} 
         paddingTop={'50px'}
+		  sx={{ 
+              display: 'flex',
+				  justifyContent: 'center',
+            }}
       >
         {TariffsData.map((item, index) => (
           <Grid 
@@ -86,11 +92,6 @@ function Tariffs() {
             md={4} 
             sx={{ 
               display: 'flex',
-              paddingLeft: {
-                md: index !== 0 ? '56px' : 0,
-                sm: index !== 0 ? '45px' : 0,
-                xs: index !== 0 ? '30px' : 0
-              }
             }}
           >
             <Card 
@@ -99,11 +100,13 @@ function Tariffs() {
                 borderColor: (theme) => theme.palette.primary.borderBlue, 
                 borderRadius: '15px', 
                 maxWidth: '376px', 
-                height: '100%',
+                minHeight: '606px',
                 background: 'transparent',
                 padding: '30px',
                 display: 'flex',
-                flexDirection: 'column'
+                flexDirection: 'column',
+					 gap: 4,
+				    width: '100%'
               }}
             >
               <Typography
@@ -127,13 +130,11 @@ function Tariffs() {
                     color={(theme) => theme.palette.primary.main}
                     display={'center'}
                     justifyContent={'center'}
-                    marginTop={'30px'}
                   >
                     {item.subtitle}
                   </Typography>
                   <img
                     style={{
-                      paddingTop: '30px',
                       display: 'block',
                       margin: 'auto'
                     }}
@@ -155,7 +156,7 @@ function Tariffs() {
 								variant="inherit"
 								component="span"
 								sx={{ 
-									color: '#54AFEC',
+									color: (theme) => theme.palette.primary.blue.light,
 									fontFamily: "'Inter', sans-serif", 
 									fontWeight: 700,
 									fontSize: { md: "14px", sm: '12px', xs: '10px' }
@@ -186,17 +187,17 @@ function Tariffs() {
                 </Typography>
                 <Button
                   variant="contained"
-                  style={{
+                  sx={{
                     borderRadius: "15px",
                     padding: { sm: "24px 50px", xs: "16px 30px"},
                     maxWidth: "316px",
 						  width: "100%",
                     height: "63px",
-                    background: "#54AFEC",
+                    background: (theme) => theme.palette.primary.blue.light,
                     fontFamily: "Inter, sans-serif",
                     fontWeight: "700",
                     fontSize: "20px",
-                    color: "#f1f1f1",
+                    color: (theme) => theme.palette.primary.main,
                     marginTop: '30px',
                     alignSelf: 'center'
                   }}

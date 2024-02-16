@@ -10,6 +10,7 @@ import Bubbles from "../../../images/AboutUs/Bubble.png";
 
 const Container = styled(Box)`
 
+  position: relative;
   margin-top: 80px;
   padding: 0 7% 0 7%;
 
@@ -21,7 +22,6 @@ const Container = styled(Box)`
     margin-top: 50px;
   }
 `;
-
 
 
 function AboutUs() {
@@ -42,7 +42,7 @@ function AboutUs() {
 				position: "absolute",
 				backgroundImage: `url(${Bubbles})`,
 				backgroundRepeat: "no-repeat",
-				backgroundPosition: "left 300%",
+				backgroundPosition: "left 100%",
 				left: 0,
 				width: "100%",
 				height: "100%",
@@ -52,6 +52,11 @@ function AboutUs() {
 		<Grid 
 		container
 		paddingTop={'50px'}
+		sx={{
+			display: 'flex',
+			flexWrap: 'wrap',
+			justifyContent: 'center',
+		}}
 		>
 			{AboutUsData.map((item,index) => (
 				<Grid 
@@ -60,7 +65,14 @@ function AboutUs() {
             xs={12} 
             sm={6} 
             md={4}
-				sx={{marginLeft: index !== 0 ? '0px' : '0px'}}
+				sx={{
+					display: 'grid',
+					flexDirection: 'column',
+					gap: '4px',
+					width: '100%',
+					gridTemplateColumns: '1fr',
+					paddingLeft: index !== 0 ? '20px' : '0px'
+				}}
 				>
 					<Typography
 					fontFamily={'Inter, sans-serif'}
@@ -69,41 +81,58 @@ function AboutUs() {
 					lineHeight={'120%'}
 					color={(theme) => theme.palette.primary.main}
 					>
-						{item.firstParagraph && item.firstParagraph.split('iSyb').map((part, index) => {
-							return (
-								<React.Fragment key={index}>
-								{index > 0 && <span style={{ color: '#54afec' }}>iSyb</span>}
-								{part}
+						{item.firstParagraph &&
+					item.firstParagraph.split('ми завжди ставимо').map((part, index) => {
+						return (
+						<React.Fragment key={index}>
+							{index > 0 && <span style={{ color: '#54AFEC' }}>ми завжди ставимо</span>}
+							{part.split('iSyb').map((subPart, subIndex) => {
+								return (
+								<React.Fragment key={subIndex}>
+									{subIndex > 0 && <span style={{ color: '#54AFEC' }}>iSyb</span>}
+									{subPart}
+								</React.Fragment>
+								);
+							})}
 							</React.Fragment>
-							);
-						})}
+								);
+							})}
 					</Typography>
-					{index === 1 ? 
-						<Grid item sx={{marginLeft: '20px'}}>
-							<img alt="MainImage" loading="lazy" src={MainImage} />
+						{index === 1 ? 
+						<Grid 
+						  item
+						  sx={{
+							display: 'flex',
+							flexDirection: 'column',
+							gap: 2
+						  }}
+						  >
+							<img alt="MainImage" loading="lazy" src={MainImage} style={{ maxWidth: '100%', height: 'auto' }}/>
 							<Typography
 							fontFamily={'Inter, sans-serif'}
 							fontWeight={400}
 							fontSize={{ md: "20px", sm: '18px', xs: '16px'}}
 							lineHeight={'120%'}
 							color={(theme) => theme.palette.primary.main}
-							sx={{
-								paddingTop: {md: '60px', sm: '40px', xs: '30px'}
-							}}
 							>
-								{item.paragraph}
+								{item.paragraph &&
+									item.paragraph.split('Наша місія').map((part, index) => {
+									return (
+									<React.Fragment key={index}>
+										{index > 0 && <span style={{ color: '#54AFEC' }}>Наша місія</span>}
+												{part}
+										</React.Fragment>
+											);
+										})}
 							</Typography>
 						</Grid>
 					: ''}
-					<Typography
+						<Typography
 					fontFamily={'Inter, sans-serif'}
 					fontWeight={400}
 					fontSize={{ md: "20px", sm: '18px', xs: '16px'}}
 					lineHeight={'120%'}
 					color={(theme) => theme.palette.primary.main}
-					sx={{
-						paddingTop: {md: '60px', sm: '40px', xs: '30px'}
-					}}
 					>
 						{item.secondParagraph}
 					</Typography>
@@ -113,11 +142,16 @@ function AboutUs() {
 					fontSize={{ md: "20px", sm: '18px', xs: '16px'}}
 					lineHeight={'120%'}
 					color={(theme) => theme.palette.primary.main}
-					sx={{
-						paddingTop: {md: '60px', sm: '40px', xs: '30px'}
-					}}
 					>
-						{item.thirdParagraph}
+						{item.thirdParagraph &&
+					item.thirdParagraph.split('Ми прагнемо').map((part, index) => {
+						return (
+						<React.Fragment key={index}>
+							{index > 0 && <span style={{ color: '#54AFEC' }}>Ми прагнемо</span>}
+									{part}
+							</React.Fragment>
+								);
+							})}
 					</Typography>
 				</Grid>
 			))}
