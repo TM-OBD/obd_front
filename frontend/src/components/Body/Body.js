@@ -5,6 +5,7 @@ import styled from "@emotion/styled";
 import TitleBlock from "./TitleBlock";
 import HowItWorks from "./HIW/HowItWorks";
 import Tariffs from "./TARIFFS/Tariffs";
+import AboutUs from "./ABOUT-US/AboutUs";
 import ContactForm from "./ContactForm";
 import ReviewBlock from "./ReviewBlock/ReviewBlock";
 
@@ -20,6 +21,7 @@ function Body() {
             <TitleBlock/>
             <HowItWorks/>
 				<Tariffs />
+				<AboutUs />
             <ReviewBlock/>
             <ContactForm/>
             <FAQ/>
