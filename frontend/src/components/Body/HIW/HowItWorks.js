@@ -21,6 +21,16 @@ const Container = styled(Box)`
   }
 `;
 
+const StyledButton = styled(Button)`
+
+  z-index: 100;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #0040FF !important;
+  }
+` 
+
 function HowItWorks() {
   return (
     <Container>
@@ -131,7 +141,7 @@ function HowItWorks() {
               </Box>
 				  </Grid>
 				  {index === 0 ? (
-					<Button
+					<StyledButton
         				variant="contained"
 						sx={{
 							marginLeft: {sm: '110px', xs: '80px'}
@@ -144,12 +154,12 @@ function HowItWorks() {
 							background: "#54AFEC",
 							fontFamily: "Inter, sans-serif",
 							fontWeight: "700",
-							fontSize: "20px",
+							fontSize: "18px",
 							color: "#f1f1f1",
 						}}
       			>
         				Придбати автоінформер
-      			</Button>
+      			</StyledButton>
 				  ) : ''}
             </>
           ))}

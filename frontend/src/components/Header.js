@@ -32,6 +32,16 @@ const MUIBox = styled(Box)`
 	z-index: 50;
 `;
 
+const StyledMenuItem = styled(MenuItem)`
+  &:hover {
+    color: #54AFEC;
+  }
+`
+
+const StyledMenu = styled(Menu)`
+  z-index: 100; 
+`;
+
 
 function Header() {
 	const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -64,7 +74,7 @@ function Header() {
 								>
 									<MenuIcon />
 								</IconButton>
-								<Menu
+								<StyledMenu
 									id="menu-appbar"
 									anchorEl={anchorElNav}
 									anchorOrigin={{
@@ -80,15 +90,22 @@ function Header() {
 									onClose={handleCloseNavMenu}
 								>
 									{sectionsData.map(sc => (
-										<MenuItem key={sc.id} onClick={handleCloseNavMenu}>
+										<StyledMenuItem key={sc.id} onClick={handleCloseNavMenu}>
 											<Typography textAlign="center">{sc.title}</Typography>
-										</MenuItem>
+										</StyledMenuItem>
 									))}
-								</Menu>
+								</StyledMenu>
 							</>
 						) : (
 							sectionsData.map(sc => (
-								<Button key={sc.id} sx={{ my: 2, color: "#F1F1F1" }}>
+								<Button key={sc.id} 
+								  sx={{ 
+									my: 2, 
+									color: theme.palette.primary.main, 
+									"&:hover": {
+										color: '#54AFEC',
+									}
+								  }}>
 									{sc.title}
 								</Button>
 							))
