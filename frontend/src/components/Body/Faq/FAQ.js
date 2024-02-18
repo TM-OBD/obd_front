@@ -23,7 +23,7 @@ const AccordionsContainer = styled(Box)`
   margin-top: 48px;
 `;
 
-// Accordion
+// Accordion styled
 const Accordion = styled(MuiAccordion)`
   background-color: ${({ theme }) => theme.palette.primary.mainBg};
   border-top: 1px solid ${({ theme }) => theme.palette.primary.borderBlue} !important;
