@@ -23,6 +23,12 @@ const Container = styled(Box)`
   }
 `;
 
+const StyledGrid = styled(Grid)`
+  @media(max-width: 900px){
+    padding-left: 0px;
+  }
+`;
+
 
 function AboutUs() {
   return (
@@ -59,7 +65,7 @@ function AboutUs() {
 		}}
 		>
 			{AboutUsData.map((item,index) => (
-				<Grid 
+				<StyledGrid 
 				item
 				key={item.id} 
             xs={12} 
@@ -68,7 +74,7 @@ function AboutUs() {
 				sx={{
 					display: 'grid',
 					flexDirection: 'column',
-					gap: '4px',
+					gap: 2,
 					width: '100%',
 					gridTemplateColumns: '1fr',
 					paddingLeft: index !== 0 ? '20px' : '0px'
@@ -153,7 +159,7 @@ function AboutUs() {
 								);
 							})}
 					</Typography>
-				</Grid>
+				</StyledGrid>
 			))}
 		</Grid>
     </Container>
