@@ -32,7 +32,7 @@ const StyledGrid = styled(Grid)`
 
 function AboutUs() {
   return (
-    <Container>
+    <Container id="AboutUs">
       <Typography
         fontFamily={"Unbounded, sans-serif"}
         fontWeight={"400"}

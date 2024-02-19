@@ -33,7 +33,7 @@ const StyledButton = styled(Button)`
 
 function HowItWorks() {
   return (
-    <Container>
+    <Container id="HIW">
       <Box
         sx={{
           position: "relative",

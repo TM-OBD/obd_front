@@ -67,7 +67,7 @@ function FAQ() {
     setExpanded(newExpanded ? panel : false);
   };
   return (
-    <Container>
+    <Container id="FAQ">
       <Typography
         variant="h3"
         component="h3"
