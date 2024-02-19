@@ -36,6 +36,16 @@ const LiComponent = styled('li')`
   color: #f1f1f1;
 `
 
+const StyledButton = styled(Button)`
+
+  z-index: 100;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #0040FF !important;
+  }
+` 
+
 
 function Tariffs() {
   return (
@@ -92,6 +102,7 @@ function Tariffs() {
             md={4} 
             sx={{ 
               display: 'flex',
+				  justifyContent: 'center'
             }}
           >
             <Card 
@@ -185,7 +196,7 @@ function Tariffs() {
                 >
                   {item.price}
                 </Typography>
-                <Button
+                <StyledButton
                   variant="contained"
                   sx={{
                     borderRadius: "15px",
@@ -196,14 +207,14 @@ function Tariffs() {
                     background: (theme) => theme.palette.primary.blue.light,
                     fontFamily: "Inter, sans-serif",
                     fontWeight: "700",
-                    fontSize: "20px",
+                    fontSize: "16px",
                     color: (theme) => theme.palette.primary.main,
                     marginTop: '30px',
                     alignSelf: 'center'
                   }}
                 >
                   Придбати тариф
-                </Button>
+                </StyledButton>
               </div>
             </Card>
           </Grid>

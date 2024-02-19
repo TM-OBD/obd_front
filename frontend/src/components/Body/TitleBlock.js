@@ -37,6 +37,15 @@ const BackgroundImage = styled.img`
   }
 `;
 
+const StyledButton = styled(Button)`
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: #0040FF !important;
+  }
+` 
+
 function TitleBlock() {
   return (
     <Container>
@@ -105,20 +114,20 @@ function TitleBlock() {
             item
             style={{
 				  marginTop: "30px",
-				  "@media (min-width:600px)": {
+				  "@media (minWidth:600px)": {
 				  marginTop: "40px",
 				  },
-				  "@media (min-width:900px)": {
+				  "@media (minWidth:900px)": {
 				  marginTop: "50px",
 				  },
-				  "@media (min-width:1200px)": {
+				  "@media (minWidth:1200px)": {
 				  marginTop: "70px",
 				  },
             }}
           >
-            <Button
+            <StyledButton
               variant="contained"
-              style={{
+              sx={{
                 borderRadius: "15px",
 					 padding: { lg: "24px 50px", sm: "18px 30px", xs: "14px 20px"},
                 width: "335px",
@@ -126,12 +135,12 @@ function TitleBlock() {
                 background: "#54AFEC",
                 fontFamily: "Inter, sans-serif",
                 fontWeight: "700",
-                fontSize: "20px",
+                fontSize: "18px",
                 color: "#f1f1f1",
               }}
             >
               Придбати тариф
-            </Button>
+            </StyledButton>
           </Grid>
         </Grid>
       </Box>
