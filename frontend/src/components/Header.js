@@ -57,7 +57,7 @@ function Header() {
   };
 
   return (
-    <MUIAppBar position="absolute">
+    <MUIAppBar position="absolute" id="header">
       <Container>
         <MUIBox>
           <img alt="iSyb" src={Logo} />
