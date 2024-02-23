@@ -81,19 +81,24 @@ const StyledButton = styled(Button)`
 `;
 
 const ContactForm = () => {
-    const {register, handleSubmit, formState: {errors}} = useForm();
+    const {register, handleSubmit, formState: {errors},setValue} = useForm();
     const onSubmit = async (data) => {
         try {
             const token = "your_token_value";
             const feedbackSourceIP = "your_ip_address";
-            await sendContact(data, token, feedbackSourceIP);
+            const {message} = await sendContact(data, token, feedbackSourceIP);
+            alert(message)
+            setValue('name',"")
+            setValue('phone',"")
+            setValue('question',"")
+
         } catch (error) {
             console.error('Error sending form data:', error);
             alert('Failed to send feedback');
         }
     };
     return (
-        <ContainerBlock>
+        <ContainerBlock id="Contacts">
             <Typography
                 fontFamily="'Unbounded', sans-serif"
                 fontSize="60px"
@@ -131,7 +136,7 @@ const ContactForm = () => {
                     {...register('phone', {
                         required: 'Це поле є обов\'язковим',
                         pattern: {
-                            value: /^\+?(3(?:8(?:0\d{9})?|[1-7]\d{8}))$/,
+                            value: /^(?:\+?38)?(?:0\d{9})$/,
                             message: 'Введіть дійсний номер телефону'
                         }
                     })}

@@ -49,7 +49,7 @@ const StyledButton = styled(Button)`
 
 function Tariffs() {
   return (
-    <Container>
+    <Container id="Tariffs">
       <Typography
         fontFamily={"Unbounded, sans-serif"}
         fontWeight={"400"}
