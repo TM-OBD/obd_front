@@ -20,7 +20,11 @@ const Container = styled(Box)`
   }
 
   @media(max-width: 450px){
-    margin-top: 50px;
+    margin-top: 60px;
+  }
+
+  @media(max-width: 375px){
+	padding: 0 5.5% 0 5.5%;
   }
 `;
 
@@ -46,6 +50,18 @@ const StyledButton = styled(Button)`
   }
 ` 
 
+const StyledBackgroundImage = styled(Box)`
+
+position: absolute;
+background-repeat: no-repeat;
+width: 100%;
+height: 100%;
+
+  @media(max-width: 600px){
+	display: none;
+  }
+`
+
 
 function Tariffs() {
   return (
@@ -53,45 +69,38 @@ function Tariffs() {
       <Typography
         fontFamily={"Unbounded, sans-serif"}
         fontWeight={"400"}
-        fontSize={{ md: "60px", sm: '48px', xs: '36px'}}
+        fontSize={{ md: "60px", sm: '48px', xs: '40px'}}
         sx={{
           color: (theme) => theme.palette.primary.main,
         }}
       >
         Тарифи
       </Typography>
-		<Box
+		<StyledBackgroundImage
   sx={{
-    position: "absolute",
     backgroundImage: `url(${FirstBB})`,
-    backgroundRepeat: "no-repeat",
     backgroundPosition: "left 100%",
     left: 0,
-    width: "100%",
-    height: "100%",
     zIndex: 1,
   }}
-></Box>
-<Box
+></StyledBackgroundImage>
+<StyledBackgroundImage
   sx={{
-    position: "absolute",
     backgroundImage: `url(${SecondBB})`,
-    backgroundRepeat: "no-repeat",
     backgroundPosition: "right 25%",
     right: 0,
-    width: "100%",
-    height: "100%",
     zIndex: 2,
   }}
-></Box>
+></StyledBackgroundImage>
       <Grid 
         container
         spacing={3} 
-        paddingTop={'50px'}
+        paddingTop={{md: '50px', sx: '30px'}}
 		  sx={{ 
               display: 'flex',
 				  justifyContent: 'center',
             }}
+			marginTop={0}
       >
         {TariffsData.map((item, index) => (
           <Grid 
@@ -123,7 +132,7 @@ function Tariffs() {
               <Typography
                 fontFamily={"'Unbounded', sans-serif"}
                 fontWeight={'400'}
-                fontSize={{ md: "30px", sm: '25px', xs: '20px'}}
+                fontSize={{ md: "30px", sm: '26px', xs: '24px'}}
                 color={(theme) => theme.palette.primary.borderBlue}
                 variant="h1"
                 display={'center'}
@@ -137,7 +146,7 @@ function Tariffs() {
                     variant="h3"
                     fontFamily={"Inter, sans-serif"}
                     fontWeight={'400'}
-                    fontSize={{ md: "18px", sm: '16px', xs: '14px'}}
+                    fontSize={"18px"}
                     color={(theme) => theme.palette.primary.main}
                     display={'center'}
                     justifyContent={'center'}
@@ -160,25 +169,17 @@ function Tariffs() {
                   <LiComponent  
                     key={index}
                   >
-                    {line.split(' ').map((word, wordIndex) => (
-      					word === 'безкоштовно' ? (
-							<Typography
-								key={wordIndex}
-								variant="inherit"
-								component="span"
-								sx={{ 
-									color: (theme) => theme.palette.primary.blue.light,
-									fontFamily: "'Inter', sans-serif", 
-									fontWeight: 700,
-									fontSize: { md: "14px", sm: '12px', xs: '10px' }
-									}}
-							>
-									{word}{' '}
-								</Typography>
-								) : (
-								<span key={wordIndex}>{word} </span>
-								)
-							))}
+                    {line.includes('безкоштовно') ? (
+                      line.split(' ').map((word, wordIndex) => (
+                        word === 'безкоштовно' ? (
+                          <span key={wordIndex} style={{ color: '#54AFEC' }}>{word} </span>
+                        ) : (
+                          <span key={wordIndex}>{word} </span>
+                        )
+                      ))
+                    ) : (
+                      line
+                    )}
                   </LiComponent>
                 ))}
               </UlComponent>
