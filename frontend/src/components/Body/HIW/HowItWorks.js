@@ -19,6 +19,10 @@ const Container = styled(Box)`
   @media(max-width: 450px){
 	margin-top: 50px;
   }
+
+  @media(max-width: 375px){
+	padding: 0 5.5% 0 5.5%;
+  }
 `;
 
 const StyledButton = styled(Button)`
@@ -31,6 +35,43 @@ const StyledButton = styled(Button)`
   }
 ` 
 
+const StyledBackgroundImage = styled(Box)`
+
+position: absolute;
+background-repeat: no-repeat;
+width: 100%;
+height: 100%;
+
+  @media(max-width: 600px){
+	display: none;
+  }
+`
+const StyledTitle = styled(Typography)`
+
+@media(max-width: 375px){
+	width: 336px;
+	max-height: 50px;
+}
+`
+
+const StyledCircle = styled(Box)`
+
+display: flex;
+align-items: center;
+justify-content: center;
+width: 84px;
+height: 84px;
+border-radius: 100%;
+border: 1px solid;
+stroke-width: 1px;
+border-color: #54AFEC;
+
+@media(max-width: 375px){
+	width: 60px;
+	height: 60px;
+}
+`
+
 function HowItWorks() {
   return (
     <Container id="HIW">
@@ -39,43 +80,36 @@ function HowItWorks() {
           position: "relative",
         }}
       >
-        <Box
+        <StyledBackgroundImage
           sx={{
-            position: "absolute",
             backgroundImage: `url(${FirstBG})`,
-            backgroundRepeat: "no-repeat",
             backgroundPosition: "0px 75%",
 				marginLeft: '-15%',
-            width: "100%",
-            height: "100%",
 				zIndex: 3,
           }}
-        ></Box>
-        <Box
+        ></StyledBackgroundImage>
+        <StyledBackgroundImage
           sx={{
-            position: "absolute",
             backgroundImage: `url(${SecondBG})`,
-            backgroundRepeat: "no-repeat",
             backgroundPosition: "100% 10%",
-            width: "100%",
-            height: "100%",
           }}
-        ></Box>
-        <Typography
+        ></StyledBackgroundImage>
+        <StyledTitle
           fontFamily={"Unbounded, sans-serif"}
           fontWeight={"400"}
-			 fontSize={{ md: "60px", sm: '48px', xs: '36px'}}
+			 fontSize={{ md: "60px", sm: '48px', xs: '39px'}}
           sx={{
             color: (theme) => theme.palette.primary.main,
           }}
         >
           Як це працює
-        </Typography>
+        </StyledTitle>
         <Grid
           container
           spacing={2}
           flexDirection={"column"}
           paddingTop={{sm: "50px", xs: "30px"}}
+			 marginTop={0}
         >
           {blockData.map((item, index) => (
 				<>
@@ -86,34 +120,22 @@ function HowItWorks() {
                 display: "flex",
                 alignItems: "start",
 					 justifyContent: index === 0 ? 'start' : index === 1 ? 'center' : 'end',
-					 marginTop: index === 1 ? '24px' : '0px'
+					 marginTop: index === 1 ? '24px' : '0px',
               }}
             >
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  width: "84px",
-                  height: "84px",
-                  borderRadius: "100%",
-                  border: "1px solid",
-                  strokeWidth: "1px",
-                  borderColor: (theme) => theme.palette.primary.borderBlue,
-                }}
-              >
+              <StyledCircle>
                 <Typography
                   variant="h6"
                   fontFamily={"Unbounded, sans-serif"}
                   fontWeight={"400"}
-                  fontSize={{sm: "36px", xs: '30'}}
+                  fontSize={{sm: "36px", xs: '25'}}
                   sx={{
                     color: (theme) => theme.palette.primary.borderBlue,
                   }}
                 >
                   {item.id}
                 </Typography>
-              </Box>
+              </StyledCircle>
               <Box paddingLeft={{sm: "20px", xs: '10px'}}>
                 <Typography
                   variant="h6"
@@ -122,6 +144,7 @@ function HowItWorks() {
                   fontSize={{sm: "24px", xs: '20px'}}
                   sx={{
                     color: (theme) => theme.palette.primary.main,
+						  display: 'flex',
                   }}
                 >
                   {item.title}

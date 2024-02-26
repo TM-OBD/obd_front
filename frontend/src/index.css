@@ -1,26 +1,26 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
-}
-
-
-
-html,body, #root,.outer-container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  background : #111112;
-}
-
-.inner-container  {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 1440px;
-  min-height: 100%;
-}
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Roboto', sans-serif;
+ }
+ 
+ 
+ 
+ html,body, #root,.outer-container {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	background : #111112;
+ }
+ 
+ .inner-container  {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	max-width: 1440px;
+	min-height: 100%;
+ }
