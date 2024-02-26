@@ -93,12 +93,12 @@ function TitleBlock() {
         sx={{
           display: "flex",
           flexDirection: "column",
-          justifyContent: {
-            lg: "flex-start",
-            md: "flex-start",
-            sm: "space-around",
-            xs: "space-around",
-          },
+          // justifyContent: {
+          //   lg: "flex-start",
+          //   md: "flex-start",
+          //   sm: "space-around",
+          //   xs: "space-around",
+          // },
           gap: { lg: "32px", md: "28px", sm: "0", xs: "0" },
           zIndex: 2,
           height: {
@@ -128,46 +128,42 @@ function TitleBlock() {
           >
             ISyb Auto
           </Typography>
-          <Box
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            gap: "12px",
+            justifyContent: {
+              lg: "flex-start",
+              md: "flex-start",
+              sm: "flex-end",
+              xs: "flex-end",
+            },
+          }}
+        >
+          <Typography
+            fontFamily={"Unbounded, sans-serif"}
+            fontWeight={"400"}
             sx={{
-              display: "flex",
-              gap: "12px",
-              justifyContent: {
-                lg: "flex-start",
-                md: "flex-start",
-                sm: "flex-end",
-                xs: "flex-end",
-              },
+              color: (theme) => theme.palette.primary.main,
+              zIndex: 4,
+              fontSize: { lg: "30px", md: "30px", sm: "25px", xs: "12px" },
             }}
           >
-            <Typography
-              fontFamily={"Unbounded, sans-serif"}
-              fontWeight={"400"}
-              sx={
-                // default styles
-                {
-                  color: (theme) => theme.palette.primary.main,
-                  zIndex: 4,
-                  fontSize: { lg: "30px", md: "30px", sm: "25px", xs: "16px" },
-                }
-              }
-            >
-              сучасний сервіс
-            </Typography>
-            <Typography
-              fontFamily={"Unbounded, sans-serif"}
-              fontWeight={"400"}
-              sx={{
-                color: "#54AFEC",
-                zIndex: 4,
-                fontSize: { lg: "30px", md: "30px", sm: "25px", xs: "16px" },
-              }}
-            >
-              для авто
-            </Typography>
-          </Box>
+            сучасний сервіс
+          </Typography>
+          <Typography
+            fontFamily={"Unbounded, sans-serif"}
+            fontWeight={"400"}
+            sx={{
+              color: "#54AFEC",
+              zIndex: 4,
+              fontSize: { lg: "30px", md: "30px", sm: "25px", xs: "12px" },
+            }}
+          >
+            для авто
+          </Typography>
         </Box>
-
         <Box
           sx={{
             display: "flex",
@@ -180,7 +176,7 @@ function TitleBlock() {
             sx={{
               display: "flex",
               width: "100%",
-
+              marginTop: { lg: "0", md: "0", sm: "40%", xs: "40%" },
               justifyContent: {
                 lg: "flex-start",
                 md: "flex-start",
@@ -199,6 +195,7 @@ function TitleBlock() {
                 color: (theme) => theme.palette.primary.main,
                 zIndex: 4,
                 width: { lg: "30%", md: "35%", sm: "100%", xs: "100%" },
+
               }}
             >
               Встановивши спеціальне обладнання в OBD роз'єм, ви підключаєтеся
@@ -224,6 +221,7 @@ function TitleBlock() {
                 cursor: "pointer",
                 borderRadius: { lg: "15px", md: "14px", sm: "10px", xs: "8px" },
                 width: { lg: "300px", md: "250px", sm: "60%", xs: "60%" },
+                marginTop: { lg: "12px", md: "12px", sm: "0", xs: "0" },
                 height: { lg: "64px", md: "48px", sm: "84px", xs: "64px" },
                 background: "#54AFEC",
                 fontFamily: "Inter, sans-serif",
