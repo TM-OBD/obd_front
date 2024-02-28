@@ -1,6 +1,6 @@
 //HIW -- How It Works
 
-export const blockData = [
+export const blocksData = [
 	{
 		id: '01',
 		title: 'Придбайте OBD датчик',

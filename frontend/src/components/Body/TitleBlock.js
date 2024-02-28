@@ -188,7 +188,7 @@ function TitleBlock() {
             <Typography
               fontFamily={"Inter, sans-serif"}
               fontWeight={"400"}
-              fontSize={{ lg: "20px", md: "18px", sm: "24px", xs: "16px" }}
+              fontSize={{ lg: "20px", md: "18px", sm: "24px", xs: "14px" }}
               lineHeight={{ lg: "120%", sm: "110%" }}
               sx={{
                 display: "flex",
@@ -219,14 +219,14 @@ function TitleBlock() {
               variant="contained"
               sx={{
                 cursor: "pointer",
-                borderRadius: { lg: "15px", md: "14px", sm: "10px", xs: "8px" },
+                borderRadius: { lg: "15px", md: "10px", sm: "10px", xs: "8px" },
                 width: { lg: "300px", md: "250px", sm: "60%", xs: "60%" },
                 marginTop: { lg: "12px", md: "12px", sm: "0", xs: "0" },
                 height: { lg: "64px", md: "48px", sm: "84px", xs: "64px" },
                 background: "#54AFEC",
                 fontFamily: "Inter, sans-serif",
                 fontWeight: "700",
-                fontSize: { lg: "16px", md: "14px", sm: "18px", xs: "16px" },
+                fontSize: { lg: "16px", md: "14px", sm: "18px", xs: "14px" },
                 color: "#f1f1f1",
                 zIndex: 4,
               }}
