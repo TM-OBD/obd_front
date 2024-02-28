@@ -13,13 +13,14 @@ import FirstBubbleAdaptive from "../../../images/HowItWorks/FirstBublleAdaptive.
 const Container = styled(Box)`
   margin-top: 70px;
   padding: 0 7% 0 7%;
+  overflow: hidden;
 
-  @media(max-width: 800px){
-	margin-top: 100px;
+  @media (max-width: 800px) {
+    margin-top: 100px;
   }
 
-  @media(max-width: 450px){
-	margin-top: 50px;
+  @media (max-width: 450px) {
+    margin-top: 50px;
   }
 
   @media(max-width: 375px){
@@ -28,51 +29,13 @@ const Container = styled(Box)`
 `;
 
 const StyledButton = styled(Button)`
-
   z-index: 100;
   cursor: pointer;
 
   &:hover {
-    background-color: #0040FF !important;
+    background-color: #0040ff !important;
   }
-` 
-
-const StyledBackgroundImage = styled(Box)`
-
-position: absolute;
-background-repeat: no-repeat;
-width: 100%;
-height: 100%;
-
-  @media(max-width: 600px){
-	display: none;
-  }
-`
-const StyledTitle = styled(Typography)`
-
-@media(max-width: 375px){
-	width: 336px;
-	max-height: 50px;
-}
-`
-
-const StyledCircle = styled(Box)`
-
-display: flex;
-align-items: center;
-justify-content: center;
-width: 84px;
-height: 84px;
-border-radius: 100%;
-border: 1px solid;
-stroke-width: 1px;
-border-color: #54AFEC;
-
-@media(max-width: 375px){
-	width: 60px;
-	height: 60px;
-}
-`
+`;
 
 const StyledBackgroundImageAdaptive = styled(Box)`
 
@@ -98,6 +61,10 @@ function HowItWorks() {
           sx={{
             backgroundImage: `url(${FirstBG})`,
             backgroundPosition: "0px 75%",
+            marginLeft: "-15%",
+            width: "100%",
+            height: "100%",
+            zIndex: 3,
 				marginLeft: '-15%',
 				zIndex: 3,
           }}
@@ -111,7 +78,7 @@ function HowItWorks() {
         <StyledTitle
           fontFamily={"Unbounded, sans-serif"}
           fontWeight={"400"}
-			 fontSize={{ md: "60px", sm: '48px', xs: '39px'}}
+          fontSize={{ md: "60px", sm: "48px", xs: "36px" }}
           sx={{
             color: (theme) => theme.palette.primary.main,
           }}
@@ -125,6 +92,142 @@ function HowItWorks() {
           paddingTop={{sm: "50px", xs: "30px"}}
 			 marginTop={0}
         >
+          {blockData.map(
+            (
+              item,
+              index // PC version
+            ) => (
+              <>
+                <Grid
+                  item
+                  key={item.id}
+                  sx={{
+                    display: "flex",
+                    flexDirection: {
+                      lg: "row",
+                      md: "row",
+                      sm: "column",
+                      xs: "column",
+                    },
+                    alignItems: "start",
+                    justifyContent: {
+                      lg:
+                        index === 0 ? "start" : index === 1 ? "center" : "end",
+                      md:
+                        index === 0 ? "start" : index === 1 ? "center" : "end",
+                      sm: "center",
+                      xs: "center",
+                    },
+                    marginTop: index === 1 ? "24px" : "0px",
+                  }}
+                >
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      width: "84px",
+                      height: "84px",
+                      borderRadius: "100%",
+                      border: "1px solid",
+                      strokeWidth: "1px",
+                      borderColor: (theme) => theme.palette.primary.borderBlue,
+                    }}
+                  >
+                    <Typography
+                      variant="h6"
+                      fontFamily={"Unbounded, sans-serif"}
+                      fontWeight={"400"}
+                      fontSize={{ sm: "36px", xs: "30" }}
+                      sx={{
+                        color: (theme) => theme.palette.primary.borderBlue,
+                      }}
+                    >
+                      {item.id}
+                    </Typography>
+                  </Box>
+                  <Box paddingLeft={{ sm: "20px", xs: "10px" }}>
+                    <Typography
+                      variant="h6"
+                      fontFamily={"Inter, sans-serif"}
+                      fontWeight={"700"}
+                      fontSize={{ sm: "24px", xs: "20px" }}
+                      sx={{
+                        color: (theme) => theme.palette.primary.main,
+                      }}
+                    >
+                      {item.title}
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      fontFamily={"Inter, sans-serif"}
+                      fontWeight={"400"}
+                      fontSize={{ sm: "18px", xs: "16" }}
+                      sx={{
+                        color: (theme) => theme.palette.primary.main,
+                        whiteSpace: "pre-wrap",
+                      }}
+                    >
+                      {item.text}
+                    </Typography>
+                  </Box>
+                </Grid>
+                {index === 0 ? (
+                  <StyledButton
+                    variant="contained"
+                    sx={{
+                      marginLeft: { sm: "110px", xs: "80px" },
+                    }}
+                    style={{
+                      borderRadius: "15px",
+                      padding: { sm: "24px 50px", xs: "16px 40px" },
+                      width: "350px",
+                      height: "63px",
+                      background: "#54AFEC",
+                      fontFamily: "Inter, sans-serif",
+                      fontWeight: "700",
+                      fontSize: "18px",
+                      color: "#f1f1f1",
+                    }}
+                  >
+                    Придбати автоінформер
+                  </StyledButton>
+                ) : (
+                  null
+                )}
+              </>
+            )
+          )}
+          {blockData.map(
+            (
+              item,
+              index // Mobile version
+            ) => (
+              <Box>
+                {index === 0 ? (
+                  <StyledButton
+                    variant="contained"
+                    sx={{
+                      marginLeft: { sm: "110px", xs: "80px" },
+                    }}
+                    style={{
+                      borderRadius: "15px",
+                      padding: { sm: "24px 50px", xs: "16px 40px" },
+                      width: "350px",
+                      height: "63px",
+                      background: "#54AFEC",
+                      fontFamily: "Inter, sans-serif",
+                      fontWeight: "700",
+                      fontSize: "18px",
+                      color: "#f1f1f1",
+                    }}
+                  >
+                    Придбати автоінформер
+                  </StyledButton>
+                ) : null}
+              </Box>
+            )
+          )}
           {blockData.map((item, index) => (
 				<>
             <Grid
