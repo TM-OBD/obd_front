@@ -7,9 +7,11 @@ import Button from "@mui/material/Button";
 import FirstBG from "../../../images/HowItWorks/FirstBG.png";
 import SecondBG from "../../../images/HowItWorks/SecondBG.png";
 import styled from "@emotion/styled";
+import FirstBubbleAdaptive from "../../../images/HowItWorks/FirstBublleAdaptive.png";
+
 
 const Container = styled(Box)`
-  margin-top: 185px;
+  margin-top: 70px;
   padding: 0 7% 0 7%;
   overflow: hidden;
 
@@ -34,6 +36,18 @@ const StyledButton = styled(Button)`
     background-color: #0040ff !important;
   }
 `;
+
+const StyledBackgroundImageAdaptive = styled(Box)`
+
+position: absolute;
+background-repeat: no-repeat;
+width: 100%;
+height: 5%;
+
+  @media(max-width: 400px){
+	display: flex;
+  }
+`
 
 function HowItWorks() {
   return (
@@ -290,7 +304,17 @@ function HowItWorks() {
             </>
           ))}
         </Grid>
+		  
       </Box>
+		<StyledBackgroundImageAdaptive
+  sx={{
+	 display: 'none',
+    backgroundImage: `url(${FirstBubbleAdaptive})`,
+    backgroundPosition: "right 0%",
+    left: 0,
+    zIndex: 1,
+  }}
+></StyledBackgroundImageAdaptive>
     </Container>
   );
 }

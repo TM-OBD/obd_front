@@ -9,6 +9,11 @@ import Plus from '../../../images/Tariffs/plus.png';
 import { TariffsData } from "./TariffsData";
 import FirstBB from "../../../images/Tariffs/FirstBB.png";
 import SecondBB from "../../../images/Tariffs/SecondBB.png";
+import SecondBubbleAdaptive from "../../../images/Tariffs/SecondBubbleAdaptive.png";
+import FirstBubbleAdaptive from "../../../images/Tariffs/FirstBubbleAdaptive.png";
+
+
+
 
 const Container = styled(Box)`
 
@@ -61,6 +66,17 @@ height: 100%;
 	display: none;
   }
 `
+const StyledBackgroundImageAdaptive = styled(Box)`
+
+position: absolute;
+background-repeat: no-repeat;
+width: 100%;
+height: 100%;
+
+  @media(max-width: 400px){
+	display: flex;
+  }
+`
 
 
 function Tariffs() {
@@ -76,6 +92,15 @@ function Tariffs() {
       >
         Тарифи
       </Typography>
+		<StyledBackgroundImageAdaptive
+  sx={{
+	 display: 'none',
+    backgroundImage: `url(${SecondBubbleAdaptive})`,
+    backgroundPosition: "left 37%",
+    left: 0,
+    zIndex: 1,
+  }}
+></StyledBackgroundImageAdaptive>
 		<StyledBackgroundImage
   sx={{
     backgroundImage: `url(${FirstBB})`,
@@ -221,6 +246,15 @@ function Tariffs() {
           </Grid>
         ))}
       </Grid>
+		<StyledBackgroundImageAdaptive
+  sx={{
+	 display: 'none',
+    backgroundImage: `url(${FirstBubbleAdaptive})`,
+    backgroundPosition: "right 0%",
+    left: 0,
+    zIndex: 1,
+  }}
+></StyledBackgroundImageAdaptive>
     </Container>
   );
 }
