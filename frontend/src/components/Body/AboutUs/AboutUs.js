@@ -6,6 +6,8 @@ import styled from "@emotion/styled";
 import { AboutUsData } from "./AboutUsData";
 import MainImage from '../../../images/AboutUs/MainImage.png';
 import Bubbles from "../../../images/AboutUs/Bubble.png";
+import BubblesAdaptive from "../../../images/AboutUs/BubblesAdaptive.png";
+
 
 const Container = styled(Box)`
   position: relative;
@@ -41,6 +43,18 @@ height: 100%;
   }
 `
 
+const StyledBackgroundImageAdaptive = styled(Box)`
+
+position: absolute;
+background-repeat: no-repeat;
+width: 100%;
+height: 100%;
+
+  @media(max-width: 400px){
+	display: flex;
+  }
+`
+
 function AboutUs() {
   return (
     <Container id="AboutUs">
@@ -54,6 +68,15 @@ function AboutUs() {
       >
         Про нас
       </Typography>
+		<StyledBackgroundImageAdaptive
+  sx={{
+	 display: 'none',
+    backgroundImage: `url(${BubblesAdaptive})`,
+    backgroundPosition: "right 90%",
+    left: 0,
+    zIndex: 1,
+  }}
+></StyledBackgroundImageAdaptive>
       <StyledBackgroundImage
         sx={{
           backgroundImage: `url(${Bubbles})`,
@@ -64,7 +87,7 @@ function AboutUs() {
       ></StyledBackgroundImage>
       <Grid 
         container
-        paddingTop={'50px'}
+        paddingTop={{md: '50px', sm: '30px', xs: '30px'}}
         sx={{
           display: 'flex',
           flexWrap: 'wrap',
