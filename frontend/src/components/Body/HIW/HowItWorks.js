@@ -24,6 +24,17 @@ const CircleForNum = styled(Box)`
   color: ${({ theme }) => theme.palette.primary.blue.light};
 `;
 
+const StyledButton = styled(Button)`
+  background-color: ${({ theme }) => theme.palette.primary.blue.light};
+  color: ${({ theme }) => theme.palette.primary.white.light};
+  padding: 16px 32px 16px 32px;
+  border-radius: 8px;
+  text-transform: none;
+  &:hover {
+    background-color: ${({ theme }) => theme.palette.primary.blue.medium};
+  }
+`;
+
 function HowItWorks() {
   return (
     <Box // Контейнер
@@ -156,6 +167,7 @@ function HowItWorks() {
                 sx={{
                   display: "flex",
                   flexDirection: "column",
+                  alignItems: "center",
                   gap: "8px",
                 }}
               >
@@ -164,13 +176,14 @@ function HowItWorks() {
                   sx={{
                     display: "flex",
                     alignItems: "center",
+                    width: "100%",
                     color: (theme) => theme.palette.primary.main,
                     fontFamily: "Inter, sans-serif",
                     fontWeight: 600,
                     minHeight: {
-                      xs: "64px",
-                      xs: "64px",
-                      xs: "64px",
+                      lg: "64px",
+                      md: "64px",
+                      sm: "64px",
                       xs: "48px",
                     },
                     fontSize: {
@@ -198,6 +211,20 @@ function HowItWorks() {
                 >
                   {block.text}
                 </Typography>
+                {idx === 0 && (
+                  <StyledButton
+                    sx={{
+                      fontSize: {
+                        lg: "16px",
+                        md: "20px",
+                        sm: "20px",
+                        xs: "14px",
+                      },
+                    }}
+                  >
+                    Придбати автоінформер
+                  </StyledButton>
+                )}
               </Box>
             </Box>
           </Box>
