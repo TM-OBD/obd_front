@@ -25,7 +25,7 @@ const LiComponent = styled('li')`
 
 const StyledButton = styled(Button)`
 
-  z-index: 100;
+  z-index: 3;
   cursor: pointer;
 
   &:hover {
@@ -33,13 +33,8 @@ const StyledButton = styled(Button)`
   }
 ` 
 
-const StyledBackgroundImage = styled(Box)`
+const StyledBgImg = styled(Box)``;
 
-position: absolute;
-background-repeat: no-repeat;
-width: 100%;
-height: 100%;
-`
 
 function Tariffs() {
   return (
@@ -79,22 +74,59 @@ function Tariffs() {
       >
         Тарифи
       </Typography>
-		<StyledBackgroundImage
-  sx={{
-    backgroundImage: `url(${FirstBB})`,
-    backgroundPosition: "left 100%",
-    left: 0,
-    zIndex: 1,
-  }}
-></StyledBackgroundImage>
-<StyledBackgroundImage
-  sx={{
-    backgroundImage: `url(${SecondBB})`,
-    backgroundPosition: "right 25%",
-    right: 0,
-    zIndex: 2,
-  }}
-></StyledBackgroundImage>
+		<StyledBgImg
+        sx={{
+          position: "absolute",
+          width: {
+            lg: "200px",
+            md: "200px",
+            sm: "200px",
+            xs: "100px",
+          },
+          height: {
+            lg: "100%",
+            md: "100%",
+            sm: "100%",
+            xs: "100%",
+          },
+			 top: '30%',
+          left: 0,
+          backgroundImage: `url(${FirstBB})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "contain",
+          backgroundPosition: "center",
+          zIndex: 0,
+        }}
+      ></StyledBgImg>
+<StyledBgImg
+        sx={{
+          position: "absolute",
+          width: {
+            lg: "500px",
+            md: "400px",
+            sm: "400px",
+            xs: "300px",
+          },
+          height: {
+            lg: "100%",
+            md: "100%",
+            sm: "50%",
+            xs: "50%",
+          },
+			 left: {
+            lg: "70%",
+            md: "70%",
+            sm: "60%",
+            xs: "50%",
+          },
+			 top: 0,
+          backgroundImage: `url(${SecondBB})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "contain",
+          backgroundPosition: "center",
+          zIndex: 0,
+        }}
+      ></StyledBgImg>
       <Grid 
         container
         spacing={3} 

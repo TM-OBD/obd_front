@@ -28,14 +28,8 @@ const StyledGrid = styled(Grid)`
   }
 `;
 
-const StyledBackgroundImage = styled(Box)`
+const StyledBgImg = styled(Box)``;
 
-position: absolute;
-background-repeat: no-repeat;
-width: 100%;
-height: 100%;
-
-`
 
 
 function AboutUs() {
@@ -51,14 +45,35 @@ function AboutUs() {
       >
         Про нас
       </Typography>
-      <StyledBackgroundImage
+		<StyledBgImg
         sx={{
-          backgroundImage: `url(${Bubbles})`,
-          backgroundPosition: "left 100%",
+          position: "absolute",
+          width: {
+            lg: "300px",
+            md: "300px",
+            sm: "300px",
+            xs: "200px", 
+          },
+          height: {
+            lg: "100%",
+            md: "100%",
+            sm: "100%",
+            xs: "100%",
+          },
+			 top: {
+            lg: "40%",
+            md: "40%",
+            sm: "40%",
+            xs: "50%",
+          },
           left: 0,
-          zIndex: 1,
+          backgroundImage: `url(${Bubbles})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "contain",
+          backgroundPosition: "center",
+          zIndex: 0,
         }}
-      ></StyledBackgroundImage>
+      ></StyledBgImg>
       <Grid 
         container
         paddingTop={{md: '50px', sm: '30px', xs: '30px'}}
