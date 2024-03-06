@@ -11,20 +11,6 @@ import FirstBB from "../../../images/Tariffs/FirstBB.png";
 import SecondBB from "../../../images/Tariffs/SecondBB.png";
 
 
-const Container = styled(Box)`
-
-  position: relative;
-  padding: 0 7% 0 7%;
-
-  @media(max-width: 800px){
-    margin-top: 100px;
-  }
-
-  @media(max-width: 450px){
-    margin-top: 60px;
-  }
-`;
-
 const UlComponent = styled('ul')`
   padding-left: 20px;
 `
@@ -57,13 +43,38 @@ height: 100%;
 
 function Tariffs() {
   return (
-    <Container id="Tariffs">
+    <Box 
+	  id="Tariffs"
+	  sx={{
+        position: "relative",
+        display: "flex",
+        flexDirection: "column",
+        minHeight: "100vh",
+        padding: "0 7% 0 7%",
+        overflow: "hidden",
+        marginTop: {
+            lg: "0px",
+            md: "80px",
+            sm: "80px",
+            xs: "60px",
+          }
+      }}
+	  >
       <Typography
-        fontFamily={"Unbounded, sans-serif"}
-        fontWeight={"400"}
-        fontSize={{ md: "60px", sm: '48px', xs: '40px'}}
-        sx={{
+		  variant="h2"
+		  component='h2'
+		  sx={{
+          display: "flex",
+          width: "100%",
           color: (theme) => theme.palette.primary.main,
+          fontFamily: "'Unbounded', sans-serif",
+          zIndex: 1,
+          fontSize: {
+            lg: "60px",
+            md: "48px",
+            sm: "48px",
+            xs: "40px",
+          },
         }}
       >
         Тарифи
@@ -91,6 +102,7 @@ function Tariffs() {
 		  sx={{ 
               display: 'flex',
 				  justifyContent: 'center',
+				  flexWrap: 'wrap'
             }}
 			marginTop={0}
       >
@@ -103,22 +115,24 @@ function Tariffs() {
             md={4} 
             sx={{ 
               display: 'flex',
-				  justifyContent: 'center'
+				  justifyContent: 'center',
             }}
           >
             <Card 
               sx={{ 
+					display: 'flex',
+				  justifyContent: 'center',
                 border: '1px solid', 
                 borderColor: (theme) => theme.palette.primary.borderBlue, 
                 borderRadius: '15px', 
                 maxWidth: '376px', 
-                minHeight: '606px',
+					 minWidth: '30%',
+                minHeight: '566px',
                 background: 'transparent',
                 padding: '30px',
-                display: 'flex',
                 flexDirection: 'column',
 					 gap: 4,
-				    width: '100%'
+				    width: '100%',
               }}
             >
               <Typography
@@ -193,17 +207,17 @@ function Tariffs() {
                   variant="contained"
                   sx={{
                     borderRadius: "15px",
-                    padding: { sm: "24px 50px", xs: "16px 30px"},
+                    padding: { lg: "24px 50px", md: "24px 50px", sm: "24px 50px", xs: "16px 30px"},
                     maxWidth: "316px",
-						  width: "100%",
+						  width: '100%',
                     height: "63px",
                     background: (theme) => theme.palette.primary.blue.light,
                     fontFamily: "Inter, sans-serif",
                     fontWeight: "700",
-                    fontSize: "16px",
+                    fontSize: { lg: '16px', md: '16px', sm: '14px', xs: '12px'},
                     color: (theme) => theme.palette.primary.main,
                     marginTop: '30px',
-                    alignSelf: 'center'
+                    alignSelf: 'center',
                   }}
                 >
                   Придбати тариф
@@ -213,7 +227,7 @@ function Tariffs() {
           </Grid>
         ))}
       </Grid>
-    </Container>
+    </Box>
   );
 }
 
