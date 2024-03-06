@@ -9,10 +9,19 @@ import Bubbles from '../../images/Сontact/Bubbles.png'
 import {sendContact} from "../../services/Fetches";
 
 const ContainerBlock = styled(Container)`
-    color: white;
-    overflow: hidden;
-    position: relative;
-    padding: 20px;
+    && {
+        color: white;
+        overflow: hidden;
+        position: relative;
+        margin: 80px 0px;
+        padding: 0;
+    }
+
+    @media (min-width: 300px) {
+		&& {
+            padding: 0 7% 0 7%;
+        }
+    }
 `;
 
 const StyledLink = styled(Link)`
@@ -26,18 +35,30 @@ const StyledLink = styled(Link)`
 
 const SocialLinks = styled(Box)`
     display: flex;
-    justify-content: space-between;
-    width: 200px;
+	 flexDirection: row;
+	 flex-wrap: wrap;
+    width: 100%;
     margin-bottom: 20px;
 `;
 
 const StyledImg = styled.img`
-    background: url("../../images/Сontact/Bubbles.png");
-    background-size: cover;
+	 background: url("../../images/Сontact/Bubbles.png");
+	 width: 80%; 
+    height: auto; 
+    max-width: 858px; 
     position: absolute;
-    top: 85px;
-    left: 470px;
+    top: 10%;
+    left: 40%; 
+
+	 @media(max-width: 650px){
+		top: 30%;
+	 }
+
+	 @media(max-width: 420px){
+		top: 50%;
+	 }
 `;
+
 
 const StyledTextField = styled(TextField)`
     margin-bottom: 25px;
@@ -62,11 +83,21 @@ const StyledTextField = styled(TextField)`
         color: white;
         width: 672px;
     }
+
+	 @media(max-width: 750px){
+
+		display: flex;
+
+		.MuiInputBase-input{
+			width: 100%;
+		} 
+	 }
 `;
 
 const StyledButton = styled(Button)`
     background: #54AFEC;
     display: block;
+	 font-size: 16px;
     width: 215px;
     height: 63px;
     padding: 24px 50px 24px 50px;
@@ -78,6 +109,11 @@ const StyledButton = styled(Button)`
     &:active {
         background: #001F7A;
     }
+	 
+	 @media(max-width: 600px){
+			padding: 20px 32px;
+        width: auto;
+		  }
 `;
 
 const ContactForm = () => {
@@ -101,7 +137,7 @@ const ContactForm = () => {
         <ContainerBlock id="Contacts">
             <Typography
                 fontFamily="'Unbounded', sans-serif"
-                fontSize="60px"
+                fontSize={{ md: "60px", sm: '48px', xs: '36px'}}
                 fontWeight={400}
                 lineHeight="74px"
             >
@@ -121,7 +157,7 @@ const ContactForm = () => {
                 lineHeight="24px"
                 marginBottom="20px"
             >
-                Якщо у вас є питання, заповніть контактну форму<br/>нижче і ми зв'яжемося з вами
+                Якщо у вас є питання, заповніть контактну форму <br />нижче і ми зв'яжемося з вами
             </Typography>
             <StyledImg src={Bubbles} alt=""/>
             <form onSubmit={handleSubmit(onSubmit)}>

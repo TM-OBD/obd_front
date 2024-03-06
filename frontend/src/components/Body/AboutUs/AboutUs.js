@@ -6,7 +6,6 @@ import styled from "@emotion/styled";
 import { AboutUsData } from "./AboutUsData";
 import MainImage from '../../../images/AboutUs/MainImage.png';
 import Bubbles from "../../../images/AboutUs/Bubble.png";
-import BubblesAdaptive from "../../../images/AboutUs/BubblesAdaptive.png";
 
 
 const Container = styled(Box)`
@@ -16,12 +15,10 @@ const Container = styled(Box)`
 
   @media(max-width: 800px){
     margin-top: 100px;
-    padding: 0 5% 0 5%;
   }
 
   @media(max-width: 450px){
     margin-top: 50px;
-    padding: 0 3% 0 3%;
   }
 `;
 
@@ -38,22 +35,8 @@ background-repeat: no-repeat;
 width: 100%;
 height: 100%;
 
-  @media(max-width: 600px){
-	display: none;
-  }
 `
 
-const StyledBackgroundImageAdaptive = styled(Box)`
-
-position: absolute;
-background-repeat: no-repeat;
-width: 100%;
-height: 100%;
-
-  @media(max-width: 400px){
-	display: flex;
-  }
-`
 
 function AboutUs() {
   return (
@@ -68,15 +51,6 @@ function AboutUs() {
       >
         Про нас
       </Typography>
-		<StyledBackgroundImageAdaptive
-  sx={{
-	 display: 'none',
-    backgroundImage: `url(${BubblesAdaptive})`,
-    backgroundPosition: "right 90%",
-    left: 0,
-    zIndex: 1,
-  }}
-></StyledBackgroundImageAdaptive>
       <StyledBackgroundImage
         sx={{
           backgroundImage: `url(${Bubbles})`,
