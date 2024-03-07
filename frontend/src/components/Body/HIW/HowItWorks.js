@@ -1,7 +1,7 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import { CardMedia, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import { blocksData } from "./HIW Data";
 import Button from "@mui/material/Button";
 import FirstBG from "../../../images/HowItWorks/FirstBG.png";
@@ -113,6 +113,7 @@ function HowItWorks() {
           fontFamily: "'Unbounded', sans-serif",
           zIndex: 1,
           fontSize: {
+            xl: "64px",
             lg: "48px",
             md: "48px",
             sm: "48px",
@@ -131,7 +132,13 @@ function HowItWorks() {
           height: "100%",
           marginTop: "48px",
           zIndex: 1,
-          gap: "12px",
+          gap: {
+            xl: "24px",
+            lg: "12px",
+            md: "48px",
+            sm: "48px",
+            xs: "18px",
+          },
         }}
       >
         {blocksData.map((block, idx) => (
@@ -167,7 +174,13 @@ function HowItWorks() {
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
-                  gap: "8px",
+                  gap: {
+                    xl: "24px",
+                    lg: "12px",
+                    md: "8px",
+                    sm: "8px",
+                    xs: "8px",
+                  },
                 }}
               >
                 <Typography
@@ -186,6 +199,7 @@ function HowItWorks() {
                       xs: "48px",
                     },
                     fontSize: {
+                      xl: "28px",
                       lg: "20px",
                       md: "32px",
                       sm: "32px",
@@ -201,6 +215,7 @@ function HowItWorks() {
                     color: (theme) => theme.palette.primary.main,
                     fontFamily: "Inter, sans-serif",
                     fontSize: {
+                      xl: "24px",
                       lg: "16px",
                       md: "20px",
                       sm: "20px",
@@ -214,6 +229,7 @@ function HowItWorks() {
                   <StyledButton
                     sx={{
                       fontSize: {
+                        xl: "24px",
                         lg: "16px",
                         md: "20px",
                         sm: "20px",
