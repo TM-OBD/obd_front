@@ -16,12 +16,10 @@ const Container = styled(Box)`
 
   @media(max-width: 800px){
     margin-top: 100px;
-    padding: 0 5% 0 5%;
   }
 
   @media(max-width: 450px){
     margin-top: 50px;
-    padding: 0 3% 0 3%;
   }
 `;
 

@@ -7,7 +7,6 @@ import Button from "@mui/material/Button";
 import FirstBG from "../../../images/HowItWorks/FirstBG.png";
 import SecondBG from "../../../images/HowItWorks/SecondBG.png";
 import styled from "@emotion/styled";
-import FirstBubbleAdaptive from "../../../images/HowItWorks/FirstBublleAdaptive.png";
 
 const StyledBgImg = styled(Box)``;
 
