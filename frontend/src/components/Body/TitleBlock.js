@@ -123,7 +123,13 @@ function TitleBlock() {
               width: "100%",
               color: (theme) => theme.palette.primary.main,
               fontFamily: "'Unbounded', sans-serif",
-              fontSize: { lg: "172px", md: "112px", sm: "84px", xs: "40px" },
+              fontSize: {
+                xl: "200px",
+                lg: "172px",
+                md: "112px",
+                sm: "84px",
+                xs: "40px",
+              },
             }}
           >
             ISyb Auto
@@ -147,7 +153,13 @@ function TitleBlock() {
             sx={{
               color: (theme) => theme.palette.primary.main,
               zIndex: 4,
-              fontSize: { lg: "30px", md: "30px", sm: "25px", xs: "12px" },
+              fontSize: {
+                xl: "40px",
+                lg: "30px",
+                md: "30px",
+                sm: "25px",
+                xs: "16px",
+              },
             }}
           >
             сучасний сервіс
@@ -158,7 +170,13 @@ function TitleBlock() {
             sx={{
               color: "#54AFEC",
               zIndex: 4,
-              fontSize: { lg: "30px", md: "30px", sm: "25px", xs: "12px" },
+              fontSize: {
+                xl: "40px",
+                lg: "30px",
+                md: "30px",
+                sm: "25px",
+                xs: "16px",
+              },
             }}
           >
             для авто
@@ -170,13 +188,20 @@ function TitleBlock() {
             flexDirection: "column",
             gap: "12px",
             zIndex: 4,
+            height: "100%",
+            justifyContent: {
+              lg: "flex-start",
+              md: "flex-start",
+              sm: "center",
+              xs: "center",
+            },
           }}
         >
           <Box
             sx={{
               display: "flex",
               width: "100%",
-              marginTop: { lg: "0", md: "0", sm: "40%", xs: "40%" },
+              // marginTop: { lg: "0", md: "0", sm: "40%", xs: "40%" },
               justifyContent: {
                 lg: "flex-start",
                 md: "flex-start",
@@ -188,14 +213,19 @@ function TitleBlock() {
             <Typography
               fontFamily={"Inter, sans-serif"}
               fontWeight={"400"}
-              fontSize={{ lg: "20px", md: "18px", sm: "24px", xs: "14px" }}
+              fontSize={{
+                xl: "30px",
+                lg: "20px",
+                md: "18px",
+                sm: "24px",
+                xs: "14px",
+              }}
               lineHeight={{ lg: "120%", sm: "110%" }}
               sx={{
                 display: "flex",
                 color: (theme) => theme.palette.primary.main,
                 zIndex: 4,
                 width: { lg: "30%", md: "35%", sm: "100%", xs: "100%" },
-
               }}
             >
               Встановивши спеціальне обладнання в OBD роз'єм, ви підключаєтеся
@@ -220,13 +250,31 @@ function TitleBlock() {
               sx={{
                 cursor: "pointer",
                 borderRadius: { lg: "15px", md: "10px", sm: "10px", xs: "8px" },
-                width: { lg: "300px", md: "250px", sm: "60%", xs: "60%" },
+                width: {
+                  xl: "330px",
+                  lg: "300px",
+                  md: "250px",
+                  sm: "60%",
+                  xs: "80%",
+                },
                 marginTop: { lg: "12px", md: "12px", sm: "0", xs: "0" },
-                height: { lg: "64px", md: "48px", sm: "84px", xs: "64px" },
+                height: {
+                  xl: "72px",
+                  lg: "64px",
+                  md: "48px",
+                  sm: "84px",
+                  xs: "64px",
+                },
                 background: "#54AFEC",
                 fontFamily: "Inter, sans-serif",
                 fontWeight: "700",
-                fontSize: { lg: "16px", md: "14px", sm: "18px", xs: "14px" },
+                fontSize: {
+                  xl: "24px",
+                  lg: "16px",
+                  md: "14px",
+                  sm: "18px",
+                  xs: "14px",
+                },
                 color: "#f1f1f1",
                 zIndex: 4,
               }}
