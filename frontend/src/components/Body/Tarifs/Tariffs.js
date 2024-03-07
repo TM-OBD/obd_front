@@ -9,8 +9,6 @@ import Plus from '../../../images/Tariffs/plus.png';
 import { TariffsData } from "./TariffsData";
 import FirstBB from "../../../images/Tariffs/FirstBB.png";
 import SecondBB from "../../../images/Tariffs/SecondBB.png";
-import SecondBubbleAdaptive from "../../../images/Tariffs/SecondBubbleAdaptive.png";
-import FirstBubbleAdaptive from "../../../images/Tariffs/FirstBublleAdaptive.png";
 
 
 const UlComponent = styled('ul')`
@@ -27,7 +25,7 @@ const LiComponent = styled('li')`
 
 const StyledButton = styled(Button)`
 
-  z-index: 100;
+  z-index: 3;
   cursor: pointer;
 
   &:hover {
@@ -35,12 +33,8 @@ const StyledButton = styled(Button)`
   }
 ` 
 
-const StyledBackgroundImage = styled(Box)`
+const StyledBgImg = styled(Box)``;
 
-position: absolute;
-background-repeat: no-repeat;
-width: 100%;
-`
 
 function Tariffs() {
   return (
@@ -61,22 +55,6 @@ function Tariffs() {
           }
       }}
 	  >
-	  		<StyledBackgroundImage
-  sx={{
-	display: {
-		lg: 'none',
-		md: "none",
-      sm: "none",
-      xs: "flex",
-	 },
-    backgroundImage: `url(${FirstBubbleAdaptive})`,
-    backgroundPosition: "right 0%",
-    left: 0,
-	 marginTop: '-10%',
-    zIndex: 1,
-	 height: '10%'
-  }}
-></StyledBackgroundImage>
       <Typography
 		  variant="h2"
 		  component='h2'
@@ -96,51 +74,59 @@ function Tariffs() {
       >
         Тарифи
       </Typography>
-		<StyledBackgroundImage
-  sx={{
-	 display: {
-		lg: 'none',
-		md: "none",
-      sm: "none",
-      xs: "flex",
-	 },
-    backgroundImage: `url(${SecondBubbleAdaptive})`,
-    backgroundPosition: "left 37%",
-    left: 0,
-    zIndex: 1,
-	 height: '100%'
-  }}
-></StyledBackgroundImage>
-		<StyledBackgroundImage
-  sx={{
-	display: {
-		lg: 'flex',
-		md: "flex",
-      sm: "none",
-      xs: "none",
-	 },
-    backgroundImage: `url(${FirstBB})`,
-    backgroundPosition: "left 100%",
-    left: 0,
-    zIndex: 1,
-	 height: '100%'
-  }}
-></StyledBackgroundImage>
-<StyledBackgroundImage
-  sx={{
-	display: {
-		lg: 'flex',
-		md: "flex",
-      sm: "none",
-      xs: "none",
-	 },
-    backgroundImage: `url(${SecondBB})`,
-    backgroundPosition: "right 25%",
-    right: 0,
-    zIndex: 2,
-	 height: '100%'
-  }}
-></StyledBackgroundImage>
+		<StyledBgImg
+        sx={{
+          position: "absolute",
+          width: {
+            lg: "200px",
+            md: "200px",
+            sm: "200px",
+            xs: "100px",
+          },
+          height: {
+            lg: "100%",
+            md: "100%",
+            sm: "100%",
+            xs: "100%",
+          },
+			 top: '30%',
+          left: 0,
+          backgroundImage: `url(${FirstBB})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "contain",
+          backgroundPosition: "center",
+          zIndex: 0,
+        }}
+      ></StyledBgImg>
+<StyledBgImg
+        sx={{
+          position: "absolute",
+          width: {
+            lg: "500px",
+            md: "400px",
+            sm: "400px",
+            xs: "300px",
+          },
+          height: {
+            lg: "100%",
+            md: "100%",
+            sm: "50%",
+            xs: "50%",
+          },
+			 left: {
+            lg: "70%",
+            md: "70%",
+            sm: "60%",
+            xs: "50%",
+          },
+			 top: 0,
+          backgroundImage: `url(${SecondBB})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "contain",
+          backgroundPosition: "center",
+          zIndex: 0,
+        }}
+      ></StyledBgImg>
       <Grid 
         container
         spacing={3} 

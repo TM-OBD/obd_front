@@ -6,7 +6,6 @@ import styled from "@emotion/styled";
 import { AboutUsData } from "./AboutUsData";
 import MainImage from '../../../images/AboutUs/MainImage.png';
 import Bubbles from "../../../images/AboutUs/Bubble.png";
-import BubblesAdaptive from "../../../images/AboutUs/BubblesAdaptive.png";
 
 
 const Container = styled(Box)`
@@ -29,29 +28,9 @@ const StyledGrid = styled(Grid)`
   }
 `;
 
-const StyledBackgroundImage = styled(Box)`
+const StyledBgImg = styled(Box)``;
 
-position: absolute;
-background-repeat: no-repeat;
-width: 100%;
-height: 100%;
 
-  @media(max-width: 600px){
-	display: none;
-  }
-`
-
-const StyledBackgroundImageAdaptive = styled(Box)`
-
-position: absolute;
-background-repeat: no-repeat;
-width: 100%;
-height: 100%;
-
-  @media(max-width: 400px){
-	display: flex;
-  }
-`
 
 function AboutUs() {
   return (
@@ -66,23 +45,35 @@ function AboutUs() {
       >
         Про нас
       </Typography>
-		<StyledBackgroundImageAdaptive
-  sx={{
-	 display: 'none',
-    backgroundImage: `url(${BubblesAdaptive})`,
-    backgroundPosition: "right 90%",
-    left: 0,
-    zIndex: 1,
-  }}
-></StyledBackgroundImageAdaptive>
-      <StyledBackgroundImage
+		<StyledBgImg
         sx={{
-          backgroundImage: `url(${Bubbles})`,
-          backgroundPosition: "left 100%",
+          position: "absolute",
+          width: {
+            lg: "300px",
+            md: "300px",
+            sm: "300px",
+            xs: "200px", 
+          },
+          height: {
+            lg: "100%",
+            md: "100%",
+            sm: "100%",
+            xs: "100%",
+          },
+			 top: {
+            lg: "40%",
+            md: "40%",
+            sm: "40%",
+            xs: "50%",
+          },
           left: 0,
-          zIndex: 1,
+          backgroundImage: `url(${Bubbles})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "contain",
+          backgroundPosition: "center",
+          zIndex: 0,
         }}
-      ></StyledBackgroundImage>
+      ></StyledBgImg>
       <Grid 
         container
         paddingTop={{md: '50px', sm: '30px', xs: '30px'}}
