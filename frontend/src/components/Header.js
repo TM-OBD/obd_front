@@ -18,6 +18,7 @@ const MUIAppBar = styled(AppBar)`
   background-color: inherit;
   box-shadow: none;
   z-index: 6;
+  min-height: 20vh;
 `;
 
 const MUIBox = styled(Box)`
@@ -37,8 +38,6 @@ const StyledMenuItem = styled(MenuItem)`
   }
 `;
 
-
-
 const StyledLink = styled(Link)`
   z-index: 6;
 `;
@@ -57,9 +56,33 @@ function Header() {
   };
 
   return (
-    <MUIAppBar position="absolute" id="header">
-      <Container>
-        <MUIBox>
+    <MUIAppBar
+      position="absolute"
+      id="header"
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        margin: 0,
+      }}
+    >
+      <Container
+        sx={{
+          margin: 0,
+          maxWidth: {
+            xl: "100%",
+            lg: "100%",
+            md: "100%",
+            sm: "100%",
+            xs: "100%",
+          },
+        }}
+      >
+        <MUIBox
+          sx={{
+            width: "100%",
+          }}
+        >
           <img alt="iSyb" src={Logo} />
           <Box sx={{ display: "flex" }}>
             {isMobile ? (
@@ -98,22 +121,27 @@ function Header() {
               </>
             ) : (
               sectionsData.map((sc) => (
-                  <StyledLink
-                    href={sc.href}
-                    underline="hover"
-                    key={sc.id}
-                    sx={{
-                      my: 2,
-                      color: theme.palette.primary.main,
-                      "&:hover": {
-                        color: "#54AFEC",
-                      },
-											zIndex: 6,
-											padding: "0 12px 0 12px"
-                    }}
-                  >
-                    {sc.title}
-                  </StyledLink>
+                <StyledLink
+                  href={sc.href}
+                  underline="hover"
+                  key={sc.id}
+                  sx={{
+                    my: 2,
+                    color: theme.palette.primary.main,
+                    "&:hover": {
+                      color: "#54AFEC",
+                    },
+                    zIndex: 6,
+                    padding: "0 12px 0 12px",
+                    fontSize: {
+                      xl: "32px",
+                      lg: "18px",
+                      md: "14px",
+                    },
+                  }}
+                >
+                  {sc.title}
+                </StyledLink>
               ))
             )}
           </Box>
