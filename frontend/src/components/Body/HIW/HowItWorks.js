@@ -143,6 +143,7 @@ function HowItWorks() {
       >
         {blocksData.map((block, idx) => (
           <Box // Контейнер для ряда блока
+            key={block.id + "boxContainerRow"}
             sx={{
               display: "flex",
               width: "100%",
@@ -168,8 +169,9 @@ function HowItWorks() {
                 gap: "12px",
               }}
             >
-              <CircleForNum>{block.id}</CircleForNum>
+              <CircleForNum key={block.id + "circleForNum"}>{block.id}</CircleForNum>
               <Box // Контейнер для текста
+                key={block.id + "boxContainerText"}
                 sx={{
                   display: "flex",
                   flexDirection: "column",
@@ -184,6 +186,7 @@ function HowItWorks() {
                 }}
               >
                 <Typography
+                  key={block.id + "TypographyBlockTitle"}
                   variant="h6"
                   sx={{
                     display: "flex",
@@ -210,6 +213,7 @@ function HowItWorks() {
                   {block.title}
                 </Typography>
                 <Typography
+                  key={block.id + "TypographyBlockText"}
                   variant="body1"
                   sx={{
                     color: (theme) => theme.palette.primary.main,
@@ -227,6 +231,7 @@ function HowItWorks() {
                 </Typography>
                 {idx === 0 && (
                   <StyledButton
+                    key={block.id + "Button"}
                     sx={{
                       fontSize: {
                         xl: "24px",
