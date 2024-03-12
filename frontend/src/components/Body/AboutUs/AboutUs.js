@@ -8,19 +8,7 @@ import MainImage from '../../../images/AboutUs/MainImage.png';
 import Bubbles from "../../../images/AboutUs/Bubble.png";
 
 
-const Container = styled(Box)`
-  position: relative;
-  margin-top: 80px;
-  padding: 0 7% 0 7%;
-
-  @media(max-width: 800px){
-    margin-top: 100px;
-  }
-
-  @media(max-width: 450px){
-    margin-top: 50px;
-  }
-`;
+const Container = styled(Box)``;
 
 const StyledGrid = styled(Grid)`
   @media(max-width: 900px){
@@ -34,11 +22,27 @@ const StyledBgImg = styled(Box)``;
 
 function AboutUs() {
   return (
-    <Container id="AboutUs">
+    <Container 
+	 id="AboutUs"
+	 sx={{
+		position: "relative",
+      width: "100%",
+      padding: "0 7% 0 7%",
+		marginTop: {
+			lg: "80p",
+         md: "80p",
+         sm: "100px",
+         xs: "50px",
+		},
+	 }}
+	 >
       <Typography
+		  variant="2"
+		  component="h2"
+		  width={'100%'}
         fontFamily={"Unbounded, sans-serif"}
         fontWeight={"400"}
-        fontSize={{ md: "60px", sm: '48px', xs: '36px'}}
+        fontSize={{ xl: '76px',lg: "60px", md: "60px", sm: '48px', xs: '36px'}}
         sx={{
           color: (theme) => theme.palette.primary.main,
         }}
@@ -102,7 +106,7 @@ function AboutUs() {
             <Typography
               fontFamily={'Inter, sans-serif'}
               fontWeight={400}
-              fontSize={{ md: "20px", sm: '18px', xs: '16px'}}
+              fontSize={{ xl: "34px", lg: "20px", md: "20px", sm: '18px', xs: '16px'}}
               lineHeight={'120%'}
               color={(theme) => theme.palette.primary.main}
             >
@@ -136,7 +140,7 @@ function AboutUs() {
                 <Typography
                   fontFamily={'Inter, sans-serif'}
                   fontWeight={400}
-                  fontSize={{ md: "20px", sm: '18px', xs: '16px'}}
+                  fontSize={{ xl: "34px", lg: "20px", md: "20px", sm: '18px', xs: '16px'}}
                   lineHeight={'120%'}
                   color={(theme) => theme.palette.primary.main}
                 >
@@ -155,7 +159,7 @@ function AboutUs() {
             <Typography
               fontFamily={'Inter, sans-serif'}
               fontWeight={400}
-              fontSize={{ md: "20px", sm: '18px', xs: '16px'}}
+              fontSize={{ xl: "34px", lg: "20px", md: "20px", sm: '18px', xs: '16px'}}
               lineHeight={'120%'}
               color={(theme) => theme.palette.primary.main}
             >
@@ -164,7 +168,7 @@ function AboutUs() {
             <Typography
               fontFamily={'Inter, sans-serif'}
               fontWeight={400}
-              fontSize={{ md: "20px", sm: '18px', xs: '16px'}}
+              fontSize={{ xl: "34px", lg: "20px", md: "20px", sm: '18px', xs: '16px'}}
               lineHeight={'120%'}
               color={(theme) => theme.palette.primary.main}
             >
