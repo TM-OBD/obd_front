@@ -19,9 +19,17 @@ const LiComponent = styled('li')`
   padding-top: 20px;
   font-family: "Inter, sans-serif";
   font-weight: 400;
-  font-size: ${props => props.theme.breakpoints.down('sm') ? "16px" : "14px"};
+  font-size: ${props => 
+    props.theme.breakpoints.down('xs') ? "16px" :
+    props.theme.breakpoints.down('sm') ? "16px" :
+    props.theme.breakpoints.down('md') ? "18px" :
+    props.theme.breakpoints.down('lg') ? "20px" : '22px'  };
   color: #f1f1f1;
-`
+
+  @media (min-width: 1920px) { 
+    font-size: 28px; 
+  }
+`;
 
 const StyledButton = styled(Button)`
 
@@ -32,6 +40,12 @@ const StyledButton = styled(Button)`
     background-color: #0040FF !important;
   }
 ` 
+
+const StyledButtonContainer = styled(Box)`
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+`;
 
 const StyledBgImg = styled(Box)``;
 
@@ -44,9 +58,15 @@ function Tariffs() {
         position: "relative",
         display: "flex",
         flexDirection: "column",
-        minHeight: "100vh",
         padding: "0 7% 0 7%",
-        overflow: "hidden",
+		  overflow: "hidden",
+		  minHeight: {
+			xl: "50vh",
+			lg: "80vh",
+         md: "80vh",
+         sm: "80vh",
+         xs: "80vh",
+		  },
         marginTop: {
             lg: "0px",
             md: "80px",
@@ -55,7 +75,7 @@ function Tariffs() {
           }
       }}
 	  >
-      <Typography
+		<Typography
 		  variant="h2"
 		  component='h2'
 		  sx={{
@@ -65,6 +85,7 @@ function Tariffs() {
           fontFamily: "'Unbounded', sans-serif",
           zIndex: 1,
           fontSize: {
+				xl: "76px",
             lg: "60px",
             md: "48px",
             sm: "48px",
@@ -78,12 +99,14 @@ function Tariffs() {
         sx={{
           position: "absolute",
           width: {
+				xl: "200px",
             lg: "200px",
             md: "200px",
             sm: "200px",
             xs: "100px",
           },
           height: {
+				xl: "100%",
             lg: "100%",
             md: "100%",
             sm: "100%",
@@ -98,22 +121,25 @@ function Tariffs() {
           zIndex: 0,
         }}
       ></StyledBgImg>
-<StyledBgImg
+		<StyledBgImg
         sx={{
           position: "absolute",
           width: {
+				xl: "500px",
             lg: "500px",
             md: "400px",
             sm: "400px",
             xs: "300px",
           },
           height: {
+				xl: "100%",
             lg: "100%",
             md: "100%",
             sm: "50%",
             xs: "50%",
           },
 			 left: {
+				xl: "80%",
             lg: "70%",
             md: "70%",
             sm: "60%",
@@ -127,50 +153,47 @@ function Tariffs() {
           zIndex: 0,
         }}
       ></StyledBgImg>
-      <Grid 
-        container
-        spacing={3} 
-        paddingTop={{md: '50px', sx: '30px'}}
-		  sx={{ 
-              display: 'flex',
-				  justifyContent: 'center',
-				  flexWrap: 'wrap'
-            }}
-			marginTop={0}
-      >
-        {TariffsData.map((item, index) => (
-          <Grid 
-            item 
-            key={item.id} 
-            xs={12} 
-            sm={6} 
-            md={4} 
-            sx={{ 
-              display: 'flex',
-				  justifyContent: 'center',
-            }}
-          >
-            <Card 
-              sx={{ 
+		<Box
+		paddingTop={{ lg: "50px", md: '50px', sm: '30px', xs: "30px"}}
+		display={'flex'}
+		flexDirection={'row'}
+		gap={{lg: "50px", md: '24px', sm: '24px', xs: "24px"}}
+		flexWrap={'wrap'}
+		justifyContent={'center'}
+		>
+			{TariffsData.map((item, index) => (
+				<Card
+				 sx={{
 					display: 'flex',
-				  justifyContent: 'center',
-                border: '1px solid', 
-                borderColor: (theme) => theme.palette.primary.borderBlue, 
-                borderRadius: '15px', 
-                maxWidth: '376px', 
-					 minWidth: '30%',
-                minHeight: '566px',
-                background: 'transparent',
-                padding: '30px',
-                flexDirection: 'column',
-					 gap: 4,
-				    width: '100%',
-              }}
-            >
-              <Typography
+					justifyContent: 'center',
+					border: '1px solid',
+					borderColor: (theme) => theme.palette.primary.borderBlue, 
+               borderRadius: '15px', 
+					// minHeight: '100%',
+					maxWidth: {
+						xl: '100%',
+						lg: "376px",
+						md: "376px",
+						sm: "376px",
+						xs: "376px",
+					}, 
+					minWidth: {
+						lg: "376px",
+						md: "376px",
+						sm: "376px",
+						xs: "300px",
+					},
+					background: 'transparent',
+               padding: '30px',
+               flexDirection: 'column',
+					// width: '100%'
+					gap: '30px'
+				 }}
+				>
+					<Typography
                 fontFamily={"'Unbounded', sans-serif"}
                 fontWeight={'400'}
-                fontSize={{ md: "30px", sm: '26px', xs: '24px'}}
+                fontSize={{ xl: "38px", lg: "30px", md: "30px", sm: '26px', xs: '24px'}}
                 color={(theme) => theme.palette.primary.borderBlue}
                 variant="h1"
                 display={'center'}
@@ -178,20 +201,20 @@ function Tariffs() {
               >
                 {item.title}
               </Typography>
-              {index === 1 || index === 2 ? (
-                <>
-                  <Typography
+				  { (index === 1 || index === 2) && (
+					<>
+					<Typography
                     variant="h3"
                     fontFamily={"Inter, sans-serif"}
                     fontWeight={'400'}
-                    fontSize={"18px"}
+                    fontSize={{ xl: "24px", lg: "18px", md: "18px", sm: '18px', xs: '18px'}}
                     color={(theme) => theme.palette.primary.main}
                     display={'center'}
                     justifyContent={'center'}
                   >
                     {item.subtitle}
                   </Typography>
-                  <img
+						<img
                     style={{
                       display: 'block',
                       margin: 'auto'
@@ -200,9 +223,9 @@ function Tariffs() {
                     loading="lazy"
                     src={Plus}
                   />
-                </>
-              ) : ''}
-              <UlComponent>
+					</>					
+			 )}
+			 <UlComponent>
                 {item.text && item.text.map((line, index) => (
                   <LiComponent  
                     key={index}
@@ -221,12 +244,12 @@ function Tariffs() {
                   </LiComponent>
                 ))}
               </UlComponent>
-              <div style={{ marginTop: 'auto' }}>
+				  <div style={{ marginTop: 'auto' }}>
                 <Typography
                   variant="h6"
                   fontFamily={"Unbounded, sans-serif"}
                   fontWeight={"400"}
-                  fontSize={{ md: "30px", sm: '24px', xs: '20px'}}
+                  fontSize={{ xl: "38px", lg: "30px", md: "30px", sm: '24px', xs: '20px'}}
                   sx={{
                     color: (theme) => theme.palette.primary.main,
                     display: 'flex',
@@ -235,18 +258,19 @@ function Tariffs() {
                 >
                   {item.price}
                 </Typography>
+					 <StyledButtonContainer>
                 <StyledButton
                   variant="contained"
                   sx={{
                     borderRadius: "15px",
-                    padding: { lg: "24px 50px", md: "24px 50px", sm: "24px 50px", xs: "16px 30px"},
-                    maxWidth: "316px",
+                    padding: {xl: "24px 50px", lg: "24px 50px", md: "24px 50px", sm: "24px 50px", xs: "16px 30px"},
+                    maxWidth: "xl: '400px', lg: '316px', md: '316px', sm: '316px', xs: '316px'",
 						  width: '100%',
                     height: "63px",
                     background: (theme) => theme.palette.primary.blue.light,
                     fontFamily: "Inter, sans-serif",
                     fontWeight: "700",
-                    fontSize: { lg: '16px', md: '16px', sm: '14px', xs: '12px'},
+                    fontSize: { xl: '24px', lg: '16px', md: '16px', sm: '14px', xs: '12px'},
                     color: (theme) => theme.palette.primary.main,
                     marginTop: '30px',
                     alignSelf: 'center',
@@ -254,11 +278,11 @@ function Tariffs() {
                 >
                   Придбати тариф
                 </StyledButton>
+					 </StyledButtonContainer>
               </div>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
+			</Card>
+			))}
+		</Box>
     </Box>
   );
 }
