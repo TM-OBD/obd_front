@@ -11,11 +11,15 @@ import {sendContact} from "../../services/Fetches";
 const ContainerBlock = styled(Container)`
     && {
         color: white;
-        overflow: hidden;
         position: relative;
+		  overflow: hidden;
         margin: 80px 0px;
         padding: 0;
     }
+
+	 @media((min-width: 1500px)){
+		max-width: 100%;
+	 }
 
     @media (min-width: 300px) {
 		&& {
@@ -25,12 +29,6 @@ const ContainerBlock = styled(Container)`
 `;
 
 const StyledLink = styled(Link)`
-    margin-right: 20px;
-    padding: 10px 0 10px 0;
-    font-family: Inter, serif;
-    font-size: 20px;
-    color: #54AFEC;
-    font-weight: 400;
 `;
 
 const SocialLinks = styled(Box)`
@@ -57,6 +55,11 @@ const StyledImg = styled.img`
 	 @media(max-width: 420px){
 		top: 50%;
 	 }
+
+	 @media(min-width: 1500px){
+		left: 65%; 
+	 }
+
 `;
 
 
@@ -92,6 +95,16 @@ const StyledTextField = styled(TextField)`
 			width: 100%;
 		} 
 	 }
+
+	 @media(min-width: 1500px){
+		width: 100%;
+
+		.MuiInputBase-input {
+		  &::placeholder {
+            font-size: 32px; 
+        }
+    }
+	 }
 `;
 
 const StyledButton = styled(Button)`
@@ -100,7 +113,7 @@ const StyledButton = styled(Button)`
 	 font-size: 16px;
     width: 215px;
     height: 63px;
-    padding: 24px 50px 24px 50px;
+    padding: 14px 50px 24px 50px;
     border-radius: 15px;
     color: white;
     &:hover {
@@ -113,6 +126,12 @@ const StyledButton = styled(Button)`
 	 @media(max-width: 600px){
 			padding: 20px 32px;
         width: auto;
+		  }
+
+		  @media(min-width: 1500px){
+			width: 500px;
+			font-size: 24px;
+			margin: auto; 
 		  }
 `;
 
@@ -137,30 +156,75 @@ const ContactForm = () => {
         <ContainerBlock id="Contacts">
             <Typography
                 fontFamily="'Unbounded', sans-serif"
-                fontSize={{ md: "60px", sm: '48px', xs: '36px'}}
+                fontSize={{ xl: "76px", lg: "60px", md: "60px", sm: '48px', xs: '36px'}}
                 fontWeight={400}
                 lineHeight="74px"
             >
                 Контакти
             </Typography>
             <SocialLinks>
-                <StyledLink href="#">Instagram</StyledLink>
-                <StyledLink href="#">Facebook</StyledLink>
-                <StyledLink href="#">Telegram</StyledLink>
-                <StyledLink href="#">Phone</StyledLink>
-                <StyledLink href="#">Mail</StyledLink>
+                <StyledLink 
+					 sx={{
+						marginRight: '20px',
+						padding: '10px 0 10px 0',
+						fontFamily: 'Inter, serif',
+						fontSize: {  xl: '32px', lg: '20px', md: '20px', sm: '20px', xs: '20px'},
+						color:' #54AFEC',
+						fontWeight: '400',
+					 }} 
+					 href="#">Instagram</StyledLink>
+                <StyledLink 
+					  sx={{
+						marginRight: '20px',
+						padding: '10px 0 10px 0',
+						fontFamily: 'Inter, serif',
+						fontSize: {  xl: '32px', lg: '20px', md: '20px', sm: '20px', xs: '20px'},
+						color:' #54AFEC',
+						fontWeight: '400',
+					 }} 
+					  href="#">Facebook</StyledLink>
+                <StyledLink 
+					  sx={{
+						marginRight: '20px',
+						padding: '10px 0 10px 0',
+						fontFamily: 'Inter, serif',
+						fontSize: {  xl: '32px', lg: '20px', md: '20px', sm: '20px', xs: '20px'},
+						color:' #54AFEC',
+						fontWeight: '400',
+					 }} 
+					  href="#">Telegram</StyledLink>
+                <StyledLink 
+					 sx={{
+						marginRight: '20px',
+						padding: '10px 0 10px 0',
+						fontFamily: 'Inter, serif',
+						fontSize: {  xl: '32px', lg: '20px', md: '20px', sm: '20px', xs: '20px'},
+						color:' #54AFEC',
+						fontWeight: '400',
+					 }} 
+					 href="#">Phone</StyledLink>
+                <StyledLink 
+					  sx={{
+						marginRight: '20px',
+						padding: '10px 0 10px 0',
+						fontFamily: 'Inter, serif',
+						fontSize: {  xl: '32px', lg: '20px', md: '20px', sm: '20px', xs: '20px'},
+						color:' #54AFEC',
+						fontWeight: '400',
+					 }} 
+					  href="#">Mail</StyledLink>
             </SocialLinks>
             <Typography
                 fontFamily={"Inter, sans-serif"}
-                fontSize="20px"
+					 fontSize={{ xl: '30px', lg: '20px', md: '20px', sm: '20px', xs: '20px' }}
                 fontWeight={400}
                 lineHeight="24px"
                 marginBottom="20px"
             >
-                Якщо у вас є питання, заповніть контактну форму <br />нижче і ми зв'яжемося з вами
+                Якщо у вас є питання, заповніть контактну форму <br /> нижче і ми зв'яжемося з вами
             </Typography>
             <StyledImg src={Bubbles} alt=""/>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form style={{ marginTop: '25px'}} onSubmit={handleSubmit(onSubmit)}>
                 <StyledTextField
                     {...register('name', {required: true})}
                     placeholder="Ваше ім'я"
