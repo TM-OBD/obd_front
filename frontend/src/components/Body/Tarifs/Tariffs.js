@@ -1,45 +1,18 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
 import { Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import Card from '@mui/material/Card';
-import styled from "@emotion/styled";
 import Plus from '../../../images/Tariffs/plus.png';
 import { TariffsData } from "./TariffsData";
 import FirstBB from "../../../images/Tariffs/FirstBB.png";
 import SecondBB from "../../../images/Tariffs/SecondBB.png";
 
 
-const UlComponent = styled('ul')`
-  padding-left: 20px;
-`
-
-const LiComponent = styled('li')`
-`;
-
-const StyledButton = styled(Button)`
-
-  z-index: 3;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #0040FF !important;
-  }
-` 
-
-const StyledButtonContainer = styled(Box)`
-  display: flex;
-  justify-content: center;
-  margin-top: auto;
-`;
-
-const StyledBgImg = styled(Box)``;
-
 
 function Tariffs() {
   return (
-    <Box 
+    <Box  //main container for tariffs block 
 	  id="Tariffs"
 	  sx={{
         position: "relative",
@@ -82,7 +55,7 @@ function Tariffs() {
       >
         Тарифи
       </Typography>
-		<StyledBgImg
+		<Box  //container for styled background image
         sx={{
           position: "absolute",
           width: {
@@ -107,8 +80,8 @@ function Tariffs() {
           backgroundPosition: "center",
           zIndex: 0,
         }}
-      ></StyledBgImg>
-		<StyledBgImg
+      ></Box>
+		<Box  //container gor styled background image
         sx={{
           position: "absolute",
           width: {
@@ -139,8 +112,8 @@ function Tariffs() {
           backgroundPosition: "center",
           zIndex: 0,
         }}
-      ></StyledBgImg>
-		<Box
+      ></Box>
+		<Box  //container for cards about tariffs
 		sx={{
 			padding: { lg: "50px", md: '50px', sm: '30px', xs: "30px"},
 			display: 'flex',
@@ -151,12 +124,12 @@ function Tariffs() {
 		}}
 		>
 			{TariffsData.map((item, index) => (
-				<Card
+				<Card  //container for styled card with information about tariffs
+				key={index}
 				 sx={{
 					display: 'flex',
 					justifyContent: 'center',
-					border: '1px solid',
-					borderColor: (theme) => theme.palette.primary.borderBlue, 
+					border: (theme) => `1px solid ${theme.palette.primary.borderBlue}`,
                borderRadius: '15px', 
 					maxWidth: {
 						xl: '100%',
@@ -218,16 +191,16 @@ function Tariffs() {
                   />
 					</>					
 			 )}
-			 <UlComponent>
-                {item.text && item.text.map((line, index) => (
-                  <LiComponent  
+			 <ul style={{paddingLeft: '20px'}}>
+                {item.text && item.text.map((line, lineIndex) => (
+                  <li  
 						 style={{
 							paddingTop: '20px',
 							fontFamily: 'Inter, sans-serif',
 							fontSize: {xl: '28px', lg: '20px', md: '18px', sm: '16px', xs: '16px'},
 							color:'#f1f1f1'
 						 }}
-                    key={index}
+                    key={lineIndex}
                   >
                     {line.includes('безкоштовно') ? (
                       line.split(' ').map((word, wordIndex) => (
@@ -240,16 +213,17 @@ function Tariffs() {
                     ) : (
                       line
                     )}
-                  </LiComponent>
+                  </li>
                 ))}
-              </UlComponent>
-				  <div style={{ marginTop: 'auto' }}>
+              </ul>
+				  <div style={{ marginTop: 'auto' }} > {/* container for price and button component */}
                 <Typography
+					 	key={index}
                   variant="h6"
-                  fontFamily={"Unbounded, sans-serif"}
-                  fontWeight={"400"}
-                  fontSize={{ xl: "38px", lg: "30px", md: "30px", sm: '24px', xs: '20px'}}
                   sx={{
+						  fontFamily: 'Unbounded, sans-serif',
+						  fontWeight: '400',
+						  fontSize: { xl: "38px", lg: "30px", md: "30px", sm: '24px', xs: '20px'},
                     color: (theme) => theme.palette.primary.main,
                     display: 'flex',
                     justifyContent: 'center'
@@ -257,13 +231,20 @@ function Tariffs() {
                 >
                   {item.price}
                 </Typography>
-					 <StyledButtonContainer>
-                <StyledButton
+					 <Box  //container for styled button
+					  key={index}
+					  sx={{
+						display: 'flex',
+						justifyContent: 'center',
+						marginTop: 'auto'
+					  }}>
+                <Button
+					 	key={index}
                   variant="contained"
                   sx={{
                     borderRadius: "15px",
                     padding: {xl: "24px 50px", lg: "24px 50px", md: "24px 50px", sm: "24px 50px", xs: "16px 30px"},
-                    maxWidth: "xl: '400px', lg: '316px', md: '316px', sm: '316px', xs: '316px'",
+                    maxWidth: {xl: '400px', lg: '316px', md: '316px', sm: '316px', xs: '316px'},
 						  width: '100%',
                     height: "63px",
                     background: (theme) => theme.palette.primary.blue.light,
@@ -273,11 +254,16 @@ function Tariffs() {
                     color: (theme) => theme.palette.primary.main,
                     marginTop: '30px',
                     alignSelf: 'center',
+						  zIndex: 3,
+  						  cursor: 'pointer',
+						  "&:hover": {
+								backgroundColor: "#0040FF",
+							},
                   }}
                 >
                   Придбати тариф
-                </StyledButton>
-					 </StyledButtonContainer>
+                </Button>
+					 </Box>
               </div>
 			</Card>
 			))}
