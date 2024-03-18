@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from '@emotion/styled';
 import {useForm} from 'react-hook-form';
 import {TextField, Button, Link} from '@mui/material';
 import Typography from "@mui/material/Typography";
@@ -8,132 +7,7 @@ import Container from "@mui/material/Container";
 import Bubbles from '../../images/Сontact/Bubbles.png'
 import {sendContact} from "../../services/Fetches";
 
-const ContainerBlock = styled(Container)`
-    && {
-        color: white;
-        position: relative;
-		  overflow: hidden;
-        margin: 80px 0px;
-        padding: 0;
-    }
 
-	 @media((min-width: 1500px)){
-		max-width: 100%;
-	 }
-
-    @media (min-width: 300px) {
-		&& {
-            padding: 0 7% 0 7%;
-        }
-    }
-`;
-
-const StyledLink = styled(Link)`
-`;
-
-const SocialLinks = styled(Box)`
-    display: flex;
-	 flexDirection: row;
-	 flex-wrap: wrap;
-    width: 100%;
-    margin-bottom: 20px;
-`;
-
-const StyledImg = styled.img`
-	 background: url("../../images/Сontact/Bubbles.png");
-	 width: 80%; 
-    height: auto; 
-    max-width: 858px; 
-    position: absolute;
-    top: 10%;
-    left: 40%; 
-
-	 @media(max-width: 650px){
-		top: 30%;
-	 }
-
-	 @media(max-width: 420px){
-		top: 50%;
-	 }
-
-	 @media(min-width: 1500px){
-		left: 65%; 
-	 }
-
-`;
-
-
-const StyledTextField = styled(TextField)`
-    margin-bottom: 25px;
-
-    .MuiOutlinedInput-root {
-        fieldset {
-            border-color: white;
-            border-width: 0 0 1px 0;
-            border-radius: 0;
-        }
-
-        &:hover fieldset {
-            border-color: white;
-        }
-
-        &.Mui-focused fieldset {
-            border-width: 0 0 1px 0;
-        }
-    }
-
-    .MuiInputBase-input {
-        color: white;
-        width: 672px;
-    }
-
-	 @media(max-width: 750px){
-
-		display: flex;
-
-		.MuiInputBase-input{
-			width: 100%;
-		} 
-	 }
-
-	 @media(min-width: 1500px){
-		width: 100%;
-
-		.MuiInputBase-input {
-		  &::placeholder {
-            font-size: 32px; 
-        }
-    }
-	 }
-`;
-
-const StyledButton = styled(Button)`
-    background: #54AFEC;
-    display: block;
-	 font-size: 16px;
-    width: 215px;
-    height: 63px;
-    padding: 14px 50px 24px 50px;
-    border-radius: 15px;
-    color: white;
-    &:hover {
-        background: #0040FF;
-    }
-    &:active {
-        background: #001F7A;
-    }
-	 
-	 @media(max-width: 600px){
-			padding: 20px 32px;
-        width: auto;
-		  }
-
-		  @media(min-width: 1500px){
-			width: 500px;
-			font-size: 24px;
-			margin: auto; 
-		  }
-`;
 
 const ContactForm = () => {
     const {register, handleSubmit, formState: {errors},setValue} = useForm();
@@ -153,17 +27,43 @@ const ContactForm = () => {
         }
     };
     return (
-        <ContainerBlock id="Contacts">
+        <Container  //main container for contact block
+		  sx={{
+        color: 'white',
+        position: 'relative',
+        overflow: 'hidden',
+        margin: '80px 0px',
+        padding: {
+			xl: '0 7% 0 7%',
+			lg: '0 7% 0 7%',
+			md: '0 7% 0 7%',
+			sm: '0 7% 0 7%',
+			xs: '0 7% 0 7%'
+		  } ,
+		  maxWidth: {
+			xl: '100%'
+		  },
+      }}
+		   id="Contacts">
             <Typography
-                fontFamily="'Unbounded', sans-serif"
-                fontSize={{ xl: "76px", lg: "60px", md: "60px", sm: '48px', xs: '36px'}}
-                fontWeight={400}
-                lineHeight="74px"
+					 sx={{
+						fontFamily: 'Unbounded, sans-serif',
+						fontSize: { xl: "76px", lg: "60px", md: "60px", sm: '48px', xs: '36px'},
+						fontWeight: '400',
+						lineHeight: "74px"
+					 }}
             >
                 Контакти
             </Typography>
-            <SocialLinks>
-                <StyledLink 
+            <Box  //container for socials links
+				sx={{
+					display: 'flex',
+					flexDirection: 'row',
+					flexWrap: 'wrap',
+					width: '100%',
+					marginBottom: '20px',
+				}}>
+                <Link 
 					 sx={{
 						marginRight: '20px',
 						padding: '10px 0 10px 0',
@@ -172,8 +72,8 @@ const ContactForm = () => {
 						color:' #54AFEC',
 						fontWeight: '400',
 					 }} 
-					 href="#">Instagram</StyledLink>
-                <StyledLink 
+					 href="#">Instagram</Link>
+                <Link 
 					  sx={{
 						marginRight: '20px',
 						padding: '10px 0 10px 0',
@@ -182,8 +82,8 @@ const ContactForm = () => {
 						color:' #54AFEC',
 						fontWeight: '400',
 					 }} 
-					  href="#">Facebook</StyledLink>
-                <StyledLink 
+					  href="#">Facebook</Link>
+                <Link 
 					  sx={{
 						marginRight: '20px',
 						padding: '10px 0 10px 0',
@@ -192,8 +92,8 @@ const ContactForm = () => {
 						color:' #54AFEC',
 						fontWeight: '400',
 					 }} 
-					  href="#">Telegram</StyledLink>
-                <StyledLink 
+					  href="#">Telegram</Link>
+                <Link 
 					 sx={{
 						marginRight: '20px',
 						padding: '10px 0 10px 0',
@@ -202,8 +102,8 @@ const ContactForm = () => {
 						color:' #54AFEC',
 						fontWeight: '400',
 					 }} 
-					 href="#">Phone</StyledLink>
-                <StyledLink 
+					 href="#">Phone</Link>
+                <Link 
 					  sx={{
 						marginRight: '20px',
 						padding: '10px 0 10px 0',
@@ -212,27 +112,96 @@ const ContactForm = () => {
 						color:' #54AFEC',
 						fontWeight: '400',
 					 }} 
-					  href="#">Mail</StyledLink>
-            </SocialLinks>
+					  href="#">Mail</Link>
+            </Box>
             <Typography
-                fontFamily={"Inter, sans-serif"}
-					 fontSize={{ xl: '30px', lg: '20px', md: '20px', sm: '20px', xs: '20px' }}
-                fontWeight={400}
-                lineHeight="24px"
-                marginBottom="20px"
+					 sx={{
+						fontFamily: 'Inter, sans-serif',
+						fontSize: { xl: '30px', lg: '20px', md: '20px', sm: '20px', xs: '20px' },
+						fontWeight: '400',
+						lineHeight: '24px',
+						marginBottom: "20px"
+					 }}
             >
                 Якщо у вас є питання, заповніть контактну форму <br /> нижче і ми зв'яжемося з вами
             </Typography>
-            <StyledImg src={Bubbles} alt=""/>
+            <Box  //container for backgroud image
+				sx={{
+					backgroundImage:`url(${Bubbles})`,
+					backgroundRepeat: "no-repeat",
+					backgroundSize: "contain",
+          		backgroundPosition: "center",
+					width: '80%', 
+					height: {
+						xl: '100%',
+						lg: "100%",
+						md: "100%",
+						sm: "60%",
+						xs: "60%",
+          }, 
+					maxWidth: '858px', 
+					position: 'absolute',
+					top: {
+						xl: '10%',
+						lg: '10%',
+						md: '10%',
+						sm: '30%',
+						xs: '50%'
+					},
+					left: {
+						xl: '65%',
+						lg: '40%',
+						md: '40%',
+						sm: '40%',
+						xs: '40%'
+					}, 
+				}}
+				alt=""/>
             <form style={{ marginTop: '25px'}} onSubmit={handleSubmit(onSubmit)}>
-                <StyledTextField
-                    {...register('name', {required: true})}
-                    placeholder="Ваше ім'я"
-                    variant="outlined"
-                    error={!!errors.name}
-                    helperText={errors.name && "Це поле є обов'язковим"}
-                />
-                <StyledTextField
+				<TextField
+					{...register('name', { required: true })}
+					placeholder="Ваше ім'я"
+					variant="outlined"
+					error={!!errors.name}
+					helperText={errors.name && "Це поле є обов'язковим"}
+					sx={{
+						display: {
+							xl: 'flex',
+							lg: 'block',
+							md: 'block',
+							sm: 'flex',
+							xs: 'flex',
+						},
+						marginBottom: '25px',
+						'& .MuiOutlinedInput-root fieldset': {
+							borderColor: 'white',
+							borderWidth: '0 0 1px 0',
+							borderRadius: '0',
+						},
+						'& .MuiOutlinedInput-root:hover fieldset': {
+							borderColor: 'white',
+						},
+						'& .Mui-focused .MuiOutlinedInput-notchedOutline': {
+							borderWidth: '0 0 1px 0',
+						},
+						'& .MuiInputBase-input': {
+							color: 'white',
+							width: {
+							xl: '100%',
+							lg: '672px',
+							md: '672px',
+							sm: '100%',
+							xs: '100%',
+							},
+						},
+						'& .MuiInputBase-input::placeholder': {
+							fontSize: {
+								xl: '32px'
+							},
+							},
+					}}
+					/>
+                <TextField
                     {...register('phone', {
                         required: 'Це поле є обов\'язковим',
                         pattern: {
@@ -244,8 +213,44 @@ const ContactForm = () => {
                     variant="outlined"
                     error={!!errors.phone}
                     helperText={errors.phone && errors.phone.message}
+						  sx={{
+						display: {
+							xl: 'flex',
+							lg: 'block',
+							md: 'block',
+							sm: 'flex',
+							xs: 'flex',
+						},
+						marginBottom: '25px',
+						'& .MuiOutlinedInput-root fieldset': {
+							borderColor: 'white',
+							borderWidth: '0 0 1px 0',
+							borderRadius: '0',
+						},
+						'& .MuiOutlinedInput-root:hover fieldset': {
+							borderColor: 'white',
+						},
+						'& .Mui-focused .MuiOutlinedInput-notchedOutline': {
+							borderWidth: '0 0 1px 0',
+						},
+						'& .MuiInputBase-input': {
+							color: 'white',
+							width: {
+							xl: '100%',
+							lg: '672px',
+							md: '672px',
+							sm: '100%',
+							xs: '100%',
+							},
+						},
+						'& .MuiInputBase-input::placeholder': {
+							fontSize: {
+								xl: '32px'
+							},
+							},
+					}}
                 />
-                <StyledTextField
+                <TextField
                     style={{borderWidth: '1px 0 1px 0'}}
                     {...register('question', {required: true})}
                     placeholder="Напишіть питання, яке вас цікавить"
@@ -254,10 +259,86 @@ const ContactForm = () => {
                     multiline
                     minRows={5}
                     helperText={errors.question && "Це поле є обов'язковим"}
+						  sx={{
+						display: {
+							xl: 'flex',
+							lg: 'block',
+							md: 'block',
+							sm: 'flex',
+							xs: 'flex',
+						},
+						marginBottom: '25px',
+						'& .MuiOutlinedInput-root fieldset': {
+							borderColor: 'white',
+							borderWidth: '0 0 1px 0',
+							borderRadius: '0',
+						},
+						'& .MuiOutlinedInput-root:hover fieldset': {
+							borderColor: 'white',
+						},
+						'& .Mui-focused .MuiOutlinedInput-notchedOutline': {
+							borderWidth: '0 0 1px 0',
+						},
+						'& .MuiInputBase-input': {
+							color: 'white',
+							width: {
+							xl: '100%',
+							lg: '672px',
+							md: '672px',
+							sm: '100%',
+							xs: '100%',
+							},
+						},
+						'& .MuiInputBase-input::placeholder': {
+							fontSize: {
+								xl: '32px'
+							},
+							},
+					}}
                 />
-                <StyledButton variant="contained" type="submit">Відправити</StyledButton>
+                <Button
+					 sx={{
+						background: '#54AFEC',
+						display: 'block',
+						margin: {
+							xl: 'auto',
+						},
+						fontSize: {
+							xl: '24px',
+							lg: '16px',
+							md: '16px',
+							sm: '16px',
+							xs :'16px'
+						} ,
+						width: {
+							xl: '500px',
+							lg: '215px',
+							md: '215px',
+							sm: 'auto',
+							xs : 'auto'
+						} ,
+						height: '63px',
+						padding: {
+							xl: '14px 50px 24px 50px',
+							lg: '14px 50px 24px 50px',
+							md: '14px 50px 24px 50px',
+							sm: '20px 32px',
+							xs : '20px 32px'
+						},
+						borderRadius: '15px',
+						color: 'white',
+						'&:hover': {
+							background: '#0040FF'
+						},
+						'&:active': {
+							background: '#001F7A'
+						}
+					 }}
+					  variant="contained" type="submit">
+					  Відправити
+					  </Button>
             </form>
-        </ContainerBlock>
+        </Container>
     );
 }
 

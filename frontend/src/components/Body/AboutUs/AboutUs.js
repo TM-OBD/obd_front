@@ -2,17 +2,11 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import { Typography } from "@mui/material";
-import styled from "@emotion/styled";
 import { AboutUsData } from "./AboutUsData";
 import MainImage from '../../../images/AboutUs/MainImage.png';
 import Bubbles from "../../../images/AboutUs/Bubble.png";
 
 
-const StyledGrid = styled(Grid)`
-  @media(max-width: 900px){
-    padding-left: 0px;
-  }
-`;
 
 function AboutUs() {
   return (
@@ -69,7 +63,6 @@ function AboutUs() {
           backgroundRepeat: "no-repeat",
           backgroundSize: "contain",
           backgroundPosition: "center",
-          zIndex: 0,
         }}
       ></Box>
       <Grid  //container for all texts
@@ -82,7 +75,7 @@ function AboutUs() {
         }}
       >
         {AboutUsData.map((item,index) => (
-          <StyledGrid  //container for paragraph
+          <Grid  //container for paragraph
             item
             key={item.id} 
             xs={12} 
@@ -94,7 +87,13 @@ function AboutUs() {
               gap: 2,
               width: '100%',
               gridTemplateColumns: '1fr',
-              paddingLeft: index !== 0 ? '20px' : '0px'
+				  paddingLeft: {
+					xl: '20px',
+					lg: '20px',
+					md: '20px',
+					sm: '0px',
+					xs: '0px'
+				  }
             }}
           >
             <Typography
@@ -188,7 +187,7 @@ function AboutUs() {
                   );
                 })}
             </Typography>
-          </StyledGrid>
+          </Grid>
         ))}
       </Grid>
     </Box>

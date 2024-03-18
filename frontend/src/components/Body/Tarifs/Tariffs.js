@@ -78,7 +78,6 @@ function Tariffs() {
           backgroundRepeat: "no-repeat",
           backgroundSize: "contain",
           backgroundPosition: "center",
-          zIndex: 0,
         }}
       ></Box>
 		<Box  //container gor styled background image
@@ -110,7 +109,6 @@ function Tariffs() {
           backgroundRepeat: "no-repeat",
           backgroundSize: "contain",
           backgroundPosition: "center",
-          zIndex: 0,
         }}
       ></Box>
 		<Box  //container for cards about tariffs
