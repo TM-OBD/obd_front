@@ -10,23 +10,34 @@ import ContactForm from "./ContactForm";
 import ReviewBlock from "./ReviewBlock/ReviewBlock";
 
 const Container = styled(Box)`
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 `;
 
 // Компонент боди приложения
 function Body() {
-    return (
-        <Container>
-            <TitleBlock/>
-            <HowItWorks/>
-				<Tariffs />
-				<AboutUs />
-            <ReviewBlock/>
-            <ContactForm/>
-            <FAQ/>
-        </Container>
-    );
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  return (
+    <Container>
+      <TitleBlock
+        open={open}
+        handleOpen={handleOpen}
+        handleClose={handleClose}
+      />
+      <HowItWorks
+        open={open}
+        handleOpen={handleOpen}
+        handleClose={handleClose}
+      />
+      <Tariffs open={open} handleOpen={handleOpen} handleClose={handleClose} />
+      <AboutUs />
+      <ReviewBlock />
+      <ContactForm />
+      <FAQ />
+    </Container>
+  );
 }
 
 export default Body;

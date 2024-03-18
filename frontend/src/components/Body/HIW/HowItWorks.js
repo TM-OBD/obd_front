@@ -7,6 +7,7 @@ import Button from "@mui/material/Button";
 import FirstBG from "../../../images/HowItWorks/FirstBG.png";
 import SecondBG from "../../../images/HowItWorks/SecondBG.png";
 import styled from "@emotion/styled";
+import ModalFeedBack from "../../../shared/ModalFeedBack";
 
 const StyledBgImg = styled(Box)``;
 
@@ -34,7 +35,7 @@ const StyledButton = styled(Button)`
   }
 `;
 
-function HowItWorks() {
+function HowItWorks({ open, handleOpen, handleClose }) {
   return (
     <Box // Контейнер
       id="HIW"
@@ -48,6 +49,10 @@ function HowItWorks() {
         marginTop: "64px",
       }}
     >
+      <ModalFeedBack
+        open={open}
+        handleClose={handleClose}
+      ></ModalFeedBack>
       <StyledBgImg // Пузыри слева
         sx={{
           position: "absolute",
@@ -232,6 +237,7 @@ function HowItWorks() {
                 {idx === 0 && (
                   <StyledButton
                     key={block.id + "Button"}
+                    onClick={handleOpen}
                     sx={{
                       fontSize: {
                         xl: "24px",

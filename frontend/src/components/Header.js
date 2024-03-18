@@ -31,7 +31,7 @@ const MUIBox = styled(Box)`
   top: 0;
 `;
 
-const StyledMenuItem = styled(MenuItem)`
+const StyledMenuItem = styled(Link)`
   &:hover {
     color: #54afec;
   }
@@ -88,9 +88,15 @@ function Header() {
                   }}
                   open={Boolean(anchorElNav)}
                   onClose={handleCloseNavMenu}
+                  sx={{
+                    ".css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper": {
+                      backgroundColor: theme.palette.primary.black.light,
+                      padding: "8px",
+                    }
+                  }}
                 >
                   {sectionsData.map((sc) => (
-                    <StyledMenuItem key={sc.id} onClick={handleCloseNavMenu}>
+                    <StyledMenuItem href={sc.href} key={sc.id} onClick={handleCloseNavMenu}>
                       <Typography textAlign="center">{sc.title}</Typography>
                     </StyledMenuItem>
                   ))}
