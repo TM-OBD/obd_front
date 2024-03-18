@@ -8,6 +8,7 @@ import Background from "../../images/Main/Background.png";
 import BackgroundMob from "../../images/Main/Background-car-mobile.jpg";
 import "../../index.css";
 import styled from "@emotion/styled";
+import ModalFeedBack from "../../shared/ModalFeedBack";
 
 const Container = styled(Box)``;
 
@@ -72,7 +73,7 @@ const StyledButton = styled(Button)`
   }
 `;
 
-function TitleBlock() {
+function TitleBlock({ open, handleOpen, handleClose }) {
   return (
     <Container
       sx={{
@@ -87,6 +88,10 @@ function TitleBlock() {
         // overflow: "hidden",
       }}
     >
+      <ModalFeedBack
+        open={open}
+        handleClose={handleClose}
+      ></ModalFeedBack>
       <CarBackgroundImg src={Background} alt="background"></CarBackgroundImg>
       <CarImage src={Car} alt="car"></CarImage>
       <Box
@@ -247,6 +252,7 @@ function TitleBlock() {
           >
             <StyledButton
               variant="contained"
+              onClick={handleOpen}
               sx={{
                 cursor: "pointer",
                 borderRadius: { lg: "15px", md: "10px", sm: "10px", xs: "8px" },
