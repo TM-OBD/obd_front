@@ -2,50 +2,42 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import { Typography } from "@mui/material";
-import styled from "@emotion/styled";
 import { AboutUsData } from "./AboutUsData";
 import MainImage from '../../../images/AboutUs/MainImage.png';
 import Bubbles from "../../../images/AboutUs/Bubble.png";
 
 
-const Container = styled(Box)`
-  position: relative;
-  margin-top: 80px;
-  padding: 0 7% 0 7%;
-
-  @media(max-width: 800px){
-    margin-top: 100px;
-  }
-
-  @media(max-width: 450px){
-    margin-top: 50px;
-  }
-`;
-
-const StyledGrid = styled(Grid)`
-  @media(max-width: 900px){
-    padding-left: 0px;
-  }
-`;
-
-const StyledBgImg = styled(Box)``;
-
-
 
 function AboutUs() {
   return (
-    <Container id="AboutUs">
+    <Box  //main container for about us block 
+	 id="AboutUs"
+	 sx={{
+		position: "relative",
+      width: "100%",
+      padding: "0 7% 0 7%",
+		marginTop: {
+			lg: "80p",
+         md: "80p",
+         sm: "100px",
+         xs: "50px",
+		},
+	 }}
+	 >
       <Typography
-        fontFamily={"Unbounded, sans-serif"}
-        fontWeight={"400"}
-        fontSize={{ md: "60px", sm: '48px', xs: '36px'}}
+		  variant="2"
+		  component="h2"
         sx={{
           color: (theme) => theme.palette.primary.main,
+			 width: '100%',
+			 fontFamily: "Unbounded, sans-serif",
+			 fontWeight: '400',
+			 fontSize: { xl: '76px',lg: "60px", md: "60px", sm: '48px', xs: '36px'}
         }}
       >
         Про нас
       </Typography>
-		<StyledBgImg
+		<Box  //container for styled background image
         sx={{
           position: "absolute",
           width: {
@@ -71,20 +63,19 @@ function AboutUs() {
           backgroundRepeat: "no-repeat",
           backgroundSize: "contain",
           backgroundPosition: "center",
-          zIndex: 0,
         }}
-      ></StyledBgImg>
-      <Grid 
+      ></Box>
+      <Grid  //container for all texts
         container
-        paddingTop={{md: '50px', sm: '30px', xs: '30px'}}
         sx={{
+			paddingTop: {md: '50px', sm: '30px', xs: '30px'},
           display: 'flex',
           flexWrap: 'wrap',
           justifyContent: 'center',
         }}
       >
         {AboutUsData.map((item,index) => (
-          <StyledGrid 
+          <Grid  //container for paragraph
             item
             key={item.id} 
             xs={12} 
@@ -96,15 +87,24 @@ function AboutUs() {
               gap: 2,
               width: '100%',
               gridTemplateColumns: '1fr',
-              paddingLeft: index !== 0 ? '20px' : '0px'
+				  paddingLeft: {
+					xl: '20px',
+					lg: '20px',
+					md: '20px',
+					sm: '0px',
+					xs: '0px'
+				  }
             }}
           >
             <Typography
-              fontFamily={'Inter, sans-serif'}
-              fontWeight={400}
-              fontSize={{ md: "20px", sm: '18px', xs: '16px'}}
-              lineHeight={'120%'}
-              color={(theme) => theme.palette.primary.main}
+				  key={index}
+				  sx={{
+					color: (theme) => theme.palette.primary.main,
+					fontFamily: "Inter, sans-serif",
+					fontWeight: '400',
+					lineHeight: '120%',
+					fontSize: { xl: "34px", lg: "20px", md: "20px", sm: '18px', xs: '16px'}
+				  }}
             >
               {item.firstParagraph &&
                 item.firstParagraph.split('ми завжди ставимо').map((part, index) => {
@@ -124,7 +124,7 @@ function AboutUs() {
                 })}
             </Typography>
             {index === 1 ? 
-              <Grid 
+              <Grid //container for image and text below img
                 item
                 sx={{
                   display: 'flex',
@@ -134,11 +134,14 @@ function AboutUs() {
               >
                 <img alt="MainImage" loading="lazy" src={MainImage} style={{ maxWidth: '100%', height: 'auto' }}/>
                 <Typography
-                  fontFamily={'Inter, sans-serif'}
-                  fontWeight={400}
-                  fontSize={{ md: "20px", sm: '18px', xs: '16px'}}
-                  lineHeight={'120%'}
-                  color={(theme) => theme.palette.primary.main}
+						key={index}
+						sx={{
+							color: (theme) => theme.palette.primary.main,
+							fontFamily: "Inter, sans-serif",
+							fontWeight: '400',
+							lineHeight: '120%',
+							fontSize: { xl: "34px", lg: "20px", md: "20px", sm: '18px', xs: '16px'}
+						}}
                 >
                   {item.paragraph &&
                     item.paragraph.split('Наша місія').map((part, index) => {
@@ -153,20 +156,26 @@ function AboutUs() {
               </Grid>
             : ''}
             <Typography
-              fontFamily={'Inter, sans-serif'}
-              fontWeight={400}
-              fontSize={{ md: "20px", sm: '18px', xs: '16px'}}
-              lineHeight={'120%'}
-              color={(theme) => theme.palette.primary.main}
+				  key={index}
+				  sx={{
+							color: (theme) => theme.palette.primary.main,
+							fontFamily: "Inter, sans-serif",
+							fontWeight: '400',
+							lineHeight: '120%',
+							fontSize: { xl: "34px", lg: "20px", md: "20px", sm: '18px', xs: '16px'}
+						}}
             >
               {item.secondParagraph}
             </Typography>
             <Typography
-              fontFamily={'Inter, sans-serif'}
-              fontWeight={400}
-              fontSize={{ md: "20px", sm: '18px', xs: '16px'}}
-              lineHeight={'120%'}
-              color={(theme) => theme.palette.primary.main}
+				key={index}
+				  sx={{
+							color: (theme) => theme.palette.primary.main,
+							fontFamily: "Inter, sans-serif",
+							fontWeight: '400',
+							lineHeight: '120%',
+							fontSize: { xl: "34px", lg: "20px", md: "20px", sm: '18px', xs: '16px'}
+						}}
             >
               {item.thirdParagraph &&
                 item.thirdParagraph.split('Ми прагнемо').map((part, index) => {
@@ -178,10 +187,10 @@ function AboutUs() {
                   );
                 })}
             </Typography>
-          </StyledGrid>
+          </Grid>
         ))}
       </Grid>
-    </Container>
+    </Box>
   );
 }
 
