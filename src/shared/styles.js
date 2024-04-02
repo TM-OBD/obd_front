@@ -1,7 +1,7 @@
 import { createTheme } from "@mui/material";
 
 export const theme = createTheme({
-  // Палитра цветов, пока использовать только primary, поскольку для secondary не определены нужные цвета
+  // Colors palette
   palette: {
     primary: {
       main: "#F1F1F1",

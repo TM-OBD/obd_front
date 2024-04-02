@@ -1,36 +1,8 @@
-import axiosInstance from "../http/axiosClassic";
-
-export const getTempOfMotor = async () => {
-    try {
-        const {data} = await axiosInstance.get(
-            `/get/temp_of_motor`,
-            (req, res) => {
-                return res;
-            }
-        );
-        return data;
-    } catch (e) {
-        console.log("Error on client's 'get_temp_of_motor' request:", e);
-    }
-};
-
-export const getChannels = async () => {
-    try {
-        const {data} = await axiosInstance(
-            `/api/channels`,
-            (req, res) => {
-                return res;
-            }
-        );
-        return data;
-    } catch (e) {
-        console.log("Error on client's 'api/channels' request:", e);
-    }
-};
+import axios from "axios";
 
 export const sendContact = async (data, token, feedbackSourceIP) => {
     try {
-        const response = await axiosInstance.put('/api/v1/feedback', data, {
+        const response = await axios.put('/api/v1/feedback', data, {
             headers: {
                 'token': `Bearer ${token}`,
                 'feedback-source-ip': feedbackSourceIP
