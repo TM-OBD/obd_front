@@ -37,8 +37,6 @@ const StyledMenuItem = styled(Link)`
   }
 `;
 
-
-
 const StyledLink = styled(Link)`
   z-index: 6;
 `;
@@ -77,26 +75,39 @@ function Header() {
                 <Menu
                   id="menu-appbar"
                   anchorEl={anchorElNav}
-                  anchorOrigin={{
-                    vertical: "bottom",
-                    horizontal: "left",
-                  }}
                   keepMounted
-                  transformOrigin={{
+                  anchorOrigin={{
                     vertical: "top",
                     horizontal: "left",
+                  }}
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
                   }}
                   open={Boolean(anchorElNav)}
                   onClose={handleCloseNavMenu}
                   sx={{
-                    ".css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper": {
-                      backgroundColor: theme.palette.primary.black.light,
-                      padding: "8px",
-                    }
+                    ".css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper":
+                      {
+                        backgroundColor: theme.palette.primary.black.light,
+                        padding: "8px",
+                      },
+                    "& ul": {
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "8px",
+                    },
                   }}
                 >
                   {sectionsData.map((sc) => (
-                    <StyledMenuItem href={sc.href} key={sc.id} onClick={handleCloseNavMenu}>
+                    <StyledMenuItem
+                      href={sc.href}
+                      key={sc.id}
+                      onClick={handleCloseNavMenu}
+                      sx={{
+                        textDecoration: "none",
+                      }}
+                    >
                       <Typography textAlign="center">{sc.title}</Typography>
                     </StyledMenuItem>
                   ))}
@@ -104,22 +115,22 @@ function Header() {
               </>
             ) : (
               sectionsData.map((sc) => (
-                  <StyledLink
-                    href={sc.href}
-                    underline="hover"
-                    key={sc.id}
-                    sx={{
-                      my: 2,
-                      color: theme.palette.primary.main,
-                      "&:hover": {
-                        color: "#54AFEC",
-                      },
-											zIndex: 6,
-											padding: "0 12px 0 12px"
-                    }}
-                  >
-                    {sc.title}
-                  </StyledLink>
+                <StyledLink
+                  href={sc.href}
+                  underline="hover"
+                  key={sc.id}
+                  sx={{
+                    my: 2,
+                    color: theme.palette.primary.main,
+                    "&:hover": {
+                      color: "#54AFEC",
+                    },
+                    zIndex: 6,
+                    padding: "0 12px 0 12px",
+                  }}
+                >
+                  {sc.title}
+                </StyledLink>
               ))
             )}
           </Box>
