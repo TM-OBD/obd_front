@@ -107,7 +107,7 @@ function Header() {
                         textDecoration: "none",
                       }}
                     >
-                      <Typography textAlign="center">{sc.title}</Typography>
+                      <Typography textAlign="center" fontFamily={"Inter, sans-serif"}>{sc.title}</Typography>
                     </StyledMenuItem>
                   ))}
                 </Menu>
@@ -126,6 +126,7 @@ function Header() {
                     },
                     zIndex: 6,
                     padding: "0 12px 0 12px",
+						  fontFamily: "Inter, sans-serif"
                   }}
                 >
                   {sc.title}

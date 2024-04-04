@@ -111,6 +111,7 @@ const ContactForm = () => {
 						fontSize: {  xl: '32px', lg: '20px', md: '20px', sm: '20px', xs: '20px'},
 						color:' #54AFEC',
 						fontWeight: '400',
+						zIndex: 2
 					 }} 
 					  href="#">Mail</Link>
             </Box>
@@ -300,6 +301,7 @@ const ContactForm = () => {
 					 sx={{
 						background: '#54AFEC',
 						display: 'block',
+						fontFamily: "Inter, sans-serif",
 						margin: {
 							xl: 'auto',
 						},

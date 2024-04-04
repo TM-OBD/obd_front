@@ -204,9 +204,9 @@ function Tariffs({ open, handleOpen, handleClose }) {
                     {line.includes('безкоштовно') ? (
                       line.split(' ').map((word, wordIndex) => (
                         word === 'безкоштовно' ? (
-                          <span key={wordIndex} style={{ color: '#54AFEC' }}>{word} </span>
+                          <span key={wordIndex} style={{ color: '#54AFEC', fontFamily: "Inter, sans-serif" }}>{word} </span>
                         ) : (
-                          <span key={wordIndex}>{word} </span>
+                          <span key={wordIndex} style={{fontFamily: "Inter, sans-serif" }}>{word} </span>
                         )
                       ))
                     ) : (

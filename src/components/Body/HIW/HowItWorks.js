@@ -246,6 +246,7 @@ function HowItWorks({ open, handleOpen, handleClose }) {
                         sm: "20px",
                         xs: "14px",
                       },
+							 fontFamily: "Inter, sans-serif"
                     }}
                   >
                     Придбати автоінформер
