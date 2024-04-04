@@ -96,7 +96,7 @@ function Tariffs({ open, handleOpen, handleClose }) {
             lg: "100%",
             md: "100%",
             sm: "50%",
-            xs: "50%",
+            xs: "45%",
           },
           left: {
 				xl: "80%",
@@ -158,7 +158,8 @@ function Tariffs({ open, handleOpen, handleClose }) {
 						fontSize: { xl: "38px", lg: "30px", md: "30px", sm: '26px', xs: '24px'},
 						color: (theme) => theme.palette.primary.borderBlue,
 						display: 'flex',
-						justifyContent: 'center'
+						justifyContent: 'center',
+						zIndex: 2
 					 }}
               >
                 {item.title}
@@ -174,7 +175,8 @@ function Tariffs({ open, handleOpen, handleClose }) {
 							fontSize: { xl: "24px", lg: "18px", md: "18px", sm: '18px', xs: '18px'},
 							color: (theme) => theme.palette.primary.main,
 							display: 'flex',
-							justifyContent: 'center'
+							justifyContent: 'center',
+							zIndex: 2
 						  }}
                   >
                     {item.subtitle}
@@ -197,6 +199,7 @@ function Tariffs({ open, handleOpen, handleClose }) {
 							paddingTop: '20px',
 							fontFamily: 'Inter, sans-serif',
 							fontSize: {xl: '28px', lg: '20px', md: '18px', sm: '16px', xs: '16px'},
+							zIndex: 2,
 							color:'#f1f1f1'
 						 }}
                     key={lineIndex}
@@ -204,9 +207,9 @@ function Tariffs({ open, handleOpen, handleClose }) {
                     {line.includes('безкоштовно') ? (
                       line.split(' ').map((word, wordIndex) => (
                         word === 'безкоштовно' ? (
-                          <span key={wordIndex} style={{ color: '#54AFEC', fontFamily: "Inter, sans-serif" }}>{word} </span>
+                          <span key={wordIndex} style={{ color: '#54AFEC', fontFamily: "Inter, sans-serif", position: 'relative',  zIndex: 3 }}>{word} </span>
                         ) : (
-                          <span key={wordIndex} style={{fontFamily: "Inter, sans-serif" }}>{word} </span>
+                          <span key={wordIndex} style={{fontFamily: "Inter, sans-serif", position: 'relative', zIndex: 3 }}>{word} </span>
                         )
                       ))
                     ) : (
@@ -226,6 +229,7 @@ function Tariffs({ open, handleOpen, handleClose }) {
                     color: (theme) => theme.palette.primary.main,
                     display: "flex",
                     justifyContent: "center",
+						  zIndex: 2
                   }}
                 >
                   {item.price}

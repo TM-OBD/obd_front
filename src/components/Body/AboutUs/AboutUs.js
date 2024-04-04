@@ -140,7 +140,7 @@ function AboutUs() {
 							fontFamily: "Inter, sans-serif",
 							fontWeight: '400',
 							lineHeight: '120%',
-							fontSize: { xl: "34px", lg: "20px", md: "20px", sm: '18px', xs: '16px'}
+							fontSize: { xl: "34px", lg: "20px", md: "20px", sm: '18px', xs: '16px'},
 						}}
                 >
                   {item.paragraph &&
@@ -174,7 +174,8 @@ function AboutUs() {
 							fontFamily: "Inter, sans-serif",
 							fontWeight: '400',
 							lineHeight: '120%',
-							fontSize: { xl: "34px", lg: "20px", md: "20px", sm: '18px', xs: '16px'}
+							fontSize: { xl: "34px", lg: "20px", md: "20px", sm: '18px', xs: '16px'},
+							zIndex: 2
 						}}
             >
               {item.thirdParagraph &&
