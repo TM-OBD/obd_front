@@ -3,19 +3,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import styled from "@emotion/styled";
-<<<<<<< Updated upstream
 import { A11y, Navigation, Pagination } from "swiper/modules";
-=======
-import { A11y, Navigation, Pagination, Scrollbar } from "swiper/modules";
->>>>>>> Stashed changes
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
 import { ReviewsData } from "./ReviewsData";
-<<<<<<< Updated upstream
 import { Avatar } from "@mui/material";
-=======
->>>>>>> Stashed changes
 
 const StyledSwiper = styled(Swiper)`
   width: 100%;
@@ -216,15 +209,7 @@ const ReviewBlock = () => {
         modules={[Navigation, Pagination, A11y]}
         slidesPerView={1}
         spaceBetween={3}
-<<<<<<< Updated upstream
         navigation={false}
-=======
-        modules={[Pagination]}
-        pagination={{
-          dynamicBullets: true,
-        }}
-        // scrollbar={{ draggable: true }}
->>>>>>> Stashed changes
         breakpoints={{
           640: {
             slidesPerView: 2,
