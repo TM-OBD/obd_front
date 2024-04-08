@@ -98,6 +98,7 @@ function FAQ() {
               <Typography
                 sx={{
                   color: (theme) => theme.palette.primary.main,
+						fontFamily: 'Inter, sans-serif'
                 }}
               >
                 {accordion.id}.
@@ -107,6 +108,7 @@ function FAQ() {
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
+						fontFamily: 'Inter, sans-serif',
                   width: "100%",
                   fontWeight: 700,
                   color: (theme) => theme.palette.primary.main,
@@ -119,6 +121,7 @@ function FAQ() {
               <Typography
                 sx={{
                   color: (theme) => theme.palette.primary.main,
+						fontFamily: 'Inter, sans-serif'
                 }}
               >
                 {accordion.description}

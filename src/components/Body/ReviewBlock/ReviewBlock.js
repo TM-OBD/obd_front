@@ -97,6 +97,7 @@ const UserReview = styled(Box)`
   overflow: hidden;
   width: 100%;
   color: ${({ theme }) => theme.palette.primary.white.light};
+  font-family: Inter, sans-serif;
 `;
 
 const ReviewBlock = () => {
@@ -116,6 +117,8 @@ const ReviewBlock = () => {
         component="h2"
         sx={{
           fontWeight: 400,
+			 fontFamily: "Unbounded, sans-serif",
+			 zIndex: 2,
           color: (theme) => theme.palette.primary.white.light,
         }}
       >
@@ -158,6 +161,7 @@ const ReviewBlock = () => {
                     sx={{
                       color: (theme) => theme.palette.primary.white.light,
                       fontSize: "12px",
+							 fontFamily: "Inter, sans-serif",
                     }}
                   >
                     {reviewData.name}
@@ -168,6 +172,7 @@ const ReviewBlock = () => {
                     sx={{
                       color: (theme) => theme.palette.primary.blue.light,
                       fontSize: "12px",
+							 fontFamily: "Inter, sans-serif",
                     }}
                   >
                     {reviewData.date}

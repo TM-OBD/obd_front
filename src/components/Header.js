@@ -3,7 +3,6 @@ import AppBar from "@mui/material/AppBar";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -36,8 +35,6 @@ const StyledMenuItem = styled(Link)`
     color: #54afec;
   }
 `;
-
-
 
 const StyledLink = styled(Link)`
   z-index: 6;
@@ -77,49 +74,63 @@ function Header() {
                 <Menu
                   id="menu-appbar"
                   anchorEl={anchorElNav}
-                  anchorOrigin={{
-                    vertical: "bottom",
-                    horizontal: "left",
-                  }}
                   keepMounted
-                  transformOrigin={{
+                  anchorOrigin={{
                     vertical: "top",
                     horizontal: "left",
+                  }}
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
                   }}
                   open={Boolean(anchorElNav)}
                   onClose={handleCloseNavMenu}
                   sx={{
-                    ".css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper": {
-                      backgroundColor: theme.palette.primary.black.light,
-                      padding: "8px",
-                    }
+                    ".css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper":
+                      {
+                        backgroundColor: theme.palette.primary.black.light,
+                        padding: "8px",
+                      },
+                    "& ul": {
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "8px",
+                    },
                   }}
                 >
                   {sectionsData.map((sc) => (
-                    <StyledMenuItem href={sc.href} key={sc.id} onClick={handleCloseNavMenu}>
-                      <Typography textAlign="center">{sc.title}</Typography>
+                    <StyledMenuItem
+                      href={sc.href}
+                      key={sc.id}
+                      onClick={handleCloseNavMenu}
+                      sx={{
+                        textDecoration: "none",
+                      }}
+                    >
+                      <Typography textAlign="center" fontFamily={"Inter, sans-serif"}>{sc.title}</Typography>
                     </StyledMenuItem>
                   ))}
                 </Menu>
               </>
             ) : (
               sectionsData.map((sc) => (
-                  <StyledLink
-                    href={sc.href}
-                    underline="hover"
-                    key={sc.id}
-                    sx={{
-                      my: 2,
-                      color: theme.palette.primary.main,
-                      "&:hover": {
-                        color: "#54AFEC",
-                      },
-											zIndex: 6,
-											padding: "0 12px 0 12px"
-                    }}
-                  >
-                    {sc.title}
-                  </StyledLink>
+                <StyledLink
+                  href={sc.href}
+                  underline="hover"
+                  key={sc.id}
+                  sx={{
+                    my: 2,
+                    color: theme.palette.primary.main,
+                    "&:hover": {
+                      color: "#54AFEC",
+                    },
+                    zIndex: 6,
+                    padding: "0 12px 0 12px",
+						  fontFamily: "Inter, sans-serif"
+                  }}
+                >
+                  {sc.title}
+                </StyledLink>
               ))
             )}
           </Box>

@@ -124,6 +124,7 @@ function Footer() {
               xs: "center",
             },
             color: (theme) => theme.palette.primary.main,
+				fontFamily: 'Inter, sans-serif',
             fontWeight: "700",
             fontSize: {
               xl: "48px",
@@ -144,6 +145,7 @@ function Footer() {
             sx={{
               display: "flex",
               color: (theme) => theme.palette.primary.main, // установка цвета из палитры цветов
+				  fontFamily: 'Inter, sans-serif',
               fontSize: {
                 xl: "18px",
                 lg: "16px",
@@ -219,6 +221,7 @@ function Footer() {
           component="h5"
           sx={{
             color: (theme) => theme.palette.primary.main,
+				fontFamily: 'Inter, sans-serif',
             fontWeight: "700",
             fontSize: {
               xl: "48px",
@@ -288,6 +291,7 @@ function Footer() {
                     xs: "flex",
                   },
                   color: (theme) => theme.palette.primary.main,
+						fontFamily: 'Inter, sans-serif',
                   fontSize: {
                     xl: "20px",
                     lg: "16px",
@@ -352,6 +356,7 @@ function Footer() {
               target="_top"
               sx={{
                 color: (theme) => theme.palette.primary.main,
+					 fontFamily: 'Inter, sans-serif',
                 textDecoration: "none",
                 "&:hover": {
                   textDecoration: "underline",
@@ -421,6 +426,7 @@ function Footer() {
               target="_top"
               sx={{
                 color: (theme) => theme.palette.primary.main,
+					 fontFamily: 'Inter, sans-serif',
                 textDecoration: "none",
                 "&:hover": {
                   textDecoration: "underline",

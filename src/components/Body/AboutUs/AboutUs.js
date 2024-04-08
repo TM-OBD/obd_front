@@ -110,11 +110,11 @@ function AboutUs() {
                 item.firstParagraph.split('ми завжди ставимо').map((part, index) => {
                   return (
                     <React.Fragment key={index}>
-                      {index > 0 && <span style={{ color: '#54AFEC' }}>ми завжди ставимо</span>}
+                      {index > 0 && <span style={{ color: '#54AFEC', fontFamily: "Inter, sans-serif" }}>ми завжди ставимо</span>}
                       {part.split('iSyb').map((subPart, subIndex) => {
                         return (
                           <React.Fragment key={subIndex}>
-                            {subIndex > 0 && <span style={{ color: '#54AFEC' }}>iSyb</span>}
+                            {subIndex > 0 && <span style={{ color: '#54AFEC', fontFamily: "Inter, sans-serif" }}>iSyb</span>}
                             {subPart}
                           </React.Fragment>
                         );
@@ -140,14 +140,14 @@ function AboutUs() {
 							fontFamily: "Inter, sans-serif",
 							fontWeight: '400',
 							lineHeight: '120%',
-							fontSize: { xl: "34px", lg: "20px", md: "20px", sm: '18px', xs: '16px'}
+							fontSize: { xl: "34px", lg: "20px", md: "20px", sm: '18px', xs: '16px'},
 						}}
                 >
                   {item.paragraph &&
                     item.paragraph.split('Наша місія').map((part, index) => {
                       return (
                         <React.Fragment key={index}>
-                          {index > 0 && <span style={{ color: '#54AFEC' }}>Наша місія</span>}
+                          {index > 0 && <span style={{ color: '#54AFEC', fontFamily: "Inter, sans-serif" }}>Наша місія</span>}
                           {part}
                         </React.Fragment>
                       );
@@ -174,14 +174,15 @@ function AboutUs() {
 							fontFamily: "Inter, sans-serif",
 							fontWeight: '400',
 							lineHeight: '120%',
-							fontSize: { xl: "34px", lg: "20px", md: "20px", sm: '18px', xs: '16px'}
+							fontSize: { xl: "34px", lg: "20px", md: "20px", sm: '18px', xs: '16px'},
+							zIndex: 2
 						}}
             >
               {item.thirdParagraph &&
                 item.thirdParagraph.split('Ми прагнемо').map((part, index) => {
                   return (
                     <React.Fragment key={index}>
-                      {index > 0 && <span style={{ color: '#54AFEC' }}>Ми прагнемо</span>}
+                      {index > 0 && <span style={{ color: '#54AFEC', fontFamily: "Inter, sans-serif" }}>Ми прагнемо</span>}
                       {part}
                     </React.Fragment>
                   );
