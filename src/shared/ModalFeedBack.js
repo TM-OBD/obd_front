@@ -50,21 +50,14 @@ const StyledButton = styled(Button)`
   justify-content: center;
   align-items: center;
   font-size: 16px;
-  width: 215px;
-  height: 63px;
+  min-width: 87px;
   padding: 24px 50px 24px 50px;
-  border-radius: 15px;
   color: white;
   &:hover {
     background: #0040ff;
   }
   &:active {
     background: #001f7a;
-  }
-
-  @media (max-width: 600px) {
-    padding: 20px 32px;
-    width: auto;
   }
 `;
 
@@ -107,12 +100,23 @@ const ModalFeedBack = ({ open, handleClose }) => {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          width: "40%",
-          // height: "80vh",
+          width: {
+            xl: "35%",
+            lg: "45%",
+            md: "45%",
+            sm: "60%",
+            xs: "80%",
+          },
           border: (theme) => `1px solid ${theme.palette.primary.grey.light}`,
           borderRadius: "16px",
           backgroundColor: (theme) => theme.palette.primary.mainBg,
-          padding: "24px",
+          padding: {
+            xl: "48px 36px",
+            lg: "32px 24px",
+            md: "32px 24px",
+            sm: "32px 24px",
+            xs: "32px 24px",
+          },
         }}
       >
         <Typography
@@ -122,11 +126,11 @@ const ModalFeedBack = ({ open, handleClose }) => {
             color: (theme) => theme.palette.primary.main,
             zIndex: 4,
             fontSize: {
-              xl: "30px",
-              lg: "20px",
-              md: "18px",
-              sm: "24px",
-              xs: "14px",
+              xl: "24px",
+              lg: "18px",
+              md: "16px",
+              sm: "14px",
+              xs: "12px",
             },
           }}
         >
@@ -139,6 +143,24 @@ const ModalFeedBack = ({ open, handleClose }) => {
             variant="outlined"
             error={!!errors.name}
             helperText={errors.name && "Це поле є обов'язковим"}
+            sx={{
+              "& .MuiInputBase-input": {
+                fontSize: {
+                  xl: "20px",
+                  lg: "16px",
+                  md: "14px",
+                  sm: "14px",
+                  xs: "12px",
+                },
+                padding: {
+                  xl: "20px",
+                  lg: "16px",
+                  md: "14px",
+                  sm: "12px",
+                  xs: "8px",
+                },
+              },
+            }}
           />
           <StyledTextField
             {...register("phone", {
@@ -152,6 +174,24 @@ const ModalFeedBack = ({ open, handleClose }) => {
             variant="outlined"
             error={!!errors.phone}
             helperText={errors.phone && errors.phone.message}
+            sx={{
+              "& .MuiInputBase-input": {
+                fontSize: {
+                  xl: "20px",
+                  lg: "16px",
+                  md: "14px",
+                  sm: "14px",
+                  xs: "12px",
+                },
+                padding: {
+                  xl: "20px",
+                  lg: "16px",
+                  md: "14px",
+                  sm: "12px",
+                  xs: "8px",
+                },
+              },
+            }}
           />
           <StyledTextField
             style={{ borderWidth: "1px 0 1px 0" }}
@@ -162,8 +202,56 @@ const ModalFeedBack = ({ open, handleClose }) => {
             multiline
             minRows={5}
             helperText={errors.question && "Це поле є обов'язковим"}
+            sx={{
+              "& .MuiInputBase-root": {
+                padding: 0,
+              },
+              "& .MuiInputBase-input": {
+                fontSize: {
+                  xl: "20px",
+                  lg: "16px",
+                  md: "14px",
+                  sm: "14px",
+                  xs: "12px",
+                },
+                padding: {
+                  xl: "20px",
+                  lg: "16px",
+                  md: "14px",
+                  sm: "12px",
+                  xs: "8px",
+                },
+              },
+            }}
           />
-          <StyledButton variant="contained" type="submit">
+          <StyledButton
+            variant="contained"
+            type="submit"
+            sx={{
+              borderRadius: {
+                xl: "14px",
+                lg: "14px",
+                md: "12px",
+                sm: "10px",
+                xs: "8px",
+              },
+              fontSize: {
+                xl: "20px",
+                lg: "16px",
+                md: "14px",
+                sm: "14px",
+                xs: "8px",
+              },
+              padding: {
+                xl: "20px",
+                lg: "16px",
+                md: "14px",
+                sm: "12px",
+                xs: "8px",
+              },
+              width: "50%",
+            }}
+          >
             Відправити
           </StyledButton>
         </StyledForm>
