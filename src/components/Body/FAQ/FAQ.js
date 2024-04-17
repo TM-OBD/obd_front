@@ -50,7 +50,6 @@ const AccordionSummary = styled((props) => (
   "& .MuiAccordionSummary-content": {
     justifyContent: "center",
     alignItems: "center",
-    marginLeft: theme.spacing(1),
   },
 }));
 
@@ -75,6 +74,13 @@ function FAQ() {
           fontFamily: "'Unbounded', sans-serif",
           fontWeight: 400,
           color: (theme) => theme.palette.primary.main,
+          fontSize: {
+            xl: "64px",
+            lg: "48px",
+            md: "48px",
+            sm: "48px",
+            xs: "32px",
+          },
         }}
       >
         Питання та відповідь
@@ -98,7 +104,7 @@ function FAQ() {
               <Typography
                 sx={{
                   color: (theme) => theme.palette.primary.main,
-						fontFamily: 'Inter, sans-serif'
+                  fontFamily: "Inter, sans-serif",
                 }}
               >
                 {accordion.id}.
@@ -108,8 +114,16 @@ function FAQ() {
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
-						fontFamily: 'Inter, sans-serif',
+                  fontFamily: "Inter, sans-serif",
                   width: "100%",
+                  fontSize: {
+                    xl: "16px",
+                    lg: "16px",
+                    md: "14px",
+                    sm: "13px",
+                    xs: "13px",
+                  },
+                  padding: "0 8px 0 8px",
                   fontWeight: 700,
                   color: (theme) => theme.palette.primary.main,
                 }}
@@ -117,11 +131,25 @@ function FAQ() {
                 {accordion.title}
               </Typography>
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails
+              sx={{
+                padding: {
+                  sm: "16px",
+                  xs: "0 16px 16px 16px",
+                },
+              }}
+            >
               <Typography
                 sx={{
                   color: (theme) => theme.palette.primary.main,
-						fontFamily: 'Inter, sans-serif'
+                  fontFamily: "Inter, sans-serif",
+                  fontSize: {
+                    xl: "16px",
+                    lg: "16px",
+                    md: "14px",
+                    sm: "12px",
+                    xs: "12px",
+                  },
                 }}
               >
                 {accordion.description}

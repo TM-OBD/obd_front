@@ -132,6 +132,13 @@ const ReviewBlock = () => {
             fontFamily: "Unbounded, sans-serif",
             zIndex: 2,
             color: (theme) => theme.palette.primary.white.light,
+            fontSize: {
+              xl: "64px",
+              lg: "48px",
+              md: "48px",
+              sm: "48px",
+              xs: "32px",
+            },
           }}
         >
           Відгуки

@@ -48,7 +48,7 @@ function Footer() {
         width: "100%",
         minHeight: "320px",
         backgroundColor: "#262629",
-        padding: "0 7% 0 7%",
+        padding: "0 7% 132px 7%",
         marginTop: "48px",
         gap: {
           xl: "0",
